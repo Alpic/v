@@ -1,0 +1,1802 @@
+[
+ {
+  "id": 1,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same Kummola/IIHF Ukraine WC-spot story",
+  "a": {
+   "source": "aamulehti",
+   "lang": "fi",
+   "title": "Kalervo Kummolalla sisäpiiritietoa: Ukrainalta ei viedä MM-paikkaa",
+   "lead": "Kalervo Kummola pitää linjat kuumana IIHF:n ytimeen."
+  },
+  "b": {
+   "source": "is",
+   "lang": "fi",
+   "title": "Kalervo Kummola: kovaa sisäpiiritietoa Ukrainan kohtalosta",
+   "lead": "Kalervo Kummola pitää linjat kuumana IIHF:n ytimeen. Kansainvälinen liitto istuu maanantaina puimassa Venäjä-kohun seuraavaa askelta."
+  }
+ },
+ {
+  "id": 2,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same new fridge cyberattack on Belgian/Swedish supermarkets",
+  "a": {
+   "source": "lemonde",
+   "lang": "en",
+   "title": "New fridge cyberattack hits Belgian and Swedish supermarkets",
+   "lead": "Refrigeration temperatures soared, destroying many food products in the latest in a series of cyberattacks on store refrigerators and suspicious actions around supermarkets across Europe."
+  },
+  "b": {
+   "source": "euractiv",
+   "lang": "en",
+   "title": "Suspected cyberattacks disrupt supermarkets in Belgium, Sweden, Estonia",
+   "lead": "Fridge temperature spikes are reported weeks after attacks hit French supermarkets"
+  }
+ },
+ {
+  "id": 3,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same new fridge cyberattack wave on European supermarkets",
+  "a": {
+   "source": "lemonde",
+   "lang": "en",
+   "title": "New fridge cyberattack hits Belgian and Swedish supermarkets",
+   "lead": "Refrigeration temperatures soared, destroying many food products in the latest in a series of cyberattacks on store refrigerators and suspicious actions around supermarkets across Europe."
+  },
+  "b": {
+   "source": "scmp",
+   "lang": "en",
+   "title": "Supermarket fridges in Europe hit by new cyberattack: ‘everything is destroyed’",
+   "lead": "A hacking attack on European supermarkets spread across the continent on Monday, hitting fridges and freezers from Sweden to Belgium and forcing stores to throw away food in an incident that echoed a similar attack in France last month. The attack, which raised temperatures in refrigerator and freez"
+  }
+ },
+ {
+  "id": 4,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same Turku quitting youth hockey WC hosting if Russia is in",
+  "a": {
+   "source": "hs",
+   "lang": "fi",
+   "title": "Venäjä MM-kisoihin | Turku luopuu nuorten MM-isännyydestä, jos Venäjä on mukana",
+   "lead": "Turussa on määrä järjestää jääkiekon nuorten MM-kisat 2027–28."
+  },
+  "b": {
+   "source": "hameensanomat",
+   "lang": "fi",
+   "title": "Turku vetäytyy nuorten MM-isännyydestä, jos Venäjä on mukana",
+   "lead": ""
+  }
+ },
+ {
+  "id": 5,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same fridge cyberattack wave, different outlets",
+  "a": {
+   "source": "france24",
+   "lang": "en",
+   "title": "Fresh wave of fridge cyberattacks hits European supermarkets",
+   "lead": "Stores and supermarkets across Belgium, Luxembourg, Finland, Estonia and Sweden all reported early Monday abrupt temperature spikes in their fridges and freezers in an apparent cyberattack targeting refrigeration units. The incidents follow a similar attack that hit hundreds of supermarkets across F"
+  },
+  "b": {
+   "source": "lemonde",
+   "lang": "en",
+   "title": "New fridge cyberattack hits Belgian and Swedish supermarkets",
+   "lead": "Refrigeration temperatures soared, destroying many food products in the latest in a series of cyberattacks on store refrigerators and suspicious actions around supermarkets across Europe."
+  }
+ },
+ {
+  "id": 6,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same Vainio LA Olympic marathon qualification announcement",
+  "a": {
+   "source": "hs",
+   "lang": "fi",
+   "title": "Juoksu | Los Angelesin olympiamaratonin karsintasysteemi julkaistiin: Alisa Vainio mukana kolmella tavalla",
+   "lead": "Vuonna 2024 Alisa Vainion rankingpisteet eivät riittäneet olympiapaikkaan."
+  },
+  "b": {
+   "source": "is",
+   "lang": "fi",
+   "title": "Alisa Vainiolle iso tieto – Los Angelesin olympiamaratonin karsintasysteemi julki",
+   "lead": "Vuonna 2024 Alisa Vainion rankingpisteet eivät riittäneet olympiapaikkaan."
+  }
+ },
+ {
+  "id": 7,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same supermarket fridge cyberattack across Europe",
+  "a": {
+   "source": "abcau",
+   "lang": "en",
+   "title": "Cyberattack on fridges hits supermarkets across Europe",
+   "lead": "Multiple supermarket chains have reported an IT incident that spiked fridge and freezer temperatures overnight, with one company claiming it was a cyberattack."
+  },
+  "b": {
+   "source": "scmp",
+   "lang": "en",
+   "title": "Supermarket fridges in Europe hit by new cyberattack: ‘everything is destroyed’",
+   "lead": "A hacking attack on European supermarkets spread across the continent on Monday, hitting fridges and freezers from Sweden to Belgium and forcing stores to throw away food in an incident that echoed a similar attack in France last month. The attack, which raised temperatures in refrigerator and freez"
+  }
+ },
+ {
+  "id": 8,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same Europe supermarket fridge cyberattack",
+  "a": {
+   "source": "toi",
+   "lang": "en",
+   "title": "Fridges hacked, food spoiled: Cyberattack disrupts supermarkets across Europe",
+   "lead": ""
+  },
+  "b": {
+   "source": "scmp",
+   "lang": "en",
+   "title": "Supermarket fridges in Europe hit by new cyberattack: ‘everything is destroyed’",
+   "lead": "A hacking attack on European supermarkets spread across the continent on Monday, hitting fridges and freezers from Sweden to Belgium and forcing stores to throw away food in an incident that echoed a similar attack in France last month. The attack, which raised temperatures in refrigerator and freez"
+  }
+ },
+ {
+  "id": 9,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same Stevens-Rogers endorsement fallout in Michigan",
+  "a": {
+   "source": "thehill",
+   "lang": "en",
+   "title": "Dingell says Stevens defending Rogers endorsement was ‘painful’",
+   "lead": "Rep. Debbie Dingell (D-Mich.) on Sunday called Rep. Haley Stevens’s (D-Mich.) interview with CNN’s Anderson Cooper, where she defended her endorsement of former Rep. Mike Rogers (R-Mich.) in Michigan’s Senate race, “one of the most painful interviews I’ve ever watched.” Cooper, after a tense exchang"
+  },
+  "b": {
+   "source": "guardian",
+   "lang": "en",
+   "title": "‘A despicable betrayal’: Democrats incensed by Haley Stevens’ endorsement of Mike Rogers",
+   "lead": "Stevens’ decision sparked fierce backlash from members of the party, while Donald Trump praised the sudden switch Michigan Democrat Haley Stevens’ shocking last-minute endorsement of Mike Rogers, a Republican Senate candidate, has sparked fierce backlash from members of her party. Stevens, who narro"
+  }
+ },
+ {
+  "id": 10,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same Anthropic IPO plan to sell shares to Japanese investors",
+  "a": {
+   "source": "reuters",
+   "lang": "en",
+   "title": "Anthropic plans to sell $3.5 billion of shares to Japan investors in IPO, filing shows - Reuters",
+   "lead": "Anthropic plans to sell $3.5 billion of shares to Japan investors in IPO, filing shows Reuters"
+  },
+  "b": {
+   "source": "nikkeiasia",
+   "lang": "en",
+   "title": "Anthropic seeks to raise up to $3.5bn from Japanese investors in IPO",
+   "lead": ""
+  }
+ },
+ {
+  "id": 11,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same Stevens defending her Rogers endorsement",
+  "a": {
+   "source": "thehill",
+   "lang": "en",
+   "title": "Stevens defends surprise Rogers endorsement: ‘I’m not turning my back on Democrats’",
+   "lead": "Democratic Rep. Haley Stevens (Mich.) defended her last-minute endorsement of Republican nominee Mike Rogers in the battleground Michigan Senate race after initially supporting Democratic candidate Abdul El-Sayed. “I’m not turning my back on Democrats,” Stevens told reporters Sunday in Detroit, stan"
+  },
+  "b": {
+   "source": "guardian",
+   "lang": "en",
+   "title": "‘A despicable betrayal’: Democrats incensed by Haley Stevens’ endorsement of Mike Rogers",
+   "lead": "Stevens’ decision sparked fierce backlash from members of the party, while Donald Trump praised the sudden switch Michigan Democrat Haley Stevens’ shocking last-minute endorsement of Mike Rogers, a Republican Senate candidate, has sparked fierce backlash from members of her party. Stevens, who narro"
+  }
+ },
+ {
+  "id": 12,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same Ukraine claim that Russia used the Oleshky truce to rearm",
+  "a": {
+   "source": "reuters",
+   "lang": "en",
+   "title": "Ukraine says Russia used Oleshky truce to rearm, Moscow assumes Kyiv did same - Reuters",
+   "lead": "Ukraine says Russia used Oleshky truce to rearm, Moscow assumes Kyiv did same Reuters"
+  },
+  "b": {
+   "source": "straitstimes",
+   "lang": "en",
+   "title": "Ukraine says Russia used Oleshky truce to rearm, Moscow assumes Kyiv did same",
+   "lead": "KYIV, Nov 2 - Ukraine's General Staff said on Monday that Russian forces had used a humanitarian ceasefire last week in the Russian-held southern town of Oleshky to strengthen their military positions, which Moscow said it assumed Kyiv had also done."
+  }
+ },
+ {
+  "id": 13,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same Dutch bounty for fugitive Jos Leijdekkers",
+  "a": {
+   "source": "reuters",
+   "lang": "en",
+   "title": "Netherlands offers €2 million bounty for capture of fugitive cocaine kingpin - Reuters",
+   "lead": "Netherlands offers €2 million bounty for capture of fugitive cocaine kingpin Reuters"
+  },
+  "b": {
+   "source": "straitstimes",
+   "lang": "en",
+   "title": "Netherlands offers €2m bounty for capture of cocaine kingpin Jos Leijdekkers",
+   "lead": "The 35-year-old was sentenced to 24 years in prison for smuggling 7 metric tonnes of cocaine."
+  }
+ },
+ {
+  "id": 14,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same Bulgaria presidential runoff won by Iotova",
+  "a": {
+   "source": "france24",
+   "lang": "en",
+   "title": "Bulgaria's Iotova wins presidential runoff vote amid Black Sea security fears",
+   "lead": "Bulgaria's President Iliana Iotova, who favours dialogue with Moscow and opposes military aid to Ukraine, won a presidential runoff vote on Sunday. The race for the largely ceremonial post came against a backdrop of a series of drone attacks on commercial vessels in the Black Sea that have raised se"
+  },
+  "b": {
+   "source": "thehindu",
+   "lang": "en",
+   "title": "Bulgarian President wins runoff election: exit polls",
+   "lead": "The vote took place amid security concerns in the EU and NATO member states following a series of drone attacks on commercial vessels in the Black Sea"
+  }
+ },
+ {
+  "id": 15,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same King Charles soaked without umbrella",
+  "a": {
+   "source": "reuters",
+   "lang": "en",
+   "title": "Charles left without umbrella in rainstorm fit for a king - Reuters",
+   "lead": "Charles left without umbrella in rainstorm fit for a king Reuters"
+  },
+  "b": {
+   "source": "straitstimes",
+   "lang": "en",
+   "title": "Charles left without umbrella in rainstorm fit for a king",
+   "lead": "The sight of the soaked monarch made headlines on Nov 1."
+  }
+ },
+ {
+  "id": 16,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same Antonelli becoming youngest F1 champion",
+  "a": {
+   "source": "reuters",
+   "lang": "en",
+   "title": "Antonelli makes history as youngest F1 champion at 20 years old - Reuters",
+   "lead": "Antonelli makes history as youngest F1 champion at 20 years old Reuters"
+  },
+  "b": {
+   "source": "france24",
+   "lang": "en",
+   "title": "How Antonelli became Formula One's youngest world champion",
+   "lead": "A tearful Kimi Antonelli became Formula One's youngest world champion at 20 years and 68 ​days old on Sunday when he finished third for Mercedes in a red-flagged and restarted Mexico City Grand Prix won by Red Bull's Max Verstappen."
+  }
+ },
+ {
+  "id": 17,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same Finnish spot electricity above 50 c/kWh on Monday",
+  "a": {
+   "source": "hs",
+   "lang": "fi",
+   "title": "Sähkö | Pörssisähkö kipuaa maanantaina yli 50 senttiin kilowattitunnilta",
+   "lead": "Sähkön hinta kohoaa poikkeuksellisen korkealle."
+  },
+  "b": {
+   "source": "mt",
+   "lang": "fi",
+   "title": "Pörssisähkön hinta nousee maanantaina yli 50 senttiin",
+   "lead": ""
+  }
+ },
+ {
+  "id": 18,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same hacked Ukrainian emergency app with fake nuclear alert",
+  "a": {
+   "source": "guardian",
+   "lang": "en",
+   "title": "Hackers send fake nuclear threat alert to Ukraine emergency app",
+   "lead": "Residents in Kyiv also warned of chemical attack and street-to-street fighting in false message sent by unknown party Europe live – latest updates Unknown hackers have targeted Ukraine’s nationwide emergency alert mobile app, sending residents in Kyiv a warning that they were at risk of an imminent "
+  },
+  "b": {
+   "source": "france24",
+   "lang": "en",
+   "title": "Ukraine and Russia report fake emergency alerts after cyberattacks target apps",
+   "lead": "Authorities in Ukraine and Russia said their emergency alert mobile apps had been targeted by cyberattacks, with users in Ukraine receiving false warnings of an imminent nuclear threat. Moscow said that hackers had sent fake emergency alerts after gaining access to the Russian Emergency Situations M"
+  }
+ },
+ {
+  "id": 19,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same Olkiluoto 3 outage extended again",
+  "a": {
+   "source": "is",
+   "lang": "fi",
+   "title": "Olkiluoto 3:n huoltoseisokki venyy edelleen",
+   "lead": "Huollon oli määrä päättyä ensi lauantaina."
+  },
+  "b": {
+   "source": "hameensanomat",
+   "lang": "fi",
+   "title": "Olkiluodon kolmosreaktorin huoltoseisokin valmistuminen viivästyy jälleen",
+   "lead": ""
+  }
+ },
+ {
+  "id": 20,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same suspected fridge cyberattacks, Finnish angle",
+  "a": {
+   "source": "iltalehti",
+   "lang": "fi",
+   "title": "Hyökkäys ruokakauppoihin käynnissä – Asiantuntija: ”Suomella syytä huoleen”",
+   "lead": "Eri puolilla Eurooppaa epäillään kauppojen pakastejärjestelmiin kohdistuvaa kyberhyökkäystä. Iltalehti seuraa tapahtumia tässä artikkelissa. Ruokakauppojen kylmäjärjestelmien toiminnassa eri puolilla Eurooppaa on ongelmia. Mediatietojen mukaan Ruotsissa, Virossa, Belgiassa ja Luxemburgissa epäillään"
+  },
+  "b": {
+   "source": "karjalainen",
+   "lang": "fi",
+   "title": "Pakastealtaiden häiriöiden takana voi olla kyberhyökkäys – suomalaisilla ei ole syytä huoleen, sanoo asiantuntija",
+   "lead": "Yhä useampi laite on kytketty verkkoon, mikä lisää riskejä."
+  }
+ },
+ {
+  "id": 21,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same Poland judicial/constitutional crisis",
+  "a": {
+   "source": "straitstimes",
+   "lang": "en",
+   "title": "Explainer-What's behind Poland's constitutional crisis?",
+   "lead": "WARSAW, Nov 2 - A crisis over the appointment of judges to Poland's Constitutional Tribunal over the weekend has pushed a simmering conflict between the country's nationalist president and the pro-European government into open confrontation."
+  },
+  "b": {
+   "source": "thehindu",
+   "lang": "en",
+   "title": "Why is Poland witnessing a judicial crisis? Explained",
+   "lead": "Mr. Tusk, who came back to power in 2023 promising to undo the PiS reforms, had found it virtually impossible to push any legislation given the veto power held by President Nawrocki and his predecessor Andrzej Duda, both PiS allies. Mr. Nawrocki has also declined to swear in four of six judges appoi"
+  }
+ },
+ {
+  "id": 22,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same hack of Russian/Ukrainian emergency alert apps",
+  "a": {
+   "source": "hs",
+   "lang": "fi",
+   "title": "Ukrainan sota | Venäjä: Kansalaisia iskuilta varoittavaan sovellukseen hyökättiin, myös Ukraina raportoi häiriöistä",
+   "lead": "Sekä Ukrainan että Venäjän viranomaiset kertovat epäillyistä hyökkäyksistä hälytyssovelluksiin."
+  },
+  "b": {
+   "source": "mtv",
+   "lang": "fi",
+   "title": "Ukrainalaisten puhelimiin tuli vääriä hälytyksiä ydinuhasta – hakkerit asialla myös Venäjällä",
+   "lead": "Hälytyksissä varoitettiin säteilyn, kemiallisten iskujen sekä joillakin alueilla katutaistelujen uhasta."
+  }
+ },
+ {
+  "id": 23,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same Finland-Swedish Lucia candidates announcement",
+  "a": {
+   "source": "hbl",
+   "lang": "sv",
+   "title": "De är årets luciakandidater",
+   "lead": "Tio unga kvinnor från hela Svenskfinland ställer upp i årets val av Finlands lucia. I år utses lucia på ett nytt sätt."
+  },
+  "b": {
+   "source": "vasabladet",
+   "lang": "sv",
+   "title": "Österbottning kan bli Finlands lucia",
+   "lead": "Det är en och en halv månad kvar tills lucia och på söndagen offentliggjordes årets tio luciakandidater. Bland kandidaterna finns Lilja Benton från Larsmo."
+  }
+ },
+ {
+  "id": 24,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same German demonstrations turning violent",
+  "a": {
+   "source": "hbl",
+   "lang": "sv",
+   "title": "Tyska demonstrationer urartade",
+   "lead": "Närmare 200 000 människor har på lördagen demonstrerat i Tyskland i protester som inspirerats av den senaste tidens franska demonstrationer. Under kvällen urartade protesterna i några städer."
+  },
+  "b": {
+   "source": "vasabladet",
+   "lang": "sv",
+   "title": "Tyska protester urartade – med våld och plundring",
+   "lead": "Våldsamheter utbröt på flera håll i Tyskland i samband med lördagens stora demonstrationer. I Frankfurt kastade maskerade upploppsmakare molotovcocktails, krossade skyltfönster och plundrade butiker."
+  }
+ },
+ {
+  "id": 25,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same Florida Learjet crash with nine dead",
+  "a": {
+   "source": "hs",
+   "lang": "fi",
+   "title": "Yhdysvallat | Aki Kuusiston autokameraan tallentui, kun lentokone syöksyi maahan Floridassa",
+   "lead": "Kaikki yksityiskoneen yhdeksän matkustajaa kuolivat. Äänitallenteen mukaan koneella oli ongelmia ainakin turbulenssin kanssa. ”Aika on lopussa” jäi viimeiseksi ilmoitukseksi."
+  },
+  "b": {
+   "source": "is",
+   "lang": "fi",
+   "title": "Uutta tietoa Floridan suihkukoneen viimeisistä hetkistä – järkyttävä tallenne ohjaamosta leviää",
+   "lead": "Onnettomuuden syytä ei vielä tiedetä. Yksityiskone oli matkalla Bahamalle."
+  }
+ },
+ {
+  "id": 26,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same Stevens fallout, staff resignations and party rift",
+  "a": {
+   "source": "thehill",
+   "lang": "en",
+   "title": "Stevens staff resign over Rogers endorsement",
+   "lead": "Staffers for Rep. Haley Stevens (D-Mich.) are reportedly resigning over the lawmaker’s recent decision to endorse Republican candidate Mike Rogers in Michigan’s competitive Senate race. “Hello, as of November 1st I am no longer with the Office of Congresswoman Haley Stevens,” the automated email rep"
+  },
+  "b": {
+   "source": "france24",
+   "lang": "en",
+   "title": "US Midterms: Michigan Democrat Haley Stevens defects from party",
+   "lead": "Democrats sought on Monday, November 2, to contain a rift in Michigan's US Senate race after one of their own crossed party lines to endorse the Republican candidate, as both parties made final pitches before midterm elections that will decide control of Congress. FRANCE 24's International Affairs E"
+  }
+ },
+ {
+  "id": 27,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same oil price fall on US-Iran talk hopes",
+  "a": {
+   "source": "reuters",
+   "lang": "en",
+   "title": "Oil drops 6% as Iran signals openness to peace talks - Reuters",
+   "lead": "Oil drops 6% as Iran signals openness to peace talks Reuters"
+  },
+  "b": {
+   "source": "ft",
+   "lang": "en",
+   "title": "Oil tumbles on hopes for US-Iran talks",
+   "lead": "Prices extend decline after Iranian President Masoud Pezeshkian said the country’s supreme leader had given officials certain authority over talks"
+  }
+ },
+ {
+  "id": 28,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same Stevens endorsement of Rogers",
+  "a": {
+   "source": "france24",
+   "lang": "en",
+   "title": "Michigan Democrat's endorsement of Republican ruffles critical Senate race",
+   "lead": "A prominent Michigan Democrat endorsed Republican Mike Rogers on Sunday, giving President Donald Trump's Republicans an unexpected boost in a critical US Senate race two days before midterm elections that will decide control of Congress."
+  },
+  "b": {
+   "source": "lemonde",
+   "lang": "en",
+   "title": "US midterms: In Michigan, Abdul El-Sayed's Democratic rival backs Republican Senate candidate in stunning move",
+   "lead": "Haley Stevens announced on Sunday that she is supporting Republican Mike Rogers in the race for the Senate in the northeastern US state, breaking with her own party's candidate. This decision follows months of tension and could jeopardize Democrats' hopes of winning the Senate."
+  }
+ },
+ {
+  "id": 29,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same Stevens endorsement story, opinion piece vs report",
+  "a": {
+   "source": "intercept",
+   "lang": "en",
+   "title": "Radical Centrists Like Haley Stevens Are the Real Extremists in the Democratic Party",
+   "lead": "By endorsing Abdul El-Sayed’s opponent for Israel’s sake, Stevens shows how the real threat to progress comes from centrists. The post Radical Centrists Like Haley Stevens Are the Real Extremists in the Democratic Party appeared first on The Intercept ."
+  },
+  "b": {
+   "source": "lemonde",
+   "lang": "en",
+   "title": "US midterms: In Michigan, Abdul El-Sayed's Democratic rival backs Republican Senate candidate in stunning move",
+   "lead": "Haley Stevens announced on Sunday that she is supporting Republican Mike Rogers in the race for the Senate in the northeastern US state, breaking with her own party's candidate. This decision follows months of tension and could jeopardize Democrats' hopes of winning the Senate."
+  }
+ },
+ {
+  "id": 30,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same Finnish fridge disturbances",
+  "a": {
+   "source": "karjalainen",
+   "lang": "fi",
+   "title": "Pakastealtaiden häiriöiden takana voi olla kyberhyökkäys – suomalaisilla ei ole syytä huoleen, sanoo asiantuntija",
+   "lead": "Yhä useampi laite on kytketty verkkoon, mikä lisää riskejä."
+  },
+  "b": {
+   "source": "mtv",
+   "lang": "fi",
+   "title": "Kylmälaitteet ovat sekoilleet myös Suomessa – verkkohäirintää selvitetään",
+   "lead": "Keskon mukaan pienemmissä ruokakaupoissa on ollut häiriöitä, eikä verkon kautta tapahtuvaa häiriköintiä ole suljettu pois."
+  }
+ },
+ {
+  "id": 31,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same Finnish power price spike",
+  "a": {
+   "source": "hs",
+   "lang": "fi",
+   "title": "Sähkö | Pörssisähkö kipuaa maanantaina yli 50 senttiin kilowattitunnilta",
+   "lead": "Sähkön hinta kohoaa poikkeuksellisen korkealle."
+  },
+  "b": {
+   "source": "is",
+   "lang": "fi",
+   "title": "Sähkön hinta moninkertaistuu yhdessä yössä – alkoiko Suomessakin ”Dunkelflaute”?",
+   "lead": "Energiateollisuuden johtajan mukaan vasta pitkät pakkaset ovat todellinen koetinkivi."
+  }
+ },
+ {
+  "id": 32,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same fridge cyberattack hitting Ikea and supermarkets",
+  "a": {
+   "source": "guardian",
+   "lang": "en",
+   "title": "Ikea among shops affected by fridge cyber-hacks – Europe live",
+   "lead": "Supermarkets across Europe have experienced temperature-control meddling The fake nuclear threats to Ukraine came as Russia resumed its attacks on the southern city of Kherson , just hours after the end of a ceasefire during which hundreds of people were evacuated from the nearby Kremlin-controlled "
+  },
+  "b": {
+   "source": "abcau",
+   "lang": "en",
+   "title": "Cyberattack on fridges hits supermarkets across Europe",
+   "lead": "Multiple supermarket chains have reported an IT incident that spiked fridge and freezer temperatures overnight, with one company claiming it was a cyberattack."
+  }
+ },
+ {
+  "id": 33,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same fridge cyberattacks and Finnish situation",
+  "a": {
+   "source": "is",
+   "lang": "fi",
+   "title": "Kyberhyökkäyksiä ruokakaupoissa – tämä tiedetään kello 16.00",
+   "lead": "Kyberturvakeskuksen mukaan tilanne on akuutti Suomessakin."
+  },
+  "b": {
+   "source": "mtv",
+   "lang": "fi",
+   "title": "Kauppojen kylmälaitteisiin isketty useissa maissa – kyseessä samat järjestelmät kuin Ranskassa",
+   "lead": "Useiden ruokakauppojen kylmälaitteistoihin kohdistui häiriöitä Ruotsissa maanantain vastaisena yönä."
+  }
+ },
+ {
+  "id": 34,
+  "same": false,
+  "cross_lang": false,
+  "reason": "hard neg: two different Trump lawsuits dismissed (Alaska election vs WSJ)",
+  "a": {
+   "source": "reuters",
+   "lang": "en",
+   "title": "US judge dismisses Trump election lawsuit in Alaska - Reuters",
+   "lead": "US judge dismisses Trump election lawsuit in Alaska Reuters"
+  },
+  "b": {
+   "source": "skynews",
+   "lang": "en",
+   "title": "Judge dismisses Trump's Wall Street Journal lawsuit",
+   "lead": "A US judge has dismissed President Donald Trump's lawsuit against The Wall Street Journal over a story about a birthday card he allegedly sent Jeffrey Epstein."
+  }
+ },
+ {
+  "id": 35,
+  "same": false,
+  "cross_lang": false,
+  "reason": "different cyberattacks: Russian alert app vs Finnish fridges",
+  "a": {
+   "source": "aamulehti",
+   "lang": "fi",
+   "title": "Venäjä: Kansalaisia iskuilta varoittavaan sovellukseen hyökättiin, myös Ukraina raportoi häiriöistä",
+   "lead": "Sekä Ukrainan että Venäjän viranomaiset kertovat epäillyistä hyökkäyksistä hälytyssovelluksiin."
+  },
+  "b": {
+   "source": "mtv",
+   "lang": "fi",
+   "title": "Viranomainen vahvistaa: Epäiltyjä kyberhyökkäyksiä kylmälaitteisiin myös Suomessa",
+   "lead": "Kyberhyökkäys on lamauttanut kauppojen kylmälaitteita Euroopassa. Myös Suomessa on havaittu tapauksia, joissa epäillään kyberhyökkäyksiä."
+  }
+ },
+ {
+  "id": 36,
+  "same": false,
+  "cross_lang": false,
+  "reason": "NFL injury vs trotting trainer injury",
+  "a": {
+   "source": "hameensanomat",
+   "lang": "fi",
+   "title": "NFL-seuran avainpelaaja loukkaantui taas – tuuraajalle kävi yhtä ohraisesti",
+   "lead": ""
+  },
+  "b": {
+   "source": "mt",
+   "lang": "fi",
+   "title": "Ravivalmentaja Juha Utala loukkaantui vakavasti",
+   "lead": ""
+  }
+ },
+ {
+  "id": 37,
+  "same": false,
+  "cross_lang": false,
+  "reason": "Ukrainian drone strike on refinery vs US plan for Russian gas",
+  "a": {
+   "source": "hs",
+   "lang": "fi",
+   "title": "Sodan kolme käännettä | Ukrainan droonit saattoivat vahingoittaa pahasti valtavaa öljynjalostamoa",
+   "lead": "Yhdysvallat on painostanut Ukrainaa lopettamaan iskunsa Venäjän öljynjalostamoihin, mutta Ukraina kiistää sopineensa iskutauosta."
+  },
+  "b": {
+   "source": "demokraatti",
+   "lang": "fi",
+   "title": "USA juonii: Näin saadaan Venäjän kaasu takaisin EU-markkinoille",
+   "lead": "Yhdysvallat ajaa venäläisen maakaasun toimitusten nopeaa palauttamista Eurooppaan Ukrainan kautta kulkevia putkia pitkin. Asiasta kertoo yhdysvaltalaislehti Wall Street Journal yhdysvaltalaisiin, eurooppalaisiin ja ukrainalaisiin viranomaislähteisiin pohjaten. Ehdotus liittyy neuvotteluihin, joissa "
+  }
+ },
+ {
+  "id": 38,
+  "same": false,
+  "cross_lang": false,
+  "reason": "hard neg: Stevens apology demand vs DNC chair on post-election legal fights",
+  "a": {
+   "source": "intercept",
+   "lang": "en",
+   "title": "Centrist Democrats Would Rather Lose the Senate Than Win With El-Sayed",
+   "lead": "With Haley Stevens’s demand for an apology from the candidate who beat her, the party’s moderates are making clear they’d rather lose than empower a progressive wing critical of Israel. The post Centrist Democrats Would Rather Lose the Senate Than Win With El-Sayed appeared first on The Intercept ."
+  },
+  "b": {
+   "source": "thehill",
+   "lang": "en",
+   "title": "DNC chair defends El-Sayed, Peltola as Democrats brace for post-election legal fights",
+   "lead": "Democratic National Committee (DNC) Chair Ken Martin on Sunday defended Democratic Senate candidates Abdul El-Sayed in Michigan and Mary Peltola in Alaska against recent GOP attacks and growing concern the party will have to brace for post-election legal fights. “What Dr. El-Sayed has said is true. "
+  }
+ },
+ {
+  "id": 39,
+  "same": false,
+  "cross_lang": false,
+  "reason": "savings editorial vs Russian autumn sowing area",
+  "a": {
+   "source": "karjalainen",
+   "lang": "fi",
+   "title": "Pääkirjoitus | Säästökeinoja on yhä paljon jäljellä",
+   "lead": ""
+  },
+  "b": {
+   "source": "mt",
+   "lang": "fi",
+   "title": "Venäjän syyskylvöala on jäämässä miljoona hehtaaria aiottua pienemmäksi",
+   "lead": ""
+  }
+ },
+ {
+  "id": 40,
+  "same": false,
+  "cross_lang": false,
+  "reason": "Turku WC hosting vs terrorism risk assessment",
+  "a": {
+   "source": "aamulehti",
+   "lang": "fi",
+   "title": "Tampereen ja Turun on määrä järjestää MM-kisat – nyt Turku uhkaa luopua kisaisännyydestä",
+   "lead": "Turku ei aio järjestää jääkiekon nuorten MM-kisoja, jos Venäjä on mukana."
+  },
+  "b": {
+   "source": "is",
+   "lang": "fi",
+   "title": "Tällainen riski terrorismi on Suomelle",
+   "lead": "Suomeen kohdistuu myös monialaisia riskejä, joista moniin liittyy Venäjä."
+  }
+ },
+ {
+  "id": 41,
+  "same": false,
+  "cross_lang": false,
+  "reason": "weekly reading tips vs Russian sowing area",
+  "a": {
+   "source": "savonsanomat",
+   "lang": "fi",
+   "title": "Viikon lukuvinkit | Ajoneuvoverot jääneet monilla maksamatta, Kuopion Haapaniemen viljasiilosta halutaan eroon",
+   "lead": ""
+  },
+  "b": {
+   "source": "mt",
+   "lang": "fi",
+   "title": "Venäjän syyskylvöala on jäämässä miljoona hehtaaria aiottua pienemmäksi",
+   "lead": ""
+  }
+ },
+ {
+  "id": 42,
+  "same": false,
+  "cross_lang": false,
+  "reason": "hard neg: oil price drop vs Netanyahu pressing Trump on strikes",
+  "a": {
+   "source": "reuters",
+   "lang": "en",
+   "title": "Oil drops 6% as Iran signals openness to peace talks - Reuters",
+   "lead": "Oil drops 6% as Iran signals openness to peace talks Reuters"
+  },
+  "b": {
+   "source": "ft",
+   "lang": "en",
+   "title": "Netanyahu presses Trump for renewed strikes against Iran",
+   "lead": "Israeli leader and US president talk on phone as mediation efforts led by Qatar seek to broker interim deal between Washington and Tehran"
+  }
+ },
+ {
+  "id": 43,
+  "same": false,
+  "cross_lang": false,
+  "reason": "hard neg: Kittila fatal crash vs Joensuu assault",
+  "a": {
+   "source": "iltalehti",
+   "lang": "fi",
+   "title": "Kuolonkolari Kittilässä – Poliisi epäilee rikosta",
+   "lead": "Lapin poliisi tutkii asiaa liikenneturvallisuuden vaarantamisena ja kuolemantuottamuksena. Yksi ihminen kuoli henkilöauton törmättyä kaivinkoneeseen Kittilän Ounasjoentiellä maanantaina, Lapin poliisilaitos tiedottaa. Onnettomuus tapahtui hieman kello 13.30 jälkeen, kun henkilöauto törmäsi tien sivu"
+  },
+  "b": {
+   "source": "karjalainen",
+   "lang": "fi",
+   "title": "Usean henkilön välinen pahoinpitely Joensuussa kävelykadulla, poliisi pyytää havaintoja",
+   "lead": ""
+  }
+ },
+ {
+  "id": 44,
+  "same": false,
+  "cross_lang": false,
+  "reason": "US libertarians on election day vs French undecided voters",
+  "a": {
+   "source": "reason",
+   "lang": "en",
+   "title": "For Libertarians, Election Day Is the Cruelest Day of the Year",
+   "lead": "There is rarely anyone worth voting for who might actually win in most races. That's got to change."
+  },
+  "b": {
+   "source": "lemonde",
+   "lang": "en",
+   "title": "'I might let my children vote for me': Inside the minds of France's undecided voters",
+   "lead": "Too many candidates, disillusionment with Macron, fears of a far-right victory... Although many voters are interested in politics, they've become deeply disillusioned and still don't know who they will vote for in the 2027 presidential elections."
+  }
+ },
+ {
+  "id": 45,
+  "same": false,
+  "cross_lang": false,
+  "reason": "mini crossword vs Apetit oilseeds",
+  "a": {
+   "source": "is",
+   "lang": "fi",
+   "title": "Ratkaise maanantain miniristikko",
+   "lead": "Haluatko aivojumppaa, joka haastaa kekseliäisyytesi ja tarjoaa piristystä päivään? Tässä päivän ristikko!"
+  },
+  "b": {
+   "source": "mt",
+   "lang": "fi",
+   "title": "Kotimainen raaka-aine ei riitä: Apetit tavoittelee suurta öljykasviloikkaa",
+   "lead": ""
+  }
+ },
+ {
+  "id": 46,
+  "same": false,
+  "cross_lang": false,
+  "reason": "speed-limit podcast vs spot power price",
+  "a": {
+   "source": "savonsanomat",
+   "lang": "fi",
+   "title": "Savon Aallot -podcast | Kuusi minuuttia lisää sadalla kilometrillä, vähemmän onnettomuuksia? Suomeen harkitaan uutta nopeusrajoitusta",
+   "lead": ""
+  },
+  "b": {
+   "source": "mt",
+   "lang": "fi",
+   "title": "Pörssisähkö on tänään erittäin kallista",
+   "lead": ""
+  }
+ },
+ {
+  "id": 47,
+  "same": false,
+  "cross_lang": false,
+  "reason": "hard neg: midterm what-to-watch vs Pope Leo voting explainer",
+  "a": {
+   "source": "reuters",
+   "lang": "en",
+   "title": "Six things to watch as US voters decide control of Congress - Reuters",
+   "lead": "Six things to watch as US voters decide control of Congress Reuters"
+  },
+  "b": {
+   "source": "thehindu",
+   "lang": "en",
+   "title": "How can Pope Leo vote in U.S. elections while serving as the sovereign of Vatican City? | Explained",
+   "lead": "Does becoming the Pope automatically mean giving up American citizenship? Can a foreign head of state retain the right to vote in U.S. elections? How does Pope Leo XIV’s dual status as the sovereign of Vatican City and a US citizen affect his voting rights?"
+  }
+ },
+ {
+  "id": 48,
+  "same": false,
+  "cross_lang": false,
+  "reason": "Colombia cartel crackdown vs Trump threat to Iran",
+  "a": {
+   "source": "foxnews",
+   "lang": "en",
+   "title": "Colombia's 'El Tigre' takes fight to cartels as Trump alliance takes shape",
+   "lead": "Abelardo de la Espriella claims over 32,000 arrests in 10 weeks as Colombia joins Trump's anti-cartel coalition, pivoting away from predecessor's policies."
+  },
+  "b": {
+   "source": "france24",
+   "lang": "en",
+   "title": "'Give them the hammer': Trump threatens Iran ahead of midterms",
+   "lead": "US President Donald Trump on Sunday reiterated his threat to resume strikes against Iran, telling a campaign rally that he may have to give Tehran \"the hammer\" at some unspecified time. Trump had previously said he would not strike Iran again before the upcoming US midterm elections."
+  }
+ },
+ {
+  "id": 49,
+  "same": false,
+  "cross_lang": false,
+  "reason": "Vattenfall power price explainer vs fridge hack",
+  "a": {
+   "source": "demokraatti",
+   "lang": "fi",
+   "title": "Vattenfall: Tästä sähkön kallistuminen johtuu",
+   "lead": "Kuluttajan sähkölaskun kallistuminen viime vuosikymmenien aikana johtuu pääosin verojen ja siirtohintojen noususta, laskee energiayhtiö Vattenfall. Yhtiö kertoo, että energiakriisivuotta lukuun ottamatta määräaikaisten sähkösopimusten hinnat ovat pääosin pysytelleet viime 20 vuotta samalla tasolla. "
+  },
+  "b": {
+   "source": "mtv",
+   "lang": "fi",
+   "title": "Kylmälaitteet ovat sekoilleet myös Suomessa – verkkohäirintää selvitetään",
+   "lead": "Keskon mukaan pienemmissä ruokakaupoissa on ollut häiriöitä, eikä verkon kautta tapahtuvaa häiriköintiä ole suljettu pois."
+  }
+ },
+ {
+  "id": 50,
+  "same": false,
+  "cross_lang": false,
+  "reason": "hard neg: fridge disturbances vs national risk assessment",
+  "a": {
+   "source": "hameensanomat",
+   "lang": "fi",
+   "title": "HS: Kauppojen kylmälaitteissa ongelmia myös Suomessa",
+   "lead": ""
+  },
+  "b": {
+   "source": "mtv",
+   "lang": "fi",
+   "title": "Mikä Suomea uhkaa?",
+   "lead": "Sisäministeriö julkaisee kansallisen riskiarvion, jossa kerrotaan, millaisiin uhkiin ja häiriötilanteisiin Suomessa tulisi varautua."
+  }
+ },
+ {
+  "id": 51,
+  "same": false,
+  "cross_lang": false,
+  "reason": "hard neg: Alaska DOJ suit dismissed vs Atlantic midterm panel",
+  "a": {
+   "source": "thehill",
+   "lang": "en",
+   "title": "Judge tosses DOJ’s lawsuit over Alaska Senate race",
+   "lead": "A federal judge on Sunday dismissed the Trump administration’s lawsuit in Alaska that seeks to block certification if Sen. Dan Sullivan (R-Alaska) loses his reelection bid in the state’s Senate race, arguing a win for Democratic candidate Mary Peltola could be blocked by the appearance on the ballot"
+  },
+  "b": {
+   "source": "atlantic",
+   "lang": "en",
+   "title": "How the Midterms Could Test Trump",
+   "lead": "Panelists on Washington Week With The Atlantic joined to discuss how Tuesday’s midterm results could help determine what President Trump’s final two years in office will look like."
+  }
+ },
+ {
+  "id": 52,
+  "same": false,
+  "cross_lang": false,
+  "reason": "Moscow embassy terror warning vs European fridge hack",
+  "a": {
+   "source": "meduza",
+   "lang": "en",
+   "title": "U.S. Embassy warns of ‘mass casualty’ threat at Moscow’s Tsaritsyno museum. FSB confirms receiving the warning.",
+   "lead": "The U.S. Embassy in Moscow issued a security alert saying it had learned of a threat to the Tsaritsyno Museum-Reserve:"
+  },
+  "b": {
+   "source": "scmp",
+   "lang": "en",
+   "title": "Supermarket fridges in Europe hit by new cyberattack: ‘everything is destroyed’",
+   "lead": "A hacking attack on European supermarkets spread across the continent on Monday, hitting fridges and freezers from Sweden to Belgium and forcing stores to throw away food in an incident that echoed a similar attack in France last month. The attack, which raised temperatures in refrigerator and freez"
+  }
+ },
+ {
+  "id": 53,
+  "same": false,
+  "cross_lang": false,
+  "reason": "Finnish shop fridge status vs US warning to Russia of Moscow attack",
+  "a": {
+   "source": "is",
+   "lang": "fi",
+   "title": "Tämä on tilanne Suomen kaupoissa",
+   "lead": "Tilanne on ilmennyt joko automaattisen ilmoituksen myötä tai henkilökunnan tullessa aamulla kaupalle."
+  },
+  "b": {
+   "source": "mvlehti",
+   "lang": "fi",
+   "title": "Yhdysvallat ennakkovaroitti Venäjää terrori-iskusta Moskovassa",
+   "lead": "Yhdysvallat antoi ennakkovaroituksen Venäjän kansallisen turvallisuuden tiedustelulle terrori-iskusta Moskovassa. Venäjän FSN sanoi työskentelevänsä saadun varoituksen perusteella ja kertoi saaneensa vihjeet \"amerikkalaisista kumppanilähteistä\". The post Yhdysvallat ennakkovaroitti Venäjää terrori-i"
+  }
+ },
+ {
+  "id": 54,
+  "same": true,
+  "cross_lang": true,
+  "reason": "same Antonelli F1 title, fi/en",
+  "a": {
+   "source": "hs",
+   "lang": "fi",
+   "title": "Formula 1 | Kimi Antonelli voitti maailmanmestaruuden historian ylivoimaisesti nuorimpana",
+   "lead": "20-vuotias italialainen on kautta aikain nuorin F1-maailmanmestari."
+  },
+  "b": {
+   "source": "france24",
+   "lang": "en",
+   "title": "How Antonelli became Formula One's youngest world champion",
+   "lead": "A tearful Kimi Antonelli became Formula One's youngest world champion at 20 years and 68 ​days old on Sunday when he finished third for Mercedes in a red-flagged and restarted Mexico City Grand Prix won by Red Bull's Max Verstappen."
+  }
+ },
+ {
+  "id": 55,
+  "same": true,
+  "cross_lang": true,
+  "reason": "same Iran plan to reopen Hormuz in two days, fi/en",
+  "a": {
+   "source": "hameensanomat",
+   "lang": "fi",
+   "title": "Iran valmis avaamaan Hormuzinsalmen kahden päivän kuluessa jos sen ehdot hyväksytään",
+   "lead": ""
+  },
+  "b": {
+   "source": "thehindu",
+   "lang": "en",
+   "title": "Iran says considering two-day plan to reopen Hormuz",
+   "lead": "“The possibility of implementing this plan in two days is another indication of Iran's good-faith approach,” Foreign Ministry spokesperson Esmaeil Baqaei said"
+  }
+ },
+ {
+  "id": 56,
+  "same": true,
+  "cross_lang": true,
+  "reason": "same death of Ciara Mageean, fi/en",
+  "a": {
+   "source": "hs",
+   "lang": "fi",
+   "title": "Yleisurheilu | Euroopan mestari Ciara Mageean, 34, on kuollut",
+   "lead": "Irlantilainen sairasti suolistosyöpää."
+  },
+  "b": {
+   "source": "skynews",
+   "lang": "en",
+   "title": "Former Ireland European 1,500m champion dies at age of 34",
+   "lead": "Former European 1,500m champion Ciara Mageean has died at the age of 34."
+  }
+ },
+ {
+  "id": 57,
+  "same": true,
+  "cross_lang": true,
+  "reason": "same fridge cyberattack wave, fi/en",
+  "a": {
+   "source": "iltalehti",
+   "lang": "fi",
+   "title": "Hyökkäys ruokakauppoihin käynnissä – Asiantuntija: ”Suomella syytä huoleen”",
+   "lead": "Eri puolilla Eurooppaa epäillään kauppojen pakastejärjestelmiin kohdistuvaa kyberhyökkäystä. Iltalehti seuraa tapahtumia tässä artikkelissa. Ruokakauppojen kylmäjärjestelmien toiminnassa eri puolilla Eurooppaa on ongelmia. Mediatietojen mukaan Ruotsissa, Virossa, Belgiassa ja Luxemburgissa epäillään"
+  },
+  "b": {
+   "source": "france24",
+   "lang": "en",
+   "title": "Fresh wave of fridge cyberattacks hits European supermarkets",
+   "lead": "Stores and supermarkets across Belgium, Luxembourg, Finland, Estonia and Sweden all reported early Monday abrupt temperature spikes in their fridges and freezers in an apparent cyberattack targeting refrigeration units. The incidents follow a similar attack that hit hundreds of supermarkets across F"
+  }
+ },
+ {
+  "id": 58,
+  "same": true,
+  "cross_lang": true,
+  "reason": "same Belgian fridge probe/Ikea hit, fi/en",
+  "a": {
+   "source": "mtv",
+   "lang": "fi",
+   "title": "Belgia aloittaa rikostutkinnan kylmäallashäiriöistä – Ikeaan isketty myös",
+   "lead": "EU sanoo kyberiskujen vaikuttavan yhä enemmän ihmisten arkeen."
+  },
+  "b": {
+   "source": "euractiv",
+   "lang": "en",
+   "title": "Suspected cyberattacks disrupt supermarkets in Belgium, Sweden, Estonia",
+   "lead": "Fridge temperature spikes are reported weeks after attacks hit French supermarkets"
+  }
+ },
+ {
+  "id": 59,
+  "same": true,
+  "cross_lang": true,
+  "reason": "same hack of emergency alert apps Russia/Ukraine, fi/en",
+  "a": {
+   "source": "hs",
+   "lang": "fi",
+   "title": "Ukrainan sota | Venäjä: Kansalaisia iskuilta varoittavaan sovellukseen hyökättiin, myös Ukraina raportoi häiriöistä",
+   "lead": "Sekä Ukrainan että Venäjän viranomaiset kertovat epäillyistä hyökkäyksistä hälytyssovelluksiin."
+  },
+  "b": {
+   "source": "meduza",
+   "lang": "en",
+   "title": "Emergency alert apps hacked in Russia and Ukraine, sending false warnings of nuclear threats",
+   "lead": "The mobile app of Russia’s Emergency Situations Ministry was hit by a cyberattack, and its users received notifications claiming “nuclear warheads” had been launched “across all regions” of the country."
+  }
+ },
+ {
+  "id": 60,
+  "same": true,
+  "cross_lang": true,
+  "reason": "same FSB arrest and US embassy warning on Moscow attack, fi/en",
+  "a": {
+   "source": "aamulehti",
+   "lang": "fi",
+   "title": "FSB: Alaikäinen venäläinen pidätetty epäiltynä terrori-iskun suunnittelusta Moskovassa",
+   "lead": "Yhdysvallat varoitti Venäjää lauantaina Moskovaan suunnitellusta terrori-iskusta. Uhasta varoitti myös Saksa, kertoo Der Spiegel."
+  },
+  "b": {
+   "source": "meduza",
+   "lang": "en",
+   "title": "U.S. Embassy warns of ‘mass casualty’ threat at Moscow’s Tsaritsyno museum. FSB confirms receiving the warning.",
+   "lead": "The U.S. Embassy in Moscow issued a security alert saying it had learned of a threat to the Tsaritsyno Museum-Reserve:"
+  }
+ },
+ {
+  "id": 61,
+  "same": true,
+  "cross_lang": true,
+  "reason": "same Oleshky evacuees return to Ukraine, fi/en",
+  "a": {
+   "source": "hs",
+   "lang": "fi",
+   "title": "Ukrainan sota | Venäjän miehittämästä Oleškystä evakuoidut pääsivät Ukrainaan",
+   "lead": "Evakuoidut saapuivat Ukrainaan Valko-Venäjältä, jonne heidät oli kuljetettu useita pysähdyksiä käsittäneen evakuointioperaation aikana."
+  },
+  "b": {
+   "source": "thehill",
+   "lang": "en",
+   "title": "Evacuees from Russia-controlled Oleshky arrive back in Ukraine amid U.S.-brokered ceasefire",
+   "lead": "Residents evacuated from the Russian-occupied city of Oleshky arrived back in Ukraine on Saturday amid a localized U.S.-brokered ceasefire agreement. The halt in fighting, which was secured earlier this month by first lady Melania Trump, went into effect on Tuesday and is set to last through Saturda"
+  }
+ },
+ {
+  "id": 62,
+  "same": true,
+  "cross_lang": true,
+  "reason": "same fridge cyberattack wave, fi/en",
+  "a": {
+   "source": "iltalehti",
+   "lang": "fi",
+   "title": "Hyökkäys ruokakauppoihin käynnissä – Asiantuntija: ”Suomella syytä huoleen”",
+   "lead": "Eri puolilla Eurooppaa epäillään kauppojen pakastejärjestelmiin kohdistuvaa kyberhyökkäystä. Iltalehti seuraa tapahtumia tässä artikkelissa. Ruokakauppojen kylmäjärjestelmien toiminnassa eri puolilla Eurooppaa on ongelmia. Mediatietojen mukaan Ruotsissa, Virossa, Belgiassa ja Luxemburgissa epäillään"
+  },
+  "b": {
+   "source": "guardian",
+   "lang": "en",
+   "title": "Supermarket freezers across Europe hit by second suspected cyber-attack",
+   "lead": "Chains in at least seven countries say fridge temperatures rose overnight in incident similar to hack of French stores Europe live – latest updates Supermarket chains in at least seven European countries have said the temperatures of refrigerators and freezers in dozens of their stores soared overni"
+  }
+ },
+ {
+  "id": 63,
+  "same": true,
+  "cross_lang": true,
+  "reason": "same fridge cyberattack wave, fi/en",
+  "a": {
+   "source": "is",
+   "lang": "fi",
+   "title": "Kyberhyökkäyksiä ruokakaupoissa – tämä tiedetään kello 16.00",
+   "lead": "Kyberturvakeskuksen mukaan tilanne on akuutti Suomessakin."
+  },
+  "b": {
+   "source": "france24",
+   "lang": "en",
+   "title": "Fresh wave of fridge cyberattacks hits European supermarkets",
+   "lead": "Stores and supermarkets across Belgium, Luxembourg, Finland, Estonia and Sweden all reported early Monday abrupt temperature spikes in their fridges and freezers in an apparent cyberattack targeting refrigeration units. The incidents follow a similar attack that hit hundreds of supermarkets across F"
+  }
+ },
+ {
+  "id": 64,
+  "same": true,
+  "cross_lang": true,
+  "reason": "same fridge attacks warning, fi/en",
+  "a": {
+   "source": "demokraatti",
+   "lang": "fi",
+   "title": "Kyberturvallisuuskeskus: Kylmälaitteisiin kohdistuvista hyökkäyksistä varoitettiin Suomessa jo pari viikkoa sitten",
+   "lead": "Kyberturvallisuuskeskus varoitti suomalaiskauppoja kylmälaitteisiin kohdistuvien kyberhyökkäysten riskistä jo pari viikkoa sitten, jolloin iskuja tapahtui Ranskassa. Silloin näitä avoimesti julkiseen internetiin jätettyjä kylmälaitteita oli Suomessa muutamia kymmeniä, kertoo erityisasiantuntija Juha"
+  },
+  "b": {
+   "source": "straitstimes",
+   "lang": "en",
+   "title": "Hackers turn up the heat on European supermarkets in fridge attacks",
+   "lead": "Fridges at groceries in Belgium, Luxembourg, Sweden and Estonia were raised to as high as 50 deg C."
+  }
+ },
+ {
+  "id": 65,
+  "same": true,
+  "cross_lang": true,
+  "reason": "same fridge cyberattack, Finnish confirmation vs SCMP, fi/en",
+  "a": {
+   "source": "mtv",
+   "lang": "fi",
+   "title": "Viranomainen vahvistaa: Epäiltyjä kyberhyökkäyksiä kylmälaitteisiin myös Suomessa",
+   "lead": "Kyberhyökkäys on lamauttanut kauppojen kylmälaitteita Euroopassa. Myös Suomessa on havaittu tapauksia, joissa epäillään kyberhyökkäyksiä."
+  },
+  "b": {
+   "source": "scmp",
+   "lang": "en",
+   "title": "Supermarket fridges in Europe hit by new cyberattack: ‘everything is destroyed’",
+   "lead": "A hacking attack on European supermarkets spread across the continent on Monday, hitting fridges and freezers from Sweden to Belgium and forcing stores to throw away food in an incident that echoed a similar attack in France last month. The attack, which raised temperatures in refrigerator and freez"
+  }
+ },
+ {
+  "id": 66,
+  "same": true,
+  "cross_lang": true,
+  "reason": "same fridge disturbances in Finland and Belgium/Sweden, fi/en",
+  "a": {
+   "source": "demokraatti",
+   "lang": "fi",
+   "title": "Kylmälaitteissa häiriöitä myös Suomessa",
+   "lead": "Myös suomalaisten ruokakauppojen kylmä- ja pakastelaitteissa on ilmennyt häiriöitä, kerrotaan K-ryhmästä. Keskon turvallisuuspäällikkö Petri Käyhkö kertoo sähköpostiviestissä, että muutamissa pienemmän pään K-ruokakaupoissa on viime yönä ollut kylmälaitteiden lämpötilahäiriöitä. Käyhkön mukaan syytä"
+  },
+  "b": {
+   "source": "lemonde",
+   "lang": "en",
+   "title": "New fridge cyberattack hits Belgian and Swedish supermarkets",
+   "lead": "Refrigeration temperatures soared, destroying many food products in the latest in a series of cyberattacks on store refrigerators and suspicious actions around supermarkets across Europe."
+  }
+ },
+ {
+  "id": 67,
+  "same": false,
+  "cross_lang": true,
+  "reason": "fi/en: US plan for Russian gas vs fake alert hacks",
+  "a": {
+   "source": "aamulehti",
+   "lang": "fi",
+   "title": "Ukraina juuri nyt | WSJ: USA ajaa venäläisen kaasun palauttamista Eurooppaan Ukrainan kautta",
+   "lead": "Aamulehti seuraa Venäjän hyökkäystä Ukrainaan tässä päivittyvässä jutussa marraskuussa 2026."
+  },
+  "b": {
+   "source": "france24",
+   "lang": "en",
+   "title": "Ukraine and Russia report fake emergency alerts after cyberattacks target apps",
+   "lead": "Authorities in Ukraine and Russia said their emergency alert mobile apps had been targeted by cyberattacks, with users in Ukraine receiving false warnings of an imminent nuclear threat. Moscow said that hackers had sent fake emergency alerts after gaining access to the Russian Emergency Situations M"
+  }
+ },
+ {
+  "id": 68,
+  "same": false,
+  "cross_lang": true,
+  "reason": "fi/en: pharma bribes in Russia vs Pentagon ex-strategist leak case",
+  "a": {
+   "source": "meduza",
+   "lang": "en",
+   "title": "Western pharmaceutical companies spend up to $500 million a year on bribes in Russia — with Putin’s allies cashing in, Proekt investigation finds",
+   "lead": "Foreign pharmaceutical companies that supply cancer treatment drugs to Russia spend about $500 million a year on “bonuses” for intermediaries, suppliers, and staff at Russian hospitals, according to an investigation by Proekt, a Russian investigative outlet. The investigation is based on the testimo"
+  },
+  "b": {
+   "source": "mvlehti",
+   "lang": "fi",
+   "title": "Pentagonin ex-strategi syytteessä Iranin ja Ukrainan konfliktien tietovuodoista",
+   "lead": "Pentagonin entisen sotilasstrategin väitetään vuotaneen salaista tietoa Iranista ja Ukrainasta toimittajille, Axios raportoi Yhdysvaltojen puolustushallinnon sisäiseen tutkintaan vedoten. The post Pentagonin ex-strategi syytteessä Iranin ja Ukrainan konfliktien tietovuodoista appeared first on MV-le"
+  }
+ },
+ {
+  "id": 69,
+  "same": false,
+  "cross_lang": true,
+  "reason": "fi/en: post-midterm Trump editorial vs noncitizen voter lists",
+  "a": {
+   "source": "aamulehti",
+   "lang": "fi",
+   "title": "Pääkirjoitus | Trumpista voi tulla vaalien jälkeen entistäkin arvaamattomampi",
+   "lead": "Yhdysvaltain välivaalien jälkeen sotiminen voi taas kiihtyä Lähi-idässä."
+  },
+  "b": {
+   "source": "reuters",
+   "lang": "en",
+   "title": "How Trump’s noncitizen voter lists could affect the midterms - Reuters",
+   "lead": "How Trump’s noncitizen voter lists could affect the midterms Reuters"
+  }
+ },
+ {
+  "id": 70,
+  "same": false,
+  "cross_lang": true,
+  "reason": "fi/en: Israel ends Hebron operation vs Gaza strikes",
+  "a": {
+   "source": "mtv",
+   "lang": "fi",
+   "title": "Israel päätti operaationsa Hebronin kaupungissa",
+   "lead": "Israel kertoo joukkojensa vetäytyneen Hebronista maanantaiaamuna."
+  },
+  "b": {
+   "source": "thehindu",
+   "lang": "en",
+   "title": "Israeli strikes kill three people in Gaza, medics say",
+   "lead": "Medics said two people were ⁠killed and six others wounded in two separate airstrikes in Khan Younis while ‌a third person was killed in an Israeli airstrike in the town of ‌Al-Mussadar"
+  }
+ },
+ {
+  "id": 71,
+  "same": false,
+  "cross_lang": true,
+  "reason": "fi/en: Suomi.fi paper mail vs Dutch civil service cuts",
+  "a": {
+   "source": "aamulehti",
+   "lang": "fi",
+   "title": "Nämä asiat hämmentävät nyt monia Suomi.fi-viesteissä – jopa 185 000 palannut paperipostiin",
+   "lead": "Yhä useampi viranomaisen posti tulee sähköisesti. Tässä jutussa etsitään vastauksia yleisiin pulmiin."
+  },
+  "b": {
+   "source": "reason",
+   "lang": "en",
+   "title": "The Dutch Government Has a DOGE-Style Plan To Cut 25,000 Jobs. Will It Work?",
+   "lead": "How the Dutch plan to deliver the savings remains unclear."
+  }
+ },
+ {
+  "id": 72,
+  "same": false,
+  "cross_lang": true,
+  "reason": "fi/en: Russian alert-app hack vs Bulgarian election",
+  "a": {
+   "source": "aamulehti",
+   "lang": "fi",
+   "title": "Venäjä: Kansalaisia iskuilta varoittavaan sovellukseen hyökättiin, myös Ukraina raportoi häiriöistä",
+   "lead": "Sekä Ukrainan että Venäjän viranomaiset kertovat epäillyistä hyökkäyksistä hälytyssovelluksiin."
+  },
+  "b": {
+   "source": "france24",
+   "lang": "en",
+   "title": "'Consolidation of power': Bulgaria elects Iliana Iotova as first woman president",
+   "lead": "PRESS REVIEW – Monday, November 2: Bulgarian papers discuss the country's new president. In Belarus, some political prisoners are held in psychiatric wards instead of prisons. Also: Hitler's Eagle's Nest burned down. Will it be rebuilt and should it? Finally, the queen of Halloween, Heidi Klum, flau"
+  }
+ },
+ {
+  "id": 73,
+  "same": false,
+  "cross_lang": true,
+  "reason": "fi/en: Finnish fridge hack vs FSB Moscow attack warning",
+  "a": {
+   "source": "karjalainen",
+   "lang": "fi",
+   "title": "Pakastealtaiden häiriöiden takana voi olla kyberhyökkäys – suomalaisilla ei ole syytä huoleen, sanoo asiantuntija",
+   "lead": "Yhä useampi laite on kytketty verkkoon, mikä lisää riskejä."
+  },
+  "b": {
+   "source": "thehindu",
+   "lang": "en",
+   "title": "Russia’s FSB says U.S. warned Russia of possible Moscow attack",
+   "lead": "The ‌U.S. Embassy had warned that extremists ​had imminent plans for an attack in Moscow"
+  }
+ },
+ {
+  "id": 74,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same fridge cyberattack in Finland",
+  "a": {
+   "source": "is",
+   "lang": "fi",
+   "title": "Tämä on tilanne Suomen kaupoissa",
+   "lead": "Tilanne on ilmennyt joko automaattisen ilmoituksen myötä tai henkilökunnan tullessa aamulla kaupalle."
+  },
+  "b": {
+   "source": "yle",
+   "lang": "fi",
+   "title": "Hakkerointiuhka ei koske vain kauppoja – asiantuntija: kaikki verkossa olevat laitteet syytä suojata",
+   "lead": "Suomessa joissakin K-kaupoissa on havaittu häiriöitä kylmälaitteissa, ja syytä tutkitaan parhaillaan."
+  }
+ },
+ {
+  "id": 75,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same fridge disturbances reported in Sweden/Finland",
+  "a": {
+   "source": "hameensanomat",
+   "lang": "fi",
+   "title": "Pakastealtaiden häiriöiden takana voi olla kyberhyökkäys – suomalaisilla ei ole syytä huoleen, sanoo asiantuntija",
+   "lead": "Yhä useampi laite on kytketty verkkoon, mikä lisää riskejä."
+  },
+  "b": {
+   "source": "demokraatti",
+   "lang": "fi",
+   "title": "Kauppojen pakastealtaissa häiriöitä Ruotsissa",
+   "lead": "Ruotsissa useiden Ica-päivittäistavaraketjun myymälöiden kylmä- ja pakastelaitteissa ilmeni häiriöitä maanantain vastaisena yönä. Skånen läänissä sijaitseva Sjöbon Ica-myymälä kertoi sosiaalisessa mediassa, että kaupan kylmä- ja pakastelaitteiden lämpötila nousi pahimmillaan yli 50 asteeseen. LIIKKE"
+  }
+ },
+ {
+  "id": 76,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same South African municipal election",
+  "a": {
+   "source": "reuters",
+   "lang": "en",
+   "title": "South Africa's splintering vote sets up multi-party battle for cities - Reuters",
+   "lead": "South Africa's splintering vote sets up multi-party battle for cities Reuters"
+  },
+  "b": {
+   "source": "straitstimes",
+   "lang": "en",
+   "title": "Water, jobs and crime among key issues for South African voters",
+   "lead": "JOHANNESBURG, Nov 2 - South Africans vote in municipal elections on November 4, with basic services, unemployment and crime topping the agenda in the country's biggest cities."
+  }
+ },
+ {
+  "id": 77,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same Binance hack aftermath, outflows and recovery",
+  "a": {
+   "source": "reuters",
+   "lang": "en",
+   "title": "Binance says customers pulled net $4.7 billion after hack as crypto world weighs risk - Reuters",
+   "lead": "Binance says customers pulled net $4.7 billion after hack as crypto world weighs risk Reuters"
+  },
+  "b": {
+   "source": "thehill",
+   "lang": "en",
+   "title": "Binance recovers 90 percent of stolen assets from hack",
+   "lead": "Cryptocurrency exchange Binance said Saturday that it was able to replenish 90 percent of the stolen assets ‌after a $6.3 billion hack of its platform. On Thursday, the money started moving out of Binance wallets, prompting the company to suspend all deposits and withdrawals. Some cryptocurrency fir"
+  }
+ },
+ {
+  "id": 78,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same Canada-EU association agreement",
+  "a": {
+   "source": "nyt",
+   "lang": "en",
+   "title": "Carney Commits Canada to Becoming European Union’s First ‘Associate Member’",
+   "lead": "The move is part of the Canadian prime minister’s effort to reduce American influence over Canada and expand trade to other parts of the world."
+  },
+  "b": {
+   "source": "ft",
+   "lang": "en",
+   "title": "EU and Canada seek to be friends with association benefits",
+   "lead": "Brussels and Ottawa have big ambitions for alignment but not much substance yet"
+  }
+ },
+ {
+  "id": 79,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same Seinajoki school police operation",
+  "a": {
+   "source": "is",
+   "lang": "fi",
+   "title": "I-P: Opiskelija vietiin raudoissa ulos kampukselta Seinäjoella",
+   "lead": "Ilkka-Pohjalaisen tietojen mukaan välikohtaus tapahtui luokkahuoneessa noin aamuyhdeksältä."
+  },
+  "b": {
+   "source": "savonsanomat",
+   "lang": "fi",
+   "title": "Poliisioperaatio koulussa Seinäjoella – alaikäisellä jäljitelmäase ja puukko",
+   "lead": ""
+  }
+ },
+ {
+  "id": 80,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same US-Iran draft deal reopening Hormuz",
+  "a": {
+   "source": "straitstimes",
+   "lang": "en",
+   "title": "Draft US-Iran deal takes shape, with Hormuz reopening on the table",
+   "lead": "On the table is a seven-step plan Tehran drew up in September to reopen the Strait of Hormuz."
+  },
+  "b": {
+   "source": "thehindu",
+   "lang": "en",
+   "title": "Iran says considering two-day plan to reopen Hormuz",
+   "lead": "“The possibility of implementing this plan in two days is another indication of Iran's good-faith approach,” Foreign Ministry spokesperson Esmaeil Baqaei said"
+  }
+ },
+ {
+  "id": 81,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same French school protests resuming",
+  "a": {
+   "source": "france24",
+   "lang": "en",
+   "title": "French school protests resume on smaller scale after holiday break",
+   "lead": "French students back from autumn holidays blocked some high schools on Monday, determined to revive last month's protest movement despite a handful of concessions from the government during the break. Blockades took place in several cities across France, including Paris, Marseille and Rennes."
+  },
+  "b": {
+   "source": "thehindu",
+   "lang": "en",
+   "title": "French school blockades to restart from Monday: student group",
+   "lead": "France's protest movement against soaring prices emerged from weeks of demonstrations by high school students protesting deteriorating learning conditions and inequality"
+  }
+ },
+ {
+  "id": 82,
+  "same": true,
+  "cross_lang": false,
+  "reason": "same Bulgarian presidential runoff",
+  "a": {
+   "source": "thehindu",
+   "lang": "en",
+   "title": "Bulgarian President wins runoff election: exit polls",
+   "lead": "The vote took place amid security concerns in the EU and NATO member states following a series of drone attacks on commercial vessels in the Black Sea"
+  },
+  "b": {
+   "source": "euractiv",
+   "lang": "en",
+   "title": "Divided Bulgaria votes in tense presidential runoff",
+   "lead": "The first round in the European Union and NATO member state was marked by record-low turnout"
+  }
+ },
+ {
+  "id": 83,
+  "same": true,
+  "cross_lang": true,
+  "reason": "same Iotova win in Bulgaria, fi/en",
+  "a": {
+   "source": "france24",
+   "lang": "en",
+   "title": "'Consolidation of power': Bulgaria elects Iliana Iotova as first woman president",
+   "lead": "PRESS REVIEW – Monday, November 2: Bulgarian papers discuss the country's new president. In Belarus, some political prisoners are held in psychiatric wards instead of prisons. Also: Hitler's Eagle's Nest burned down. Will it be rebuilt and should it? Finally, the queen of Halloween, Heidi Klum, flau"
+  },
+  "b": {
+   "source": "mvlehti",
+   "lang": "fi",
+   "title": "Tappio globalisteille: Kansallismielinen Iliana Iotova presidentinvaalien voittoon Bulgariassa",
+   "lead": "Euroglobalistit kokivat jälleen tappion Bulgariassa, jossa Bulgarian virkaa tekevä presidentti Iliana Iotova, jota maan EU-kriittinen hallitus tukee, voitti presidentinvaalien toisella kierroksella selvästi – yli kymmenen prosenttiyksikön erolla – EU:n tukemaan länsimieliseen ehdokkaaseen Andrey Gyu"
+  }
+ },
+ {
+  "id": 84,
+  "same": true,
+  "cross_lang": true,
+  "reason": "same Oleshky evacuees, fi/en",
+  "a": {
+   "source": "hs",
+   "lang": "fi",
+   "title": "Ukrainan sota | Venäjän miehittämästä Oleškystä evakuoidut pääsivät Ukrainaan",
+   "lead": "Evakuoidut saapuivat Ukrainaan Valko-Venäjältä, jonne heidät oli kuljetettu useita pysähdyksiä käsittäneen evakuointioperaation aikana."
+  },
+  "b": {
+   "source": "lemonde",
+   "lang": "en",
+   "title": "Evacuated Ukrainians from Oleshky: 'We don't know where to go, but one thing is certain: We will survive'",
+   "lead": "During a six-day ceasefire between Moscow and Kyiv, around 700 people managed to leave Oleshky, which has been occupied by Russian forces for four years and is located right on the front lines. The abandoned population was suffering from severe shortages of food and medicine."
+  }
+ },
+ {
+  "id": 85,
+  "same": false,
+  "cross_lang": false,
+  "reason": "Finnish fridge attack vs EU battery repair ruling",
+  "a": {
+   "source": "is",
+   "lang": "fi",
+   "title": "Viranomainen: Tämä on ”pakastinhyökkäyksen” tilanne Suomessa",
+   "lead": "Kyberturvallisuuskeskus aloitti toimenpiteet Suomessa Ranskan-hyökkäysten jälkeen."
+  },
+  "b": {
+   "source": "mt",
+   "lang": "fi",
+   "title": "Käytettyjen sähköautojen akkuja saa sittenkin korjata – EU-komissio oikaisi Suomen viranomaisten laintulkintaa",
+   "lead": ""
+  }
+ },
+ {
+  "id": 86,
+  "same": false,
+  "cross_lang": false,
+  "reason": "N. Korea BBQ boom vs NC farmers and inflation",
+  "a": {
+   "source": "reuters",
+   "lang": "en",
+   "title": "North Korea touts BBQ restaurant boom, but sceptics dismiss it as propaganda - Reuters",
+   "lead": "North Korea touts BBQ restaurant boom, but sceptics dismiss it as propaganda Reuters"
+  },
+  "b": {
+   "source": "france24",
+   "lang": "en",
+   "title": "US midterm elections: North Carolina farmers hit hard by inflation",
+   "lead": "On the eve of the midterm elections, US President Donald Trump's unpopularity is impacting Republicans across the board. Many states with seats once considered Republican strongholds are now on shaky ground. One of them is North Carolina, a rural state where one in five jobs is tied to agriculture."
+  }
+ },
+ {
+  "id": 87,
+  "same": false,
+  "cross_lang": false,
+  "reason": "pink slime newsrooms vs DOJ poll monitors",
+  "a": {
+   "source": "thehill",
+   "lang": "en",
+   "title": "Pink slime newsrooms are the fake news operations we need to talk about",
+   "lead": "The place where voters increasingly get their news has been infected by propaganda cleverly designed to imitate the one type of journalism voters still trust."
+  },
+  "b": {
+   "source": "atlantic",
+   "lang": "en",
+   "title": "Inside the Plan to Send 1,000 DOJ Monitors to the Polls",
+   "lead": "The Justice Department has assured local officials that monitoring will follow past norms, but election clerks say they have reason to worry."
+  }
+ },
+ {
+  "id": 88,
+  "same": false,
+  "cross_lang": false,
+  "reason": "Russia court win in hockey vs US gas plan",
+  "a": {
+   "source": "hs",
+   "lang": "fi",
+   "title": "Tästä on kyse | Venäjä voitti, koska liiton perustelut eivät riittäneet",
+   "lead": "Tuomioistuimen mukaan Kansainvälinen jääkiekkoliitto IIHF ei pystynyt esittämään riittävästi näyttöä Venäjän osallistumisesta aiheutuvista turvallisuusuhista."
+  },
+  "b": {
+   "source": "demokraatti",
+   "lang": "fi",
+   "title": "USA juonii: Näin saadaan Venäjän kaasu takaisin EU-markkinoille",
+   "lead": "Yhdysvallat ajaa venäläisen maakaasun toimitusten nopeaa palauttamista Eurooppaan Ukrainan kautta kulkevia putkia pitkin. Asiasta kertoo yhdysvaltalaislehti Wall Street Journal yhdysvaltalaisiin, eurooppalaisiin ja ukrainalaisiin viranomaislähteisiin pohjaten. Ehdotus liittyy neuvotteluihin, joissa "
+  }
+ },
+ {
+  "id": 89,
+  "same": false,
+  "cross_lang": false,
+  "reason": "hard neg: Florida plane crash vs Spain train crash",
+  "a": {
+   "source": "france24",
+   "lang": "en",
+   "title": "Nine dead in small plane crash near Trump's Florida home",
+   "lead": "Nine people were killed Sunday when the Learjet they were travelling in plummeted into a neighbourhood in southern Florida, just miles from US President Donald Trump's resort home of Mar-a-Lago, officials said."
+  },
+  "b": {
+   "source": "straitstimes",
+   "lang": "en",
+   "title": "Four US citizens, Canadian among Spain train crash dead: Official",
+   "lead": "The accident was Spain’s second high-speed train collision in 2026 and raised fresh questions about the country’s rail safety."
+  }
+ },
+ {
+  "id": 90,
+  "same": false,
+  "cross_lang": false,
+  "reason": "Vance 2028 road test vs DOJ intervening in midterms",
+  "a": {
+   "source": "thehill",
+   "lang": "en",
+   "title": "Vance road tests 2028 campaign as Trump’s midterm sideshow",
+   "lead": "Weatherford, TEXAS — Vice President Vance is homing in on his campaign message ahead of Election Day in what many see as a preview of a presidential bid in 2028 that seems all but certain. As President Trump has crisscrossed the country for almost daily midterm rallies in the final month of campaign"
+  },
+  "b": {
+   "source": "straitstimes",
+   "lang": "en",
+   "title": "Trump Justice Dept breaks with tradition to intervene in midterms",
+   "lead": "WASHINGTON, Nov 2 - President Donald Trump’s Justice Department has shown a willingness to intervene directly in Tuesday's midterm elections, breaking with decades of practice meant to avoid the appearance that its law enforcement powers are being used to benefit a political party or candidate."
+  }
+ },
+ {
+  "id": 91,
+  "same": false,
+  "cross_lang": false,
+  "reason": "hard neg: Oleshky truce claims vs fake emergency alerts",
+  "a": {
+   "source": "reuters",
+   "lang": "en",
+   "title": "Ukraine says Russia used Oleshky truce to rearm, Moscow assumes Kyiv did same - Reuters",
+   "lead": "Ukraine says Russia used Oleshky truce to rearm, Moscow assumes Kyiv did same Reuters"
+  },
+  "b": {
+   "source": "france24",
+   "lang": "en",
+   "title": "Ukraine and Russia report fake emergency alerts after cyberattacks target apps",
+   "lead": "Authorities in Ukraine and Russia said their emergency alert mobile apps had been targeted by cyberattacks, with users in Ukraine receiving false warnings of an imminent nuclear threat. Moscow said that hackers had sent fake emergency alerts after gaining access to the Russian Emergency Situations M"
+  }
+ },
+ {
+  "id": 92,
+  "same": false,
+  "cross_lang": false,
+  "reason": "hard neg: reviews of two different plays",
+  "a": {
+   "source": "ksml",
+   "lang": "fi",
+   "title": "Teatteriarvio | Hevosvoimia yhdistää tarttuvan musiikin, elämänfilosofisen tarinan ja hyväntuulisen yhdessäolon",
+   "lead": ""
+  },
+  "b": {
+   "source": "karjalainen",
+   "lang": "fi",
+   "title": "Teatteriarvio | Louhiteatterin 9 hyvää syytä elää on karun kaunis kuvaus yksilöstä ja yhteisöstä",
+   "lead": "Louhiteatterin juhlavuosi huipentuu 9 hyvää syytä elää -näytelmään."
+  }
+ },
+ {
+  "id": 93,
+  "same": false,
+  "cross_lang": false,
+  "reason": "El Salvador troops to Haiti vs Myanmar floods and hunger",
+  "a": {
+   "source": "hs",
+   "lang": "fi",
+   "title": "Jengisodat | Pieni El Salvador lähetti 2 000 sotilasta Haitiin, kun neljä maanmiestä siepattiin",
+   "lead": "El Salvadorin presidentti on mullistanut oman maansa käyttämällä armottomia otteita jengirikollisia vastaan. Nyt hän on lähettänyt tuhansia sotilaita Haitiin vapauttamaan neljä sotilasta."
+  },
+  "b": {
+   "source": "kansanuutiset",
+   "lang": "fi",
+   "title": "Sota ei ole Myanmarin ainoa kriisi – Tulvat, nälkä ja taudit koskettavat miljoonia",
+   "lead": "Lähes neljä miljoonaa ihmistä on joutunut jättämään kotinsa Myanmarissa. Nyt sisällissodan keskelle ovat iskeneet laajat tulvat ja taudit. Samaan aikaan sotilashallinto värvää lisää joukkoja ja vahvistaa otettaan maasta."
+  }
+ },
+ {
+  "id": 94,
+  "same": false,
+  "cross_lang": false,
+  "reason": "hard neg: noncitizen voter lists vs voters' economic mood",
+  "a": {
+   "source": "reuters",
+   "lang": "en",
+   "title": "How Trump’s noncitizen voter lists could affect the midterms - Reuters",
+   "lead": "How Trump’s noncitizen voter lists could affect the midterms Reuters"
+  },
+  "b": {
+   "source": "straitstimes",
+   "lang": "en",
+   "title": "American voters in a sour economic mood heading into midterm elections",
+   "lead": "They have President Trump’s policies in mind, and the vibe is sceptical, if not downright grumpy."
+  }
+ },
+ {
+  "id": 95,
+  "same": false,
+  "cross_lang": false,
+  "reason": "hard neg: election trutherism op-ed vs Stevens endorsement",
+  "a": {
+   "source": "nationalreview",
+   "lang": "en",
+   "title": "Election Trutherism Is Not a One-Sided Problem",
+   "lead": "Protecting faith in elections requires confronting sources of distrust on both sides of the aisle, Democrats included."
+  },
+  "b": {
+   "source": "reason",
+   "lang": "en",
+   "title": "Haley Stevens Endorses Mike Rogers, Spurns Leftist Abdul El-Sayed",
+   "lead": "Democrats are bluntly denouncing Stevens as a traitor."
+  }
+ },
+ {
+  "id": 96,
+  "same": false,
+  "cross_lang": false,
+  "reason": "hard neg: FSB booby-trapped goggles vs drone attack near Moscow",
+  "a": {
+   "source": "meduza",
+   "lang": "en",
+   "title": "Russia’s FSB says it intercepted shipment of booby-trapped FPV goggles meant for drone operators",
+   "lead": "Russia’s Federal Security Service (FSB) says its agents seized a shipment of FPV drone-control goggles that had been rigged with homemade explosives, recovering them from multiple regions across the country."
+  },
+  "b": {
+   "source": "thehindu",
+   "lang": "en",
+   "title": "Russia says drone hit 'industrial enterprise' near Moscow, Kyiv claims hit major refinery",
+   "lead": "Gleb Nikitin, governor of Nizhny Novgorod region, reported a \"massive drone attack\" during the night, during which an \"industrial enterprise in the Kstovo district sustained significant damage\""
+  }
+ },
+ {
+  "id": 97,
+  "same": false,
+  "cross_lang": false,
+  "reason": "hard neg: Supo on Russian cyber activity vs Stubb on message to Putin",
+  "a": {
+   "source": "is",
+   "lang": "fi",
+   "title": "Supon erikoistutkija: Venäjän kybertoiminta Suomea kohtaan on ”jatkuvaa”",
+   "lead": "Uusi kansallinen riskiarvio julkaistiin maanantaina."
+  },
+  "b": {
+   "source": "lansisavo",
+   "lang": "fi",
+   "title": "Stubb: Putinille viestittiin päättäväisesti, mutta provosoimatta",
+   "lead": "Presidentin mukaan Venäjän \"sotaisat toimet\" Ukrainan ulkopuolella merkitsevät sitä, että joudumme sietämään suurtakin epävarmuutta."
+  }
+ },
+ {
+  "id": 98,
+  "same": false,
+  "cross_lang": false,
+  "reason": "hard neg: car hits Forum wall vs fatal Kittila crash",
+  "a": {
+   "source": "is",
+   "lang": "fi",
+   "title": "Auto törmäsi Forumin seinään",
+   "lead": "Yksi henkilö loukkaantui."
+  },
+  "b": {
+   "source": "mtv",
+   "lang": "fi",
+   "title": "Yksi kuoli auton ja kaivinkoneen törmäyksessä Kittilässä",
+   "lead": "Henkilöauto törmäsi pysähdyksissä olleeseen kaivinkoneeseen. Henkilöauton matkustaja kuoli."
+  }
+ },
+ {
+  "id": 99,
+  "same": false,
+  "cross_lang": true,
+  "reason": "fi/en: Russian Rassvet satellite loss vs Pentagon ex-strategist leak",
+  "a": {
+   "source": "meduza",
+   "lang": "en",
+   "title": "Russia’s answer to Starlink has lost another satellite. Could the setback derail its plans for battlefield communications?",
+   "lead": "A second satellite from Russia’s “Rassvet” constellation, developed by the Russian company Bureau 1440, has fallen out of orbit and burned up in the atmosphere, the Ukrainian outlet Defence Express reported. Independent trackers that rely on data from the U.S. NORAD space catalog confirmed the loss "
+  },
+  "b": {
+   "source": "mvlehti",
+   "lang": "fi",
+   "title": "Pentagonin ex-strategi syytteessä Iranin ja Ukrainan konfliktien tietovuodoista",
+   "lead": "Pentagonin entisen sotilasstrategin väitetään vuotaneen salaista tietoa Iranista ja Ukrainasta toimittajille, Axios raportoi Yhdysvaltojen puolustushallinnon sisäiseen tutkintaan vedoten. The post Pentagonin ex-strategi syytteessä Iranin ja Ukrainan konfliktien tietovuodoista appeared first on MV-le"
+  }
+ },
+ {
+  "id": 100,
+  "same": false,
+  "cross_lang": true,
+  "reason": "fi/en hard neg: Yle volunteer-campaign feature vs El-Sayed fundraising and backlash",
+  "a": {
+   "source": "yle",
+   "lang": "fi",
+   "title": "Yle seurasi vapaaehtoisten vaalikampanjatyötä Michiganissa – tällainen oli vastaanotto",
+   "lead": "Yhdysvaltain välivaalit käydään huomenna. Yle seurasi vapaaehtoisten kampanjatyötä Michiganissa."
+  },
+  "b": {
+   "source": "guardian",
+   "lang": "en",
+   "title": "Abdul El-Sayed’s campaign reports record fundraising day as Haley Stevens faces backlash for endorsing his opponent – live",
+   "lead": "Democratic candidate for Michigan US Senate seat raised $2.4m on Sunday after congresswoman Haley Stevens pulled her endorsement of him in favor of Trump-backed Mike Rogers Sign up for the Breaking News US email The latest and final New York Times and Siena College poll before the midterm elections "
+  }
+ }
+]

@@ -1,0 +1,23 @@
+# Finnish parties for voice index T1/T2 (blueprint 2.3). Position p in -2..+2 = (CHES lrgen - 5) / 2.5, rounded to 2 decimals.
+# CHES = Chapel Hill Expert Survey, "lrgen" (0 left .. 10 right), Finland rows, FETCHED 2026-11-02 (not [UNVERIFIED]):
+#   2024: https://github.com/chesdata/chesdata.github.io/releases/download/ches-europe/CHES_2024_final_v2.csv  (position used)
+#   2019: https://github.com/chesdata/chesdata.github.io/releases/download/ches-europe/CHES2019V3.csv  (kept as ches2019 for reference)
+# Government as of 2026-11-02: Orpo cabinet = Kok, PS, RKP, KD (checked: ministers in eduskunta SeatingOfParliament table
+#   include Orpo/Kok, Purra/PS, Adlercreutz/RKP, Essayah/KD). Re-check after any government change.
+# MPs: data/mps.json, built by `node pipeline/fetch_mps.mjs` from
+#   https://avoindata.eduskunta.fi/api/v1/tables/SeatingOfParliament/rows  (party codes below, `minister` flag)
+# Matching: `variants` are lowercase prefixes (Finnish inflection: kokoomuksen, kokoomuslaiset); `abbr` match case-sensitively as whole words.
+# Caution: "keskusta" is also an ordinary word (centre); match only as party in context (see pipeline/voice.mjs).
+version: 1
+as_of: 2026-11
+parties:
+  - {code: kok,  name: Kansallinen Kokoomus,     seat_code: kok,  ches_2024: 7.82, ches_2019: 7.71, p: 1.13,  gov: true,  variants: [kokoomus, kokoomuslais], abbr: [Kok]}
+  - {code: ps,   name: Perussuomalaiset,         seat_code: ps,   ches_2024: 8.18, ches_2019: 7.57, p: 1.27,  gov: true,  variants: [perussuomalai], abbr: [PS]}
+  - {code: r,    name: Suomen ruotsalainen kansanpuolue (RKP), seat_code: r, ches_2024: 6.36, ches_2019: 6.0, p: 0.55, gov: true, variants: [ruotsalainen kansanpuolue, rkp], abbr: [RKP, SFP]}
+  - {code: kd,   name: Kristillisdemokraatit,    seat_code: kd,   ches_2024: 7.55, ches_2019: 6.86, p: 1.02,  gov: true,  variants: [kristillisdemokraat], abbr: [KD]}
+  - {code: sd,   name: Suomen Sosialidemokraattinen Puolue, seat_code: sd, ches_2024: 3.55, ches_2019: 3.14, p: -0.58, gov: false, variants: [sosiaalidemokraat, sosialidemokraat], abbr: [SDP]}
+  - {code: kesk, name: Suomen Keskusta,          seat_code: kesk, ches_2024: 5.73, ches_2019: 5.86, p: 0.29,  gov: false, variants: [keskustapuolue, keskustalai, keskustan, keskusta], abbr: [Kesk]}
+  - {code: vihr, name: Vihreä liitto,            seat_code: vihr, ches_2024: 3.91, ches_2019: 3.71, p: -0.44, gov: false, variants: [vihreä, vihreiden, vihreät], abbr: [Vihr]}
+  - {code: vas,  name: Vasemmistoliitto,         seat_code: vas,  ches_2024: 1.55, ches_2019: 1.5,  p: -1.38, gov: false, variants: [vasemmistoliit, vasemmistolai], abbr: [Vas]}
+  - {code: liik, name: Liike Nyt,                seat_code: liik, ches_2024: 7.56, ches_2019: null, p: 1.02,  gov: false, variants: [liike nyt], abbr: [], note: "1 MP (Harkimo); CHES 2024 has a row, 2019 none."}
+# Seat code `tv` (1 MP, Timo Vornanen) is not mapped: no CHES row and the party was not identified from the API. Add if needed.

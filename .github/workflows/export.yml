@@ -1,0 +1,36 @@
+# Weekly: dump v_sources + v_outlet_lean to data/export/*.json and commit. The commit is also the keepalive:
+# GitHub disables cron workflows after 60 days without repo activity (the commit is skipped if nothing changed, so a touch file is added).
+# Two jobs: `dump` has the DB secret and a read-only token; `commit` has the write token and no DB secret.
+name: export
+on:
+  schedule: [{ cron: '41 5 * * 1' }]
+  workflow_dispatch:
+permissions: {}
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions: { contents: read }
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with: { persist-credentials: false }
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: node pipeline/export.mjs
+        env: { V_DB_URL: '${{ secrets.V_DB_URL }}' }
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with: { name: export, path: data/export, retention-days: 1 }
+  commit:
+    needs: dump
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions: { contents: write }
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with: { name: export, path: data/export }
+      - run: date -u +%FT%TZ > data/export/last_export.txt
+      - run: |
+          git config user.name 'v-export'; git config user.email 'v-export@users.noreply.github.com'
+          git add data/export && git commit -m 'V: viikoittainen vienti' && git push

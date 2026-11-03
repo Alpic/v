@@ -1,0 +1,22 @@
+{
+  "name": "v-pipeline",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "run": "node pipeline/run.mjs",
+    "dry": "V_DRY=1 node pipeline/run.mjs",
+    "seed": "node pipeline/seed.mjs",
+    "lean": "node pipeline/lean.mjs"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "4.3.2",
+    "@mozilla/readability": "^0.6.0",
+    "fast-xml-parser": "^5.11.2",
+    "linkedom": "^0.18.15",
+    "postgres": "3.4.7"
+  }
+}

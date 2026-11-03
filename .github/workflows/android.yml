@@ -1,0 +1,94 @@
+name: Android
+
+on:
+  push:
+    tags: ["app-v*"]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version x.y.z (tag app-vX.Y.Z is created if missing)"
+        required: true
+
+permissions: {}
+
+concurrency: android-release
+
+jobs:
+  # Job 1 builds and signs. It holds the keystore secrets but only a READ token: it cannot push, tag or release.
+  build:
+    runs-on: ubuntu-latest
+    permissions: { contents: read }
+    outputs:
+      vname: ${{ steps.ver.outputs.vname }}
+      vcode: ${{ steps.ver.outputs.vcode }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with: { persist-credentials: false }
+      - uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3 # v4.9.1
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407 # v3.2.2
+      - uses: gradle/actions/setup-gradle@748248ddd2a24f49513d8f472f81c3a07d4d50e1 # v4.4.4
+
+      - name: Version from tag / input
+        id: ver
+        env:
+          IN_VERSION: ${{ github.event.inputs.version }}
+        run: |
+          V="$IN_VERSION"
+          [ -n "$V" ] || V="${GITHUB_REF_NAME#app-v}"
+          echo "$V" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$' || { echo "bad version: $V"; exit 1; }
+          IFS=. read -r MA MI PA <<< "$V"
+          echo "vname=$V" >> "$GITHUB_OUTPUT"
+          echo "vcode=$((MA * 10000 + MI * 100 + PA))" >> "$GITHUB_OUTPUT"
+
+      - name: Build signed release APK
+        working-directory: android
+        env:
+          VNAME: ${{ steps.ver.outputs.vname }}
+          VCODE: ${{ steps.ver.outputs.vcode }}
+          V_KEYSTORE_B64: ${{ secrets.V_KEYSTORE_B64 }}
+          V_KEYSTORE_PASS: ${{ secrets.V_KEYSTORE_PASS }}
+          V_KEY_ALIAS: ${{ secrets.V_KEY_ALIAS }}
+          V_KEY_PASS: ${{ secrets.V_KEY_PASS }}
+        run: |
+          [ -n "$V_KEYSTORE_B64" ] || { echo "V_KEYSTORE_B64 secret missing (see docs/ANDROID.md)"; exit 1; }
+          ./gradlew assembleRelease -PversionCode=$VCODE -PversionName=$VNAME --no-daemon
+          cp app/build/outputs/apk/release/app-release.apk "$GITHUB_WORKSPACE/v.apk"
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with: { name: v-apk, path: v.apk, retention-days: 1, if-no-files-found: error }
+
+  # Job 2 publishes. It has the write token but NO signing secrets and runs no third-party actions.
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions: { contents: write }
+    env:
+      VNAME: ${{ needs.build.outputs.vname }}
+      VCODE: ${{ needs.build.outputs.vcode }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with: { name: v-apk }
+
+      - name: GitHub release (v.apk)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "app-v$VNAME" v.apk --target "$GITHUB_SHA" --title "V $VNAME" \
+            --notes "V $VNAME (versionCode $VCODE)" || gh release upload "app-v$VNAME" v.apk --clobber
+
+      # web/version.json is owned by this repo (Alpic/v); tools/sync_v.sh never overwrites it. pages.yml runs after this workflow (workflow_run).
+      - name: Commit sha256 + versionCode to web/version.json on main
+        run: |
+          SHA=$(sha256sum v.apk | cut -d' ' -f1); SIZE=$(stat -c %s v.apk)
+          git fetch origin main && git checkout -f main
+          jq --argjson vc "$VCODE" --arg vn "$VNAME" --arg sha "$SHA" --argjson size "$SIZE" --arg d "$(date -u +%F)" \
+            '.versionCode=$vc | .versionName=$vn | .sha256=$sha | .size=$size | .date=$d' web/version.json > /tmp/v.json
+          mv /tmp/v.json web/version.json
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add web/version.json
+          git commit -m "version.json: $VNAME ($VCODE)" || exit 0
+          git push origin main

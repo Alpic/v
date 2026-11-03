@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; connect-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#1C1E22">
+<title>Lataa V-sovellus</title>
+<link rel="stylesheet" href="style.css">
+<style>.wrap{max-width:560px;margin:0 auto;padding:calc(32px + env(safe-area-inset-top,0px)) 16px 40px}.wrap h1{margin:20px 0 8px}.wrap ol{padding-left:22px;margin:16px 0}.wrap li{margin-bottom:10px}.meta{display:grid;grid-template-columns:90px 1fr;gap:6px 12px;font-size:14px;margin:16px 0}.meta dt{color:var(--ink-2)}.meta dd{margin:0}.en{margin-top:36px;padding-top:24px;border-top:1px solid var(--line)}</style>
+</head>
+<body>
+<div class="wrap">
+<a class="mark" href="./" aria-label="V"><b>V</b><span class="t-meta">Kuljento</span></a>
+<h1 class="h-story">Lataa V Androidille</h1>
+<p class="t-sec">Sovellus avaa saman V:n kuin verkkosivu. Verkkosivu toimii myös ilman sovellusta: <a class="lnk" href="./">v.kuljento.fi</a>.</p>
+<dl class="meta"><dt>Versio</dt><dd id="v">1</dd><dt>Koko</dt><dd id="sz">Ei tietoa</dd><dt>Päivämäärä</dt><dd id="dt">Ei tietoa</dd><dt>SHA-256</dt><dd id="sha" class="mono12">Ei tietoa</dd></dl>
+<p><a class="btn pri" id="dl" href="https://github.com/Alpic/v/releases/latest/download/v.apk">Lataa APK</a></p>
+<ol><li>Avaa ladattu v.apk-tiedosto puhelimen Lataukset-kansiosta.</li><li>Android kysyy kerran, saako selain asentaa sovelluksia tuntemattomista lähteistä. Salli se tälle selaimelle.</li><li>Jos Play Protect varoittaa tuntemattomasta sovelluksesta, valitse Asenna silti. Tarkista tarvittaessa yllä oleva SHA-256.</li></ol>
+<p class="t-meta">Sovellus päivittää sisältönsä itse. Uusi asennus tarvitaan vain, kun sovelluksen natiivi osa muuttuu.</p>
+<section class="en" lang="en"><h2 class="h-sec">Get V for Android</h2><p class="t-sec" style="margin:8px 0 12px">The app opens the same V as the website. The website also works without it.</p>
+<ol><li>Open the downloaded v.apk from your Downloads folder.</li><li>Android asks once whether your browser may install apps from unknown sources. Allow it for this browser.</li><li>If Play Protect warns about an unknown app, choose Install anyway. Check the SHA-256 above if you like.</li></ol></section>
+</div>
+<script src="lataa.js"></script>
+</body>
+</html>

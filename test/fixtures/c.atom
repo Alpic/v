@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Atom C</title>
+<entry><title type="html">Riksdagen röstade om budgeten</title><link rel="self" href="https://c.example/feed/3"/><link rel="alternate" href="https://c.example/sv/3"/>
+<updated>2026-11-02T06:00:00Z</updated><summary>Regeringen och oppositionen oense.</summary></entry>
+</feed>

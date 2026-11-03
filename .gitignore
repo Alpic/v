@@ -1,0 +1,9 @@
+node_modules/
+.cache/
+out/
+.env*
+*.jks
+*.keystore
+*.p12
+local.properties
+android/**/build/

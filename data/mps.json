@@ -1,0 +1,1406 @@
+{
+ "fetched_on": "2026-11-02",
+ "source": "https://avoindata.eduskunta.fi/api/v1/tables/SeatingOfParliament/rows",
+ "mps": [
+  {
+   "id": "1109",
+   "seat": 0,
+   "name": "Jussi Halla-aho",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1155",
+   "seat": 1,
+   "name": "Anna Kontula",
+   "party": "vas",
+   "minister": false
+  },
+  {
+   "id": "511",
+   "seat": 2,
+   "name": "Pia Viitanen",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "358",
+   "seat": 3,
+   "name": "Johannes Koskinen",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "451",
+   "seat": 4,
+   "name": "Tarja Filatov",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "846",
+   "seat": 5,
+   "name": "Oras Tynkkynen",
+   "party": "vihr",
+   "minister": false
+  },
+  {
+   "id": "772",
+   "seat": 6,
+   "name": "Antti Kaikkonen",
+   "party": "kesk",
+   "minister": false
+  },
+  {
+   "id": "583",
+   "seat": 7,
+   "name": "Mika Lintilä",
+   "party": "kesk",
+   "minister": false
+  },
+  {
+   "id": "351",
+   "seat": 8,
+   "name": "Eva Biaudet",
+   "party": "r",
+   "minister": false
+  },
+  {
+   "id": "499",
+   "seat": 9,
+   "name": "Päivi Räsänen",
+   "party": "kd",
+   "minister": false
+  },
+  {
+   "id": "563",
+   "seat": 10,
+   "name": "Pertti Hemmilä",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "809",
+   "seat": 11,
+   "name": "Paula Risikko",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "784",
+   "seat": 12,
+   "name": "Arto Satonen",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1094",
+   "seat": 13,
+   "name": "Markku Eestilä",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1096",
+   "seat": 14,
+   "name": "Ritva Elomaa",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1129",
+   "seat": 15,
+   "name": "Arja Juvonen",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1093",
+   "seat": 16,
+   "name": "Juho Eerola",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1312",
+   "seat": 17,
+   "name": "Hanna Sarkkinen",
+   "party": "vas",
+   "minister": false
+  },
+  {
+   "id": "794",
+   "seat": 18,
+   "name": "Tuula Väätäinen",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "971",
+   "seat": 19,
+   "name": "Johanna Ojala-Niemelä",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "960",
+   "seat": 20,
+   "name": "Krista Kiuru",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "538",
+   "seat": 21,
+   "name": "Tuula Haatainen",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "464",
+   "seat": 22,
+   "name": "Kimmo Kiljunen",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1298",
+   "seat": 23,
+   "name": "Krista Mikkonen",
+   "party": "vihr",
+   "minister": false
+  },
+  {
+   "id": "953",
+   "seat": 24,
+   "name": "Anne Kalmari",
+   "party": "kesk",
+   "minister": false
+  },
+  {
+   "id": "797",
+   "seat": 25,
+   "name": "Hannu Hoskonen",
+   "party": "kesk",
+   "minister": false
+  },
+  {
+   "id": "1345",
+   "seat": 26,
+   "name": "Mats Löfström",
+   "party": "r",
+   "minister": false
+  },
+  {
+   "id": "1318",
+   "seat": 27,
+   "name": "Joakim Strand",
+   "party": "r",
+   "minister": true
+  },
+  {
+   "id": "778",
+   "seat": 28,
+   "name": "Sari Essayah",
+   "party": "kd",
+   "minister": true
+  },
+  {
+   "id": "1131",
+   "seat": 29,
+   "name": "Sinuhe Wallinheimo",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1137",
+   "seat": 30,
+   "name": "Pauli Kiuru",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "612",
+   "seat": 31,
+   "name": "Sari Sarkomaa",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1349",
+   "seat": 32,
+   "name": "Leena Meri",
+   "party": "ps",
+   "minister": true
+  },
+  {
+   "id": "1413",
+   "seat": 33,
+   "name": "Jari Koskela",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1136",
+   "seat": 34,
+   "name": "Ville Vähämäki",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1308",
+   "seat": 35,
+   "name": "Jari Ronkainen",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1327",
+   "seat": 36,
+   "name": "Ville Tavio",
+   "party": "ps",
+   "minister": true
+  },
+  {
+   "id": "1418",
+   "seat": 37,
+   "name": "Veijo Niemi",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1314",
+   "seat": 38,
+   "name": "Sami Savio",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1485",
+   "seat": 39,
+   "name": "Minja Koskela",
+   "party": "vas",
+   "minister": false
+  },
+  {
+   "id": "1097",
+   "seat": 40,
+   "name": "Aino-Kaisa Pekonen",
+   "party": "vas",
+   "minister": false
+  },
+  {
+   "id": "1144",
+   "seat": 41,
+   "name": "Suna Kymäläinen",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1133",
+   "seat": 42,
+   "name": "Mika Kari",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1126",
+   "seat": 43,
+   "name": "Tytti Tuppurainen",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1147",
+   "seat": 44,
+   "name": "Antti Lindtman",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1099",
+   "seat": 45,
+   "name": "Eeva-Johanna Eloranta",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1411",
+   "seat": 46,
+   "name": "Sofia Virta",
+   "party": "vihr",
+   "minister": false
+  },
+  {
+   "id": "1401",
+   "seat": 47,
+   "name": "Tiina Elo",
+   "party": "vihr",
+   "minister": false
+  },
+  {
+   "id": "1338",
+   "seat": 48,
+   "name": "Hanna Kosonen",
+   "party": "kesk",
+   "minister": false
+  },
+  {
+   "id": "1106",
+   "seat": 49,
+   "name": "Mikko Savola",
+   "party": "kesk",
+   "minister": false
+  },
+  {
+   "id": "1149",
+   "seat": 50,
+   "name": "Markus Lohi",
+   "party": "kesk",
+   "minister": false
+  },
+  {
+   "id": "1406",
+   "seat": 51,
+   "name": "Sandra Bergqvist",
+   "party": "r",
+   "minister": false
+  },
+  {
+   "id": "1141",
+   "seat": 52,
+   "name": "Peter Östman",
+   "party": "kd",
+   "minister": false
+  },
+  {
+   "id": "1100",
+   "seat": 53,
+   "name": "Sanni Grahn-Laasonen",
+   "party": "kok",
+   "minister": true
+  },
+  {
+   "id": "947",
+   "seat": 54,
+   "name": "Petteri Orpo",
+   "party": "kok",
+   "minister": true
+  },
+  {
+   "id": "967",
+   "seat": 55,
+   "name": "Timo Heinonen",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "301",
+   "seat": 56,
+   "name": "Ben Zyskowicz",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1333",
+   "seat": 57,
+   "name": "Laura Huhtasaari",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1392",
+   "seat": 58,
+   "name": "Riikka Purra",
+   "party": "ps",
+   "minister": true
+  },
+  {
+   "id": "1301",
+   "seat": 59,
+   "name": "Jani Mäkelä",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1282",
+   "seat": 60,
+   "name": "Wille Rydman",
+   "party": "ps",
+   "minister": true
+  },
+  {
+   "id": "1388",
+   "seat": 61,
+   "name": "Mari Rantanen",
+   "party": "ps",
+   "minister": true
+  },
+  {
+   "id": "1435",
+   "seat": 62,
+   "name": "Minna Reijonen",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1455",
+   "seat": 63,
+   "name": "Kaisa Juuso",
+   "party": "ps",
+   "minister": true
+  },
+  {
+   "id": "1426",
+   "seat": 64,
+   "name": "Sheikki Laakso",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1399",
+   "seat": 65,
+   "name": "Pia Lohikoski",
+   "party": "vas",
+   "minister": false
+  },
+  {
+   "id": "1384",
+   "seat": 66,
+   "name": "Mai Kivelä",
+   "party": "vas",
+   "minister": false
+  },
+  {
+   "id": "1383",
+   "seat": 67,
+   "name": "Veronika Honkasalo",
+   "party": "vas",
+   "minister": false
+  },
+  {
+   "id": "1430",
+   "seat": 68,
+   "name": "Seppo Eskelinen",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1443",
+   "seat": 69,
+   "name": "Kim Berg",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1274",
+   "seat": 70,
+   "name": "Antti Rinne",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1380",
+   "seat": 71,
+   "name": "Riitta Kaarisalo",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1316",
+   "seat": 72,
+   "name": "Ville Skinnari",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1326",
+   "seat": 73,
+   "name": "Timo Harakka",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "970",
+   "seat": 74,
+   "name": "Marko Asell",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1445",
+   "seat": 75,
+   "name": "Bella Forsgrén",
+   "party": "vihr",
+   "minister": false
+  },
+  {
+   "id": "1382",
+   "seat": 76,
+   "name": "Hanna-Leena Mattila",
+   "party": "kesk",
+   "minister": false
+  },
+  {
+   "id": "1331",
+   "seat": 77,
+   "name": "Petri Honkonen",
+   "party": "kesk",
+   "minister": false
+  },
+  {
+   "id": "1341",
+   "seat": 78,
+   "name": "Antti Kurvinen",
+   "party": "kesk",
+   "minister": false
+  },
+  {
+   "id": "1189",
+   "seat": 79,
+   "name": "Otto Andersson",
+   "party": "r",
+   "minister": false
+  },
+  {
+   "id": "1306",
+   "seat": 80,
+   "name": "Anders Adlercreutz",
+   "party": "r",
+   "minister": true
+  },
+  {
+   "id": "1325",
+   "seat": 81,
+   "name": "Sari Tanus",
+   "party": "kd",
+   "minister": false
+  },
+  {
+   "id": "1323",
+   "seat": 82,
+   "name": "Mari-Leena Talvitie",
+   "party": "kok",
+   "minister": true
+  },
+  {
+   "id": "1299",
+   "seat": 83,
+   "name": "Sari Multala",
+   "party": "kok",
+   "minister": true
+  },
+  {
+   "id": "1279",
+   "seat": 84,
+   "name": "Elina Valtonen",
+   "party": "kok",
+   "minister": true
+  },
+  {
+   "id": "1135",
+   "seat": 85,
+   "name": "Pia Kauma",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1134",
+   "seat": 86,
+   "name": "Sofia Vikman",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1391",
+   "seat": 87,
+   "name": "Ari Koponen",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1417",
+   "seat": 88,
+   "name": "Lulu Ranne",
+   "party": "ps",
+   "minister": true
+  },
+  {
+   "id": "1439",
+   "seat": 89,
+   "name": "Mauri Peltokangas",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1409",
+   "seat": 90,
+   "name": "Vilhelm Junnila",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1450",
+   "seat": 91,
+   "name": "Jenna Simula",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1467",
+   "seat": 92,
+   "name": "Petri Huru",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1419",
+   "seat": 93,
+   "name": "Sakari Puisto",
+   "party": "ps",
+   "minister": true
+  },
+  {
+   "id": "1437",
+   "seat": 94,
+   "name": "Juha Mäenpää",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1527",
+   "seat": 95,
+   "name": "Pia Sillanpää",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1526",
+   "seat": 96,
+   "name": "Anne Rintamäki",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1407",
+   "seat": 97,
+   "name": "Johannes Yrttiaho",
+   "party": "vas",
+   "minister": false
+  },
+  {
+   "id": "1469",
+   "seat": 98,
+   "name": "Matias Mäkynen",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1429",
+   "seat": 99,
+   "name": "Paula Werning",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1311",
+   "seat": 100,
+   "name": "Joona Räsänen",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1447",
+   "seat": 101,
+   "name": "Piritta Rantanen",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1428",
+   "seat": 102,
+   "name": "Niina Malm",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1408",
+   "seat": 103,
+   "name": "Aki Lindén",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1398",
+   "seat": 104,
+   "name": "Johan Kvarnström",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1390",
+   "seat": 105,
+   "name": "Eveliina Heinäluoma",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1385",
+   "seat": 106,
+   "name": "Atte Harjanne",
+   "party": "vihr",
+   "minister": false
+  },
+  {
+   "id": "1424",
+   "seat": 107,
+   "name": "Hanna Holopainen",
+   "party": "vihr",
+   "minister": false
+  },
+  {
+   "id": "1412",
+   "seat": 108,
+   "name": "Eeva Kalli",
+   "party": "kesk",
+   "minister": false
+  },
+  {
+   "id": "1433",
+   "seat": 109,
+   "name": "Hanna Räsänen",
+   "party": "kesk",
+   "minister": false
+  },
+  {
+   "id": "913",
+   "seat": 110,
+   "name": "Eerikki Viljanen",
+   "party": "kesk",
+   "minister": false
+  },
+  {
+   "id": "1440",
+   "seat": 111,
+   "name": "Anders Norrback",
+   "party": "r",
+   "minister": false
+  },
+  {
+   "id": "1495",
+   "seat": 112,
+   "name": "Mika Poutala",
+   "party": "kd",
+   "minister": true
+  },
+  {
+   "id": "1432",
+   "seat": 113,
+   "name": "Marko Kilpi",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1379",
+   "seat": 114,
+   "name": "Mia Laiho",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1265",
+   "seat": 115,
+   "name": "Matias Marttinen",
+   "party": "kok",
+   "minister": true
+  },
+  {
+   "id": "1142",
+   "seat": 116,
+   "name": "Jukka Kopra",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1334",
+   "seat": 117,
+   "name": "Antti Häkkänen",
+   "party": "kok",
+   "minister": true
+  },
+  {
+   "id": "1089",
+   "seat": 118,
+   "name": "Heikki Autto",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1434",
+   "seat": 119,
+   "name": "Sanna Antikainen",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1452",
+   "seat": 120,
+   "name": "Pekka Aittakumpu",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1499",
+   "seat": 121,
+   "name": "Jorma Piisinen",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1531",
+   "seat": 122,
+   "name": "Tomi Immonen",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1508",
+   "seat": 123,
+   "name": "Rami Lehtinen",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1498",
+   "seat": 124,
+   "name": "Teemu Keskisarja",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1516",
+   "seat": 125,
+   "name": "Jaana Strandman",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1509",
+   "seat": 126,
+   "name": "Mira Nieminen",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1523",
+   "seat": 127,
+   "name": "Laura Meriluoto",
+   "party": "vas",
+   "minister": false
+  },
+  {
+   "id": "1502",
+   "seat": 128,
+   "name": "Timo Furuholm",
+   "party": "vas",
+   "minister": false
+  },
+  {
+   "id": "1539",
+   "seat": 129,
+   "name": "Helena Marttila",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1511",
+   "seat": 130,
+   "name": "Lauri Lyly",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1529",
+   "seat": 131,
+   "name": "Jani Kokko",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1534",
+   "seat": 132,
+   "name": "Pia Hiltunen",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1488",
+   "seat": 133,
+   "name": "Elisa Gebhard",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1202",
+   "seat": 134,
+   "name": "Nasima Razmyar",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1402",
+   "seat": 135,
+   "name": "Inka Hopsu",
+   "party": "vihr",
+   "minister": false
+  },
+  {
+   "id": "1403",
+   "seat": 136,
+   "name": "Saara Hyrkkö",
+   "party": "vihr",
+   "minister": false
+  },
+  {
+   "id": "1468",
+   "seat": 137,
+   "name": "Tuomas Kettunen",
+   "party": "kesk",
+   "minister": false
+  },
+  {
+   "id": "1415",
+   "seat": 138,
+   "name": "Hilkka Kemppi",
+   "party": "kesk",
+   "minister": false
+  },
+  {
+   "id": "1422",
+   "seat": 139,
+   "name": "Jouni Ovaska",
+   "party": "kesk",
+   "minister": false
+  },
+  {
+   "id": "1501",
+   "seat": 140,
+   "name": "Henrik Wickström",
+   "party": "r",
+   "minister": false
+  },
+  {
+   "id": "1441",
+   "seat": 141,
+   "name": "Mikko Ollikainen",
+   "party": "r",
+   "minister": false
+  },
+  {
+   "id": "1483",
+   "seat": 142,
+   "name": "Ville Valkonen",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1481",
+   "seat": 143,
+   "name": "Atte Kaleva",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1421",
+   "seat": 144,
+   "name": "Anna-Kaisa Ikonen",
+   "party": "kok",
+   "minister": true
+  },
+  {
+   "id": "1454",
+   "seat": 145,
+   "name": "Janne Heikkinen",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1396",
+   "seat": 146,
+   "name": "Heikki Vestman",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1425",
+   "seat": 147,
+   "name": "Ville Kaunisto",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1394",
+   "seat": 148,
+   "name": "Pihla Keto-Huovinen",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1389",
+   "seat": 149,
+   "name": "Terhi Koulumies",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1535",
+   "seat": 150,
+   "name": "Antti Kangas",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1538",
+   "seat": 151,
+   "name": "Sara Seppänen",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "911826",
+   "seat": 152,
+   "name": "Merja Rasinkangas",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1410",
+   "seat": 153,
+   "name": "Mikko Lundén",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1530",
+   "seat": 154,
+   "name": "Kaisa Garedew",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1522",
+   "seat": 155,
+   "name": "Timo Vornanen",
+   "party": "tv",
+   "minister": false
+  },
+  {
+   "id": "911824",
+   "seat": 156,
+   "name": "Jessi Jokelainen",
+   "party": "vas",
+   "minister": false
+  },
+  {
+   "id": "1506",
+   "seat": 157,
+   "name": "Juha Viitala",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1521",
+   "seat": 158,
+   "name": "Timo Suhonen",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1497",
+   "seat": 159,
+   "name": "Pinja Perholehto",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1503",
+   "seat": 160,
+   "name": "Saku Nikkanen",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1519",
+   "seat": 161,
+   "name": "Anna-Kristiina Mikkonen",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1512",
+   "seat": 162,
+   "name": "Ville Merinen",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "1386",
+   "seat": 163,
+   "name": "Mari Holopainen",
+   "party": "vihr",
+   "minister": false
+  },
+  {
+   "id": "1449",
+   "seat": 164,
+   "name": "Jenni Pitko",
+   "party": "vihr",
+   "minister": false
+  },
+  {
+   "id": "1524",
+   "seat": 165,
+   "name": "Markku Siponen",
+   "party": "kesk",
+   "minister": false
+  },
+  {
+   "id": "1518",
+   "seat": 166,
+   "name": "Vesa Kallio",
+   "party": "kesk",
+   "minister": false
+  },
+  {
+   "id": "1532",
+   "seat": 167,
+   "name": "Timo Mehtälä",
+   "party": "kesk",
+   "minister": false
+  },
+  {
+   "id": "911821",
+   "seat": 168,
+   "name": "Christoffer Ingo",
+   "party": "r",
+   "minister": false
+  },
+  {
+   "id": "1493",
+   "seat": 169,
+   "name": "Tere Sammallahti",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1505",
+   "seat": 170,
+   "name": "Milla Lahdenperä",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1513",
+   "seat": 171,
+   "name": "Aleksi Jäntti",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1491",
+   "seat": 172,
+   "name": "Jarno Limnell",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1510",
+   "seat": 173,
+   "name": "Teemu Kinnari",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1504",
+   "seat": 174,
+   "name": "Pauli Aalto-Setälä",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1492",
+   "seat": 175,
+   "name": "Susanne Päivärinta",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1537",
+   "seat": 176,
+   "name": "Juha Hänninen",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1486",
+   "seat": 177,
+   "name": "Jarmo Lindberg",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "911828",
+   "seat": 178,
+   "name": "Henrik Vuornos",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1514",
+   "seat": 179,
+   "name": "Miko Bergbom",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1515",
+   "seat": 180,
+   "name": "Joakim Vigelius",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "1500",
+   "seat": 181,
+   "name": "Onni Rostila",
+   "party": "ps",
+   "minister": false
+  },
+  {
+   "id": "911831",
+   "seat": 182,
+   "name": "Anette Karlsson",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "911829",
+   "seat": 183,
+   "name": "Hanna Laine-Nousimaa",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "911820",
+   "seat": 184,
+   "name": "Lotta Hamari",
+   "party": "sd",
+   "minister": false
+  },
+  {
+   "id": "911823",
+   "seat": 185,
+   "name": "Alviina Alametsä",
+   "party": "vihr",
+   "minister": false
+  },
+  {
+   "id": "1489",
+   "seat": 186,
+   "name": "Fatim Diarra",
+   "party": "vihr",
+   "minister": false
+  },
+  {
+   "id": "1536",
+   "seat": 187,
+   "name": "Mikko Polvinen",
+   "party": "kesk",
+   "minister": false
+  },
+  {
+   "id": "911830",
+   "seat": 188,
+   "name": "Mauri Kontu",
+   "party": "kesk",
+   "minister": false
+  },
+  {
+   "id": "911827",
+   "seat": 189,
+   "name": "Mika Riipi",
+   "party": "kesk",
+   "minister": false
+  },
+  {
+   "id": "1533",
+   "seat": 190,
+   "name": "Olga Oinas-Panuma",
+   "party": "kesk",
+   "minister": false
+  },
+  {
+   "id": "1328",
+   "seat": 191,
+   "name": "Harry Harkimo",
+   "party": "liik",
+   "minister": false
+  },
+  {
+   "id": "911825",
+   "seat": 192,
+   "name": "Martin Paasi",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "911822",
+   "seat": 193,
+   "name": "Maaret Castrén",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1490",
+   "seat": 194,
+   "name": "Noora Fagerström",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1520",
+   "seat": 195,
+   "name": "Karoliina Partanen",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1507",
+   "seat": 196,
+   "name": "Mari Kaunistola",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1525",
+   "seat": 197,
+   "name": "Janne Jukkola",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1517",
+   "seat": 198,
+   "name": "Oskari Valtola",
+   "party": "kok",
+   "minister": false
+  },
+  {
+   "id": "1528",
+   "seat": 199,
+   "name": "Ville Väyrynen",
+   "party": "kok",
+   "minister": false
+  }
+ ]
+}

@@ -1,0 +1,26 @@
+# Daily: crowd signals A (sharing alignment) + B (perception): collect -> classify -> score -> v_outlet_audience / v_outlet_talk / v_validation.
+name: crowd
+on:
+  schedule: [{ cron: '41 3 * * *' }]
+  workflow_dispatch:
+concurrency: { group: crowd, cancel-in-progress: false }
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: node pipeline/crowd/run.mjs
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          CROWD_SALT: ${{ secrets.CROWD_SALT }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_KEY_2: ${{ secrets.GEMINI_KEY_2 }}
+          GEMINI_KEY_3: ${{ secrets.GEMINI_KEY_3 }}
+          GEMINI_KEY_4: ${{ secrets.GEMINI_KEY_4 }}
+          GEMINI_KEY_5: ${{ secrets.GEMINI_KEY_5 }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}

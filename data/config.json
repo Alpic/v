@@ -1,0 +1,170 @@
+{
+  "version": 1,
+  "voice_visible": false,
+  "rank": {
+    "outlet_weight": 1,
+    "half_life_h": 18,
+    "article_weight": 0.3,
+    "top_min_outlets": 3,
+    "formula": "outlets*0.5^(age_h/18)+0.3*ln(1+articles)"
+  },
+  "cluster": {
+    "join_cos": 0.88,
+    "guard_jaccard": 0.12,
+    "guard_min_shared_tokens": 1,
+    "merge_cos": 0.91,
+    "twin_cos": 0.84,
+    "open_window_h": 48,
+    "dup_cos_same_source": 0.97,
+    "pairs_precision_min": 0.9,
+    "embed_model": "Xenova/multilingual-e5-small",
+    "embed_revision": "761b726dd34fb83930e26aab4e9ac3899aa1fa78",
+    "embed_sha256": "f80102d3f2a1229f387d3c81909990d8945513e347b0eab049f7de3c6f98c193",
+    "lead_chars": 300
+  },
+  "ingest": {
+    "timeout_s": 10,
+    "concurrency": 8,
+    "max_item_age_h": 72,
+    "dead_after_failures": 5,
+    "weekly_retry": true
+  },
+  "bars": {
+    "min_rated": 3,
+    "unrated_label": "Ei arvioitu",
+    "too_few_label": "Liian vähän arvioituja lähteitä"
+  },
+  "lean_map": {
+    "Left": -2,
+    "Left-Center": -1,
+    "Least Biased": 0,
+    "Right-Center": 1,
+    "Right": 2,
+    "unrated": [
+      "Pro-Science",
+      "Satire",
+      "Conspiracy-Pseudoscience",
+      "Questionable"
+    ]
+  },
+  "voice": {
+    "window_days": 90,
+    "buckets": [
+      -1.2,
+      -0.4,
+      0.4,
+      1.2
+    ],
+    "conf": {
+      "high_n": 200,
+      "medium_n": 100,
+      "low_n": 30,
+      "within_buckets": 1
+    },
+    "tie_diff_buckets": 1,
+    "gate": {
+      "labelled_articles": 100,
+      "t1_recall_min": 0.9,
+      "t3_agreement_min": 0.75
+    },
+    "t3_articles_per_outlet": 100,
+    "badge": "Kokeellinen arvio v1"
+  },
+  "sivuutetut": {
+    "window_h": 48,
+    "week_window_h": 168,
+    "active_group_min_articles": 10,
+    "order": [
+      "A",
+      "B",
+      "D"
+    ],
+    "A": {
+      "min_articles": 3,
+      "min_outlets_in_group": 2,
+      "min_active_groups": 4
+    },
+    "B": {
+      "min_rated": 4,
+      "min_groups": 2,
+      "min_conf": "medium",
+      "abs_mean_min": 1.0,
+      "side_share_min": 0.75,
+      "opposite_active_min": 2,
+      "needs_voice_visible": true
+    },
+    "D": {
+      "min_rated": 6,
+      "min_groups": 4,
+      "abs_mean_min": 1.0,
+      "side_share_min": 0.75
+    }
+  },
+  "clickbait": {
+    "threshold": 25,
+    "min_headlines": 100,
+    "window_days": 30,
+    "weights": {
+      "f1_question": 12,
+      "f2_superlative": 10,
+      "f3_watch": 15,
+      "f4_teaser": 15,
+      "f5_exclaim": 8,
+      "f6_allcaps": 8,
+      "f7_emotive": 12,
+      "f8_quote_only": 5,
+      "f9_number_list": 8,
+      "f10_et_prompt": 7
+    },
+    "llm_check_range": [
+      15,
+      35
+    ],
+    "calibration": "weights are proposals; tune on 300 hand-labelled headlines"
+  },
+  "summary": {
+    "min_outlets": 3,
+    "min_outlets_top30": 2,
+    "min_lead_words": 30,
+    "max_words": 60,
+    "max_extract_tokens": 2000,
+    "cite_cos_min": 0.6,
+    "regen_articles_growth": 0.3,
+    "regen_hours": 6,
+    "fail_rate_warn": 0.2,
+    "fail_rate_launch_max": 0.25
+  },
+  "retention": {
+    "emb_days": 3,
+    "bodies_days": 14,
+    "stories_days": 90,
+    "body_max_chars": 20000,
+    "db_warn_mb": 400,
+    "db_limit_mb": 500
+  },
+  "llm": {
+    "calls_per_run": 40,
+    "calls_per_day": 300,
+    "cool_s": 60,
+    "gemini_models": [
+      "flash-lite",
+      "flash"
+    ],
+    "openrouter_suffix": ":free"
+  },
+  "search": {
+    "window_days": 14
+  },
+  "flagged": {
+    "in_bars": false,
+    "in_sivuutetut": false,
+    "in_rank": false,
+    "visible_default": false
+  },
+  "gdelt": {
+    "max_per_run": 1500,
+    "files": 3,
+    "min_title_chars": 15,
+    "unmatched_retention_h": 12
+  }
+}

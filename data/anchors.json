@@ -1,0 +1,317 @@
+{
+ "built_on": "2026-11-02",
+ "source": "Wikidata P12361/P4033 x data/mps.json; handles verified via API",
+ "anchors": [
+  {
+   "platform": "bluesky",
+   "handle": "orastynkkynen.vihreat.fi",
+   "name": "Oras Tynkkynen",
+   "kind": "mp",
+   "party": "vihr",
+   "p": -0.44,
+   "verified": "bluesky-bio:did:plc:yruizaefazcjxztagqgi74jf+eduskunta:846",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "anttikaikkonen.bsky.social",
+   "name": "Antti Kaikkonen",
+   "kind": "mp",
+   "party": "kesk",
+   "p": 0.29,
+   "verified": "bluesky-bio:did:plc:z3sgie7uc2r3xvzptteyfbjc+eduskunta:772",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "evabiaudet.bsky.social",
+   "name": "Eva Biaudet",
+   "kind": "mp",
+   "party": "r",
+   "p": 0.55,
+   "verified": "bluesky-bio:did:plc:qmqarkaak643pslgbyhgnyyx+eduskunta:351",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "tuulahaatainen.bsky.social",
+   "name": "Tuula Haatainen",
+   "kind": "mp",
+   "party": "sd",
+   "p": -0.58,
+   "verified": "bluesky-bio:did:plc:wnfuvqgj7n4dqgznnqx6t6jm+eduskunta:538",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "mikkonenkrista.bsky.social",
+   "name": "Krista Mikkonen",
+   "kind": "mp",
+   "party": "vihr",
+   "p": -0.44,
+   "verified": "bluesky-bio:did:plc:2gubxtujqdus4ubh7r2otjdj+eduskunta:1298",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "swheimo.bsky.social",
+   "name": "Sinuhe Wallinheimo",
+   "kind": "mp",
+   "party": "kok",
+   "p": 1.13,
+   "verified": "bluesky-bio:did:plc:vn7kltejp6yvhe2mudrdrpxy+eduskunta:1131",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "kiurupauli.bsky.social",
+   "name": "Pauli Kiuru",
+   "kind": "mp",
+   "party": "kok",
+   "p": 1.13,
+   "verified": "bluesky-bio:did:plc:enncfknwcci3y3l372ylz7vx+eduskunta:1137",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "minjakoskela.bsky.social",
+   "name": "Minja Koskela",
+   "kind": "mp",
+   "party": "vas",
+   "p": -1.38,
+   "verified": "bluesky-bio:did:plc:wblmtf53d2fdijzvtf5aera7+eduskunta:1485",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "virtasofia.vihreat.fi",
+   "name": "Sofia Virta",
+   "kind": "mp",
+   "party": "vihr",
+   "p": -0.44,
+   "verified": "bluesky-bio:did:plc:xzo54r6enwf3rag3hkqpxxn6+eduskunta:1411",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "tiinaelo.vihreat.fi",
+   "name": "Tiina Elo",
+   "kind": "mp",
+   "party": "vihr",
+   "p": -0.44,
+   "verified": "bluesky-bio:did:plc:7zrqhedhffgm6in7q3yrl3l5+eduskunta:1401",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "hannakosonen.bsky.social",
+   "name": "Hanna Kosonen",
+   "kind": "mp",
+   "party": "kesk",
+   "p": 0.29,
+   "verified": "bluesky-bio:did:plc:bl44loymeweabpl32ds637nx+eduskunta:1338",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "mikkotsavola.bsky.social",
+   "name": "Mikko Savola",
+   "kind": "mp",
+   "party": "kesk",
+   "p": 0.29,
+   "verified": "bluesky-bio:did:plc:rc5bjqn4hxejjyzdl4rrpklj+eduskunta:1106",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "pialohikoski.bsky.social",
+   "name": "Pia Lohikoski",
+   "kind": "mp",
+   "party": "vas",
+   "p": -1.38,
+   "verified": "bluesky-bio:did:plc:nmqv4z3ufax5ytq4nkjziwdj+eduskunta:1399",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "maikivela.bsky.social",
+   "name": "Mai Kivelä",
+   "kind": "mp",
+   "party": "vas",
+   "p": -1.38,
+   "verified": "bluesky-bio:did:plc:4ftbs6o33bok7ud47gbepffc+eduskunta:1384",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "veronikahonkasalo.bsky.social",
+   "name": "Veronika Honkasalo",
+   "kind": "mp",
+   "party": "vas",
+   "p": -1.38,
+   "verified": "bluesky-bio:did:plc:hnv4sgrdsd7vhrikfcmijauq+eduskunta:1383",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "adleande.bsky.social",
+   "name": "Anders Adlercreutz",
+   "kind": "mp",
+   "party": "r",
+   "p": 0.55,
+   "verified": "bluesky-bio:did:plc:6nxe5gj5wdeka4munasef3td+eduskunta:1306",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "sarimultala.bsky.social",
+   "name": "Sari Multala",
+   "kind": "mp",
+   "party": "kok",
+   "p": 1.13,
+   "verified": "bluesky-bio:did:plc:by3hgjwy5cboufcjvfmtf5fp+eduskunta:1299",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "niinamalm.bsky.social",
+   "name": "Niina Malm",
+   "kind": "mp",
+   "party": "sd",
+   "p": -0.58,
+   "verified": "bluesky-bio:did:plc:go4rlsvvaqtt5ptgd7fvqsif+eduskunta:1428",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "atteharjanne.vihreat.fi",
+   "name": "Atte Harjanne",
+   "kind": "mp",
+   "party": "vihr",
+   "p": -0.44,
+   "verified": "bluesky-bio:did:plc:h6ly6saea3vclfdoavazmlpv+eduskunta:1385",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "hannaholopainen.bsky.social",
+   "name": "Hanna Holopainen",
+   "kind": "mp",
+   "party": "vihr",
+   "p": -0.44,
+   "verified": "bluesky-bio:did:plc:6v74zt5bw6rwaf2knmghz5cr+eduskunta:1424",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "heikkiautto.bsky.social",
+   "name": "Heikki Autto",
+   "kind": "mp",
+   "party": "kok",
+   "p": 1.13,
+   "verified": "bluesky-bio:did:plc:lejewtqwnbnoi275oxljhu7n+eduskunta:1089",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "laurameriluoto.bsky.social",
+   "name": "Laura Meriluoto",
+   "kind": "mp",
+   "party": "vas",
+   "p": -1.38,
+   "verified": "bluesky-bio:did:plc:iwgq47oxa6udvkwrfp6nzcqc+eduskunta:1523",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "timofuruholm.bsky.social",
+   "name": "Timo Furuholm",
+   "kind": "mp",
+   "party": "vas",
+   "p": -1.38,
+   "verified": "bluesky-bio:did:plc:7jxbmruugd5mnr2ysjo5mzwe+eduskunta:1502",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "inkahopsu.bsky.social",
+   "name": "Inka Hopsu",
+   "kind": "mp",
+   "party": "vihr",
+   "p": -0.44,
+   "verified": "bluesky-bio:did:plc:3d7r6wt36akyzhf2cvyi6wzq+eduskunta:1402",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "saarahyrkko.vihreat.fi",
+   "name": "Saara Hyrkkö",
+   "kind": "mp",
+   "party": "vihr",
+   "p": -0.44,
+   "verified": "bluesky-bio:did:plc:ona6fzvvxpiym3ezhlakbbo7+eduskunta:1403",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "mariholopainen.bsky.social",
+   "name": "Mari Holopainen",
+   "kind": "mp",
+   "party": "vihr",
+   "p": -0.44,
+   "verified": "bluesky-bio:did:plc:7hu5xp7dcwzut2pmd7fwob5t+eduskunta:1386",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "jennipitko.bsky.social",
+   "name": "Jenni Pitko",
+   "kind": "mp",
+   "party": "vihr",
+   "p": -0.44,
+   "verified": "bluesky-bio:did:plc:gosgjtzucg7umz36y7ypkgev+eduskunta:1449",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "aleksijantti.bsky.social",
+   "name": "Aleksi Jäntti",
+   "kind": "mp",
+   "party": "kok",
+   "p": 1.13,
+   "verified": "bluesky-bio:did:plc:thscehrv6uuk452k57zzn3wn+eduskunta:1513",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "fatimdiarra.bsky.social",
+   "name": "Fatim Diarra",
+   "kind": "mp",
+   "party": "vihr",
+   "p": -0.44,
+   "verified": "bluesky-bio:did:plc:lqmyeva7mtqh2jmd77in5ayz+eduskunta:1489",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "mikariipi.bsky.social",
+   "name": "Mika Riipi",
+   "kind": "mp",
+   "party": "kesk",
+   "p": 0.29,
+   "verified": "bluesky-bio:did:plc:54ae4nucn3w74qeqswblrg7x+eduskunta:911827",
+   "checked_on": "2026-11-02"
+  },
+  {
+   "platform": "bluesky",
+   "handle": "vihreat.fi",
+   "name": "Vihreät",
+   "kind": "party",
+   "party": "vihr",
+   "p": -0.44,
+   "verified": "bluesky domain handle = party domain vihreat.fi",
+   "checked_on": "2026-11-02"
+  }
+ ],
+ "manual": []
+}
