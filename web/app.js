@@ -32,7 +32,7 @@ const rpc = async (fn, body) => {
   return r.status === 204 ? null : r.json();
 };
 let fixN = 0;
-async function fetchAll(n = PAGE) {
+async function fetchAll(n = PAGE, nf = FPAGE) {
   if (FIX) {
     const j = await (await fetch('fixtures/feed.json')).json(), d = Date.now() - new Date(j.generated_at); // keep sample data fresh
     const sh = o => new Date(+new Date(o) + d).toISOString();
@@ -42,18 +42,21 @@ async function fetchAll(n = PAGE) {
     if (new URLSearchParams(location.search).has('fixnew') && ++fixN > 1) for (let i = 1; i < fixN; i++) j.stories.push({ ...j.stories[0], id: 900 + i, title: 'Uusi testitarina ' + i, last_at: new Date().toISOString(), hot: 0, reads: 0 }), j.feed.filter(a => a.story_id === 1).forEach(a => j.feed.push({ ...a, id: a.id + 1e5 * i, story_id: 900 + i, published_at: new Date().toISOString() }));
     return j;
   }
-  const [sources, outlet_lean, summaries, runs, pg] = await Promise.all([rest('v_sources?select=*'), rest('v_outlet_lean?select=*'), rest('v_summaries?select=*'), rest('v_runs?select=at,stats&order=at.desc&limit=1'), loadStories(0, Math.min(MAXS, Math.max(PAGE, n)))]);
-  return { sources, outlet_lean, summaries, runs, ...pg };
+  const [sources, outlet_lean, summaries, runs, pg, fp] = await Promise.all([rest('v_sources?select=*'), rest('v_outlet_lean?select=*'), rest('v_summaries?select=*'), rest('v_runs?select=at,stats&order=at.desc&limit=1'), loadStories(0, Math.min(MAXS, Math.max(PAGE, n))), loadStories(0, Math.min(MAXF, Math.max(FPAGE, nf)), true)]);
+  return { sources, outlet_lean, summaries, runs, ...mergeP(pg, fp) };
 }
 // Home feed: the best stories of the last 3 days (hot, then outlets, then newest), multi-outlet or Finnish; articles are fetched only for these stories (v_feed, <=25 ids per request, 4 in parallel).
-const PAGE = 100, MAXS = 500, SEL = 'v_stories?select=id,title,lang,first_at,last_at,n_articles,n_outlets,score,is_top,twin_id' + (CF.TRANSLATIONS ? ',title_fi,title_en,topic' : '') + (CF.HOT ? ',hot,reads,talk,hot_why' : '') + '&n_articles=gt.0&or=(n_outlets.gte.2,lang.eq.fi)&order=' + (CF.HOT ? 'hot.desc.nullslast,' : '') + 'n_outlets.desc,last_at.desc';
+const PAGE = 100, MAXS = 500, FPAGE = 60, MAXF = 600, SEL = 'v_stories?select=id,title,lang,first_at,last_at,n_articles,n_outlets,score,is_top,twin_id' + (CF.TRANSLATIONS ? ',title_fi,title_en,topic' : '') + (CF.HOT ? ',hot,reads,talk,hot_why' : '') + '&n_articles=gt.0&order=' + (CF.HOT ? 'hot.desc.nullslast,' : '') + 'n_outlets.desc,last_at.desc';
 async function pmap(xs, f, n = 4) { const out = new Array(xs.length); let i = 0; await Promise.all(Array.from({ length: Math.min(n, xs.length) }, async () => { while (i < xs.length) { const k = i++; out[k] = await f(xs[k]); } })); return out; }
-async function loadStories(off, lim) {
-  const stories = await rest(SEL + '&last_at=gte.' + days(3) + '&limit=' + lim, off), ids = stories.map(s => s.id), ch = [];
+// Two pools: global (multi-outlet or Finnish, top by hot) and Finnish (lang=fi), so Kotimaa is not starved by world stories. merged by id; gn/fn = rows loaded per pool (offsets for Lisää).
+async function loadStories(off, lim, fi) {
+  const stories = await rest(SEL + (fi ? '&lang=eq.fi' : '&or=(n_outlets.gte.2,lang.eq.fi)') + '&last_at=gte.' + days(3) + '&limit=' + lim, off), ids = stories.map(s => s.id), ch = [];
   for (let i = 0; i < ids.length; i += 25) ch.push(ids.slice(i, i + 25));
   const feed = (await pmap(ch, c => all('v_feed?select=id,source_id,url,title,lead,lang,published_at,fetched_at,story_id,country&order=published_at.desc&limit=1000&story_id=in.(' + c.join(',') + ')'))).flat();
-  return { stories, feed, more: stories.length === lim && off + lim < MAXS };
+  return { stories, feed, n: stories.length, more: stories.length === lim && off + lim < (fi ? MAXF : MAXS) };
 }
+const uniq = (xs, o = new Set()) => xs.filter(x => !o.has(x.id) && o.add(x.id));
+const mergeP = (g, f) => ({ stories: uniq(g.stories.concat(f.stories)), feed: uniq(g.feed.concat(f.feed)), more: g.more, fmore: f.more, gn: g.n, fn: f.n });
 const searchApi = (raw, q) => {
   const w = q.replace(/[,()*%\\]/g, ' ').trim().toLowerCase();
   if (FIX) return Promise.resolve(raw.feed.filter(a => (a.title + ' ' + (a.lead || '')).toLowerCase().includes(w)).slice(0, 50));
@@ -114,7 +117,7 @@ function derive(raw, METHOD) {
     }
     return out.sort((a, b) => b.st.outs.length - a.st.outs.length);
   }
-  return { more: !!raw.more, cfg, S, arts, stories, byId, blind, run: raw.runs?.[0]?.at, sources: raw.sources.map(s => S[s.id]), fix: FIX };
+  return { more: !!raw.more, fmore: !!raw.fmore, cfg, S, arts, stories, byId, blind, run: raw.runs?.[0]?.at, sources: raw.sources.map(s => S[s.id]), fix: FIX };
 }
 
 // ---- router ----
@@ -143,7 +146,7 @@ function App() {
     pair: async code => { code = code.trim().toLowerCase(); try { const r = await rpc('v_sync_get', { code }); if (!r) return 'none'; setP(p => save({ ...DEF, ...r, code, ts: Date.now() })); return 'ok'; } catch { return 'fail'; } },
     exportJson: () => { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([JSON.stringify(P, null, 1)], { type: 'application/json' })); a.download = 'v-varmuuskopio.json'; a.click(); },
     importJson: txt => { try { const o = JSON.parse(txt); if (typeof o !== 'object' || !o) throw 0; setP(p => save({ ...DEF, ...o, code: p.code, ts: Date.now() })); return true; } catch { return false; } },
-    more: async () => { if (FIX || !raw?.more) return; const o = raw.stories.length, pg = await loadStories(o, PAGE), ids = new Set(raw.stories.map(s => s.id)), st = pg.stories.filter(s => !ids.has(s.id)), fd = new Set(raw.feed.map(a => a.id)), j = { ...raw, stories: raw.stories.concat(st), feed: raw.feed.concat(pg.feed.filter(a => !fd.has(a.id))), more: pg.more }; rs.current = { ...rs.current, shown: j }; setRaw(j); },
+    more: async fi => { if (FIX) return; const k = fi ? 'fmore' : 'more'; if (!raw?.[k]) return; const o = fi ? raw.fn : raw.gn, pg = await loadStories(o, fi ? FPAGE : PAGE, fi), ids = new Set(raw.stories.map(s => s.id)), fd = new Set(raw.feed.map(a => a.id)), j = { ...raw, stories: raw.stories.concat(pg.stories.filter(s => !ids.has(s.id))), feed: raw.feed.concat(pg.feed.filter(a => !fd.has(a.id))), [k]: pg.more, [fi ? 'fn' : 'gn']: o + pg.n }; rs.current = { ...rs.current, shown: j }; setRaw(j); },
     search: q => searchApi({ ...raw, cfg: METHOD }, q),
   }), [P, raw, METHOD, cons]);
   const load = async () => {
@@ -159,7 +162,7 @@ function App() {
   };
   const poll = async () => { // background refresh: fetched data waits in rs.current.pending, the list on screen does not move
     if (polling.current) return; polling.current = true; lastPoll.current = Date.now();
-    try { const j = await fetchAll(rs.current.shown?.stories?.length), now = Date.now(); rs.current = onFetched(rs.current, j, now); if (!FIX) ls.set('v.cache', JSON.stringify({ t: now, d: j })); if (!rs.current.pending) setRaw(rs.current.shown); setPend(pendingNew(rs.current)); setChk(now); setOff(null); setErr(null); } catch {}
+    try { const j = await fetchAll(rs.current.shown?.gn, rs.current.shown?.fn), now = Date.now(); rs.current = onFetched(rs.current, j, now); if (!FIX) ls.set('v.cache', JSON.stringify({ t: now, d: j })); if (!rs.current.pending) setRaw(rs.current.shown); setPend(pendingNew(rs.current)); setChk(now); setOff(null); setErr(null); } catch {}
     try { const v = await (await fetch('version.json', { cache: 'no-store' })).json(); curVer.current = v.web ?? 0; ver.current ??= curVer.current; } catch {}
     polling.current = false;
   };

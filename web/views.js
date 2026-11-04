@@ -77,17 +77,19 @@ export function Hot({ list, D }) {
     ${read.length > 0 && html`<section aria-labelledby="h-read"><div class="sec-h"><h2 class="h-sec" id="h-read">${t('read_t')}</h2><span class="t-meta">${t('read_sub')}</span></div>
       <div class="panel">${read.map(s => html`<${HotRow} s=${s} line=${t('readers', s.reads)}/>`)}</div></section>`}`;
 }
+// Kaikki: at least 1 in 4 of every 100 rows is Finnish (when available); order otherwise unchanged.
+const mixFi = all => { const fi = all.filter(s => s.dom), used = new Set(), o = []; let a = 0, b = 0; while (o.length < all.length) { let x; if (o.length % 4 === 3 && a < fi.length) x = fi[a++]; else { while (b < all.length && used.has(all[b])) b++; x = all[b++] ?? fi[a++]; } if (!used.has(x)) { used.add(x); o.push(x); } } return o; };
 export function Home({ D, P, chip, setChip, A, chk }) {
   const [loc, setLoc] = useState(false), [lim, setLim] = useState(40), [mb, setMb] = useState(false), base = D.stories.filter(s => visible(s, D, P)), hasTopic = D.stories.some(s => s.topic);
   const fav = s => P.follow.some(k => same(s, k)) || (hasTopic && s.topic && P.topics.includes(s.topic));
   const F = { all: () => true, home: s => s.dom, world: s => !s.dom, mine: fav };
   const tabs = [['all', t('tb_all')], ['home', t('tb_home')], ['world', t('tb_world')], ...(P.follow.length || (hasTopic && P.topics.length) ? [['mine', t('tb_fav')]] : [])];
   const tab = tabs.some(x => x[0] === chip) ? chip : 'all', list = base.filter(F[tab]).filter(s => !loc || s.local), filtered = tab !== 'all' || loc;
-  const lead = [...list].sort((a, b) => b.score - a.score)[0], all = list.filter(s => s !== lead).sort((a, b) => b.hot - a.hot || b.outs.length - a.outs.length || (a.last_at < b.last_at ? 1 : -1)), rest = all.slice(0, lim);
+  const lead = [...list].sort((a, b) => b.score - a.score)[0], all = list.filter(s => s !== lead).sort((a, b) => b.hot - a.hot || b.outs.length - a.outs.length || (a.last_at < b.last_at ? 1 : -1)), rest = (tab === 'all' && !loc ? mixFi(all) : all).slice(0, lim);
   const date = new Date().toLocaleDateString(L(), { weekday: 'long', day: 'numeric', month: 'numeric' });
   return html`<header class="top"><div class="top-row"><div class="mark"><b>V</b><span class="t-meta">Kuljento</span></div>
       <${Seg} cls="sm" label=${t('language')} val=${P.lang} on=${v => A.upd({ lang: v })} opts=${[['fi', 'FI'], ['en', 'EN']]}/></div>
-    <div class="dateline"><h1 class="h-sec">${date[0].toUpperCase() + date.slice(1)}</h1><span class="t-meta">${t('n_stories', base.length)}${chk || D.run ? ' · ' + t('updated', hm(chk || D.run)) : ''}</span></div>
+    <div class="dateline"><h1 class="h-sec">${date[0].toUpperCase() + date.slice(1)}</h1><span class="t-meta">${t('n_stories', list.length)}${chk || D.run ? ' · ' + t('updated', hm(chk || D.run)) : ''}</span></div>
     <div class="scope"><${Seg} cls="full" label=${t('tb_aria')} val=${tab} on=${setChip} opts=${tabs}/></div>
     <div class="chips" role="group" aria-label=${t('filter')}><button class="chip" aria-pressed=${loc} onClick=${() => setLoc(!loc)}>${t('c_local')}</button></div></header>
     ${!lead ? html`<${Empty} title=${!filtered ? t('e_news_t') : t('e_filt_t')} body=${!filtered ? t('e_news_b') : t('e_filt_b')} cta=${!filtered ? t('go_more') : t('clear_filters')}
@@ -96,7 +98,7 @@ export function Home({ D, P, chip, setChip, A, chk }) {
     <${Hot} list=${list} D=${D}/>
     <div class="sec-h"><h2 class="h-sec">${t('next')}</h2><span class="t-meta">${t('best3')}</span></div>
     <div class="panel feed2">${rest.map(s => html`<${Row} s=${s} D=${D}/>`)}</div>
-    ${(lim < all.length || D.more) && html`<div class="pad"><button class="btn sec" disabled=${mb} onClick=${async () => { if (lim < all.length) return setLim(lim + 40); setMb(true); try { await A.more(); setLim(lim + 40); } catch {} setMb(false); }}>${t('load_more')}</button></div>`}`}`;
+    ${(lim < all.length || (tab === 'home' ? D.fmore : D.more)) && html`<div class="pad"><button class="btn sec" disabled=${mb} onClick=${async () => { if (lim < all.length) return setLim(lim + 40); setMb(true); try { await A.more(tab === 'home'); setLim(lim + 40); } catch {} setMb(false); }}>${t('load_more')}</button></div>`}`}`;
 }
 export function Right({ D }) {
   const c = D.blind(D.cfg.sivuutetut.window_h).slice(0, 2);
@@ -241,10 +243,12 @@ export function Mine({ D, P, A, q }) {
     <p class="note" role="status">${msg}</p></section>`;
 }
 
-// ---- Lisää, menetelmä, lähteet ----
+// ---- Asetukset, menetelmä, lähteet ----
 const Tg = ({ k, P, A }) => html`<label class="tg"><span>${t('o_' + k)}</span><input type="checkbox" checked=${P[k]} onChange=${e => A.upd({ [k]: e.target.checked })}/></label>`;
 const TOPICS = ['politiikka', 'talous', 'urheilu', 'teknologia', 'tiede', 'terveys', 'kulttuuri', 'ympäristö', 'rikos', 'viihde', 'muu'];
 export function More({ D, P, A }) {
+  const [apk, setApk] = useState(false); // Android entry is active only once version.json carries a real apk sha256 and size
+  useEffect(() => { fetch('version.json', { cache: 'no-store' }).then(r => r.json()).then(v => setApk(!!(v.sha256 && v.size))).catch(() => {}); }, []);
   return html`<div class="pg-h"><h1 class="h-story" style="font-size:28px">${t('tab_more')}</h1></div>
   <section class="blk" style="margin-top:12px" aria-labelledby="h-set"><h2 class="h-sec" id="h-set">${t('settings')}</h2>
     <div class="filters"><${Seg} label=${t('language')} val=${P.lang} on=${v => A.upd({ lang: v })} opts=${[['fi', 'Suomi'], ['en', 'English']]}/><${Seg} label=${t('theme')} val=${P.theme} on=${v => A.upd({ theme: v })} opts=${[['dark', t('dark')], ['light', t('light')]]}/></div></section>
@@ -252,7 +256,7 @@ export function More({ D, P, A }) {
   <section class="blk" aria-labelledby="h-tp"><h2 class="h-sec" id="h-tp">${t('topics')}</h2><p class="t-sec" style="margin-bottom:10px">${t('topics_hint')}</p>
     <div class="chiprow">${TOPICS.map(k => html`<button class="chip" aria-pressed=${P.topics.includes(k)} onClick=${() => A.upd(p => ({ topics: p.topics.includes(k) ? p.topics.filter(x => x !== k) : [...p.topics, k] }))}>${t('tp_' + k)}</button>`)}</div></section>
   <div class="panel" style="margin-top:12px"><button class="lrow" style="width:100%;text-align:left" onClick=${A.openConsent}><div><div class="nm">${t('m_priv')}</div><span class="t-meta">${t('cs_now', t(A.cons.stats ? 'cs_now_opt' : 'cs_now_nec'))}</span></div></button><a class="lrow" href="#/lisaa/menetelma"><div><div class="nm">${t('method')}</div></div></a><a class="lrow" href="#/lisaa/lahteet"><div><div class="nm">${t('sources')}</div><span class="t-meta">${D.sources.filter(s => !s.flagged).length}</span></div></a>
-    <a class="lrow" href="lataa.html"><div><div class="nm">${t('get_app')}</div><span class="t-meta">${t('get_app_b')}</span></div></a></div>
+    ${apk ? html`<a class="lrow" href="lataa.html"><div><div class="nm">${t('get_app')}</div><span class="t-meta">${t('get_app_b')}</span></div></a>` : html`<div class="lrow" aria-disabled="true" style="opacity:.5"><div><div class="nm">${t('get_app')}</div><span class="t-meta">${t('soon')}</span></div></div>`}</div>
   <p class="foot">${t('priv')}${D.run ? ' ' + t('updated', dt(D.run) + ' ' + hm(D.run)) : ''}</p>`;
 }
 export function Method({ D }) {
@@ -273,7 +277,7 @@ export function Sources({ D, P }) {
   return html`<${AppBar} title=${t('sources')}/><div class="pg-h"><h1 class="h-story" style="font-size:28px">${t('sources')}</h1></div>${grp.map(([k, xs]) => html`<div class="sec-h"><h2 class="h-sec">${k ? t('c_fi') : t('c_world')}</h2></div><div class="panel">${xs.filter(s => P.showFlagged || !s.flagged).map(s => html`<a class="lrow" href=${'#/l/' + s.id}><${Mono} s=${s}/><div><div class="nm">${s.name}</div><span class="t-meta">${s.owner ? gname(s.group) : t('noinfo')} · ${leanTxt(s)}</span></div>${s.status && s.status !== 'ok' && html`<span class="tag warn">${t('no_feed')}</span>`}</a>`)}</div>`)}`;
 }
 
-// ---- Consent sheet (first visit + Lisää > Tietosuoja). Default and Esc = necessary only. ----
+// ---- Consent sheet (first visit + Asetukset > Tietosuoja). Default and Esc = necessary only. ----
 export function Consent({ cons, first, A, onClose }) {
   const ref = useRef(), prev = useRef(document.activeElement);
   const nec = () => first ? A.setConsent(false, false) : onClose();
@@ -289,7 +293,6 @@ export function Consent({ cons, first, A, onClose }) {
   }, []);
   return html`<div class="scrim" onClick=${nec}><div class="sheet" ref=${ref} role="dialog" aria-modal="true" aria-labelledby="cs-t" onClick=${e => e.stopPropagation()}>
     <h2 id="cs-t" class="h-sec">${t('cs_title')}</h2><p class="t-sec">${t('cs_body')}</p>
-    <label class="tg off"><span>${t('cs_notify')}<small class="t-meta" style="display:block">${t('cs_notify_b')}</small></span><input type="checkbox" disabled checked=${false}/></label>
     <p class="t-meta">${t('cs_opt_b')}</p>
     <div class="btns"><button class="btn pri" onClick=${() => A.setConsent(false, false)}>${t('cs_nec')}</button><button class="btn sec" onClick=${() => A.setConsent(true, true)}>${t('cs_opt')}</button></div></div></div>`;
 }
