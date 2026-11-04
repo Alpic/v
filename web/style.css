@@ -169,3 +169,15 @@ details summary{cursor:pointer;min-height:44px;display:flex;align-items:center;c
 }
 .right{display:none}
 @media (min-width:1024px){.right{display:block}}
+/* v1.1: scope tabs, lock, translation tag, consent sheet */
+.scope{margin-top:12px}.seg.full{display:flex;width:100%}.seg.full button{flex:1;padding:0 8px}
+.lock{width:12px;height:12px;vertical-align:-1px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-right:3px}
+.tag.tr{height:20px;font-size:11px;font-weight:500;vertical-align:middle}
+.tr-tog{min-height:44px;padding:0 4px;font-size:12px;background:none;border:0}
+.scrim{position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.6);display:flex;align-items:flex-end;justify-content:center}
+.sheet{width:100%;max-width:560px;max-height:92dvh;overflow:auto;background:var(--raised);color:var(--ink);border-top:1px solid var(--line-strong);border-radius:16px 16px 0 0;padding:20px 16px calc(16px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:12px}
+.sheet .btns{display:flex;flex-direction:column;gap:8px}.sheet .btn{width:100%}
+.tg.off{opacity:.6;cursor:default;border:1px solid var(--line);border-radius:8px}
+@media(min-width:600px){.scrim{align-items:center}.sheet{border-radius:16px}}
+.flag{font-size:1.15em;line-height:1}.flag .cc{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.04em;padding:1px 4px;border:1px solid var(--line-strong);border-radius:3px;color:var(--ink-2);vertical-align:middle}
+.newpill{position:sticky;top:8px;z-index:20;display:flex;margin:8px auto 0}

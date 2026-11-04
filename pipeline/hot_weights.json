@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "note": "score = 100 * sum(w_i * x_i) / sum(w_i) * 0.5^(age_h / half_life_h); every x_i in 0..1 (saturating log of the raw count / cap). A signal with no data counts as 0, never as an average. Tune only after measuring.",
+  "weights": { "sources": 3, "reliability": 1.5, "talk": 2, "reads": 3, "clicks": 1, "paths": 1, "dwell": 1, "feedback": 1 },
+  "caps": { "sources": 15, "reads": 20, "clicks": 10, "paths": 10, "talk": 500, "dwell_s": 90 },
+  "min_samples": { "dwell": 3, "feedback": 3 },
+  "half_life_h": 18,
+  "window_h": 72,
+  "usage_window_h": 48,
+  "min_outlets": 2,
+  "hot_min": 15,
+  "n_hot": 5,
+  "n_read": 5,
+  "why_top": 3,
+  "why_min_x": 0.3,
+  "dwell_min_s": 3,
+  "reliability": {
+    "fact": { "Very High": 1, "High": 0.9, "Mostly Factual": 0.75, "Mixed": 0.45, "Low": 0.2, "Very Low": 0 },
+    "unknown": 0.5,
+    "flagged": 0.1,
+    "jsn_penalty": 0.05,
+    "jsn_max": 0.3
+  },
+  "discussion": {
+    "max_requests": 60,
+    "max_stories": 20,
+    "timeout_s": 8,
+    "delay_ms": 600,
+    "cache_ttl_h": 3,
+    "max_bytes": 1000000,
+    "window_h": 48,
+    "per_source_cap": 1000,
+    "reddit": { "enabled": true },
+    "hn": { "enabled": true },
+    "mastodon": { "enabled": true, "instance": "https://mastodon.social", "token_env": "V_MASTODON_TOKEN" },
+    "x": { "enabled": false, "note": "X/Twitter has no free public search API (paid tier). Stub only: fetchX() returns null. To enable, implement it in pipeline/discuss.mjs against a paid key and flip this flag." }
+  },
+  "events": { "retention_days": 30, "max_rows": 60000 }
+}

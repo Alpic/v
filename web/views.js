@@ -2,7 +2,7 @@
 import { h } from 'preact';
 import { useState, useEffect, useRef } from 'preact/hooks';
 import htm from 'htm';
-import { t, L } from './i18n.js';
+import { t, L, cname, iso, flag } from './i18n.js';
 export const html = htm.bind(h);
 const gname = g => g.startsWith('?') ? t('noinfo') : g.split(' (')[0];
 
@@ -23,14 +23,32 @@ const initials = n => n.replace(/[^\p{L}\d ]/gu, '').split(' ').filter(Boolean).
 const Mono = ({ s }) => html`<span class="mono" aria-hidden="true">${initials(s.name)}</span>`;
 const GL = { public: html`<circle cx="5" cy="5" r="4.5"/>`, company: html`<rect x=".5" y=".5" width="9" height="9"/>`, foundation: html`<path d="M5 .5l4.5 9h-9z"/>`, interest_org: html`<path d="M5 .5l4.5 9h-9z"/>`, party: html`<path d="M5 .5l4.5 4.5-4.5 4.5L.5 5z"/>`, international: html`<path d="M1 1h3v8H1zM6 1h3v8H6z"/>` };
 const Own = ({ s, n }) => html`<span class="own"><svg viewBox="0 0 10 10" aria-hidden="true">${GL[s.owner_type] || GL.company}</svg>${gname(s.group)}${n ? ' ' + n : ''}</span>`;
-const kick = s => t('k_' + s.lang) + (s.local && s.outs.length <= 5 ? ' · ' + (s.arts.find(a => a.s.region)?.s.region || '') : '');
+// Kicker: country flag (+ region name for Finnish regions). Raw codes are never shown; unknown codes show nothing.
+// Windows browsers draw flag emoji as letters: detect once via canvas (coloured pixels = real flag) and fall back to a neutral 2-letter chip.
+let flagOK; const flagsWork = () => { if (flagOK != null) return flagOK; try { const c = document.createElement('canvas'); c.width = 40; c.height = 24; const g = c.getContext('2d'); g.font = '18px sans-serif'; g.textBaseline = 'top'; g.fillText(flag('FI'), 2, 2);
+  const d = g.getImageData(0, 0, 40, 24).data; flagOK = false; for (let i = 0; i < d.length; i += 4) if (d[i + 3] > 100 && (Math.abs(d[i] - d[i + 2]) > 40 || Math.abs(d[i] - d[i + 1]) > 40)) { flagOK = true; break; } } catch { flagOK = true; } return flagOK; };
+const Flag = ({ c }) => { const k = iso(c); if (!k) return null; const n = cname(k); return html`<span class="flag" role="img" aria-label=${n} title=${n}>${flagsWork() ? flag(k) : html`<span class="cc">${k}</span>`}</span>`; };
+const Kick = ({ s }) => {
+  const cs = [...new Set(s.arts.map(a => a.s.country))], k = s.dom ? 'FI' : cs.length === 1 ? cs[0] : '';
+  const r0 = s.local && s.outs.length <= 5 ? s.arts.find(a => a.s.region)?.s.region : '', r = /^[A-Z_]+$/.test(r0 || '') ? '' : r0 || '';
+  const txt = r || (s.dom && s.lang === 'sv' ? t('k_sv').split(' · ').pop() : '') || (!iso(k) ? t('k_world') : '');
+  return html`<span class="kk"><${Flag} c=${k}/>${txt && ' ' + txt}</span>`;
+};
+const kick = s => html`<${Kick} s=${s}/>`;
+const Lock = () => html`<svg class="lock" viewBox="0 0 24 24" role="img" aria-label=${t('pw')}><path d="M7 11V8a5 5 0 0 1 10 0v3M5 11h14v9H5z"/></svg>`;
+// Optional translated titles (fields title_fi/title_en arrive from the pipeline later). Absent = original, no label.
+const trOf = o => { const v = o[L() === 'en' ? 'title_en' : 'title_fi']; return typeof v === 'string' && v.trim() && v !== o.title ? v : null; };
+const ttl = o => { const v = trOf(o); return v ? html`${v} <span class="tag tr">${t('translated')}</span>` : o.title; };
+const Ttl = ({ o }) => { const [orig, setO] = useState(false), v = trOf(o); if (!v) return o.title;
+  return html`<span lang=${orig ? o.lang : L()}>${orig ? o.title : v}</span> <span class="tag tr">${orig ? t('orig') : t('translated')}</span> <button class="lnk tr-tog" onClick=${e => { e.preventDefault(); setO(!orig); }}>${orig ? t('show_tr') : t('show_orig')}</button>`; };
+const Orig = ({ a }) => { const [o, setO] = useState(false); return html`<button class="lnk tr-tog" onClick=${() => setO(!o)} aria-expanded=${o}>${t('orig')}</button>${o && html`<span class="t-meta" lang=${a.lang}> ${a.title}</span>`}`; };
 const pay = s => s.paywall && s.paywall !== 'none';
 const cbTag = (s, D) => s.cb && s.cb.share >= D.cfg.clickbait.threshold ? html`<span class="tag warn">${t('cb_tag', Math.round(s.cb.share))}</span>` : null;
 const LEANS = [1, 2, 3, 4, 5, 0];
 export const Cov = ({ cnt, lg, grow }) => html`<div class=${'cov' + (lg ? ' lg' : '') + (grow ? ' grow' : '')} role="img" aria-label=${t('bar_aria') + ': ' + LEANS.map(i => t('l' + i) + ' ' + cnt[i]).join(', ')}>${LEANS.map(i => cnt[i] > 0 && html`<i class=${'l' + i} style=${'flex:' + cnt[i]}></i>`)}</div>`;
 const CovTxt = ({ cnt }) => html`<div class="covtxt" aria-hidden="true"><span>${t('l1')} <b>${cnt[1] + cnt[2]}</b></span><span>${t('l3')} <b>${cnt[3]}</b></span><span>${t('l5')} <b>${cnt[4] + cnt[5]}</b></span><span>${t('l0')} <b>${cnt[0]}</b></span></div>`;
 const CovBlock = ({ st, D, lg, grow }) => st.rated >= D.cfg.bars.min_rated ? html`<${Cov} cnt=${st.cnt} lg=${lg} grow=${grow}/><${CovTxt} cnt=${st.cnt}/>` : html`<p class="t-meta">${t('few')}</p>`;
-const Facts = ({ st, extra }) => html`<div class="facts"><span><b>${st.outs.length}</b> ${t('src', st.outs.length)}</span><span>${Object.keys(st.groups).length} ${t('own', Object.keys(st.groups).length)}</span>${extra}<span>${ago(st.last_at)}</span></div>`;
+const Facts = ({ st, extra }) => html`<div class="facts"><span><b>${st.outs.length}</b> ${t('src', st.outs.length)}${st.arts.some(a => pay(a.s)) && html` <${Lock}/>`}</span><span>${Object.keys(st.groups).length} ${t('own', Object.keys(st.groups).length)}</span>${extra}<span>${ago(st.last_at)}</span></div>`;
 export const Empty = ({ icon = 'search', title, body, cta, onCta, cta2, onCta2 }) => html`<section class="empty"><${Ic} n=${icon}/><h2>${title}</h2><p>${body}</p>${cta && html`<button class="btn pri" onClick=${onCta}>${cta}</button>`}${cta2 && html`<button class="btn ghost" onClick=${onCta2}>${cta2}</button>`}</section>`;
 export const Err = ({ title, body, onRetry }) => html`<div class="err" role="alert"><b>${title}</b><p>${body}</p><button class="btn sec" onClick=${onRetry}>${t('retry')}</button></div>`;
 export const Skel = ({ n = 4 }) => html`<div class="panel skl" role="status" aria-busy="true" aria-label=${t('loading')}>${Array.from({ length: n }, () => html`<div class="story" aria-hidden="true"><div class="sk" style="height:12px;width:80px"></div><div class="sk" style="height:18px;margin:10px 0 6px"></div><div class="sk" style="height:18px;width:70%;margin-bottom:12px"></div><div class="sk" style="height:10px"></div><div class="sk" style="height:12px;width:60%;margin-top:10px"></div></div>`)}</div>`;
@@ -38,28 +56,44 @@ const Seg = ({ opts, val, on, label, cls = '' }) => html`<div class=${'seg ' + c
 const AppBar = ({ title }) => html`<div class="appbar"><button class="ib back" aria-label=${t('back')} onClick=${() => history.length > 1 ? history.back() : (location.hash = '#/')}><${Ic} n="back"/></button><span class="t-meta" style="font-weight:600">${title}</span><span style="width:44px"></span></div>`;
 const NF = () => html`<${Empty} icon="home" title=${t('nf_t')} body=${t('nf_b')} cta=${t('go_news')} onCta=${() => { location.hash = '#/'; }}/>`;
 const safe = u => /^https?:\/\//i.test(u || '') ? u : '#'; // DB URLs: never javascript: (L8)
-const Row = ({ s, D, lead }) => lead ? html`<a class="lead split" href=${'#/s/' + s.id}><div class="art"><${Art} id=${s.id}/></div><div><div class="kick">${t('lead_k')} · ${kick(s)}</div><h2 class="h-lead">${s.title}</h2>
+const Row = ({ s, D, lead }) => lead ? html`<a class="lead split" href=${'#/s/' + s.id}><div class="art"><${Art} id=${s.id}/></div><div><div class="kick">${t('lead_k')} · ${kick(s)}</div><h2 class="h-lead">${ttl(s)}</h2>
   <p class="t-sec" style="color:var(--ink);max-width:58ch;margin-bottom:14px">${s.sum ? s.sum.sentences.map(x => x.t).join(' ') : s.arts[0].lead}</p><${CovBlock} st=${s} D=${D} lg/>
   <${Facts} st=${s} extra=${html`<span>${t('first', s.arts[0].s.name, hm(s.arts[0].published_at))}</span>`}/></div></a>` :
-  html`<a class="story" href=${'#/s/' + s.id}><div class="row"><div><div class="kick">${kick(s)}</div><h3 class="h-card">${s.title}</h3></div><div class="thumb"><${Art} id=${s.id}/></div></div><${CovBlock} st=${s} D=${D}/><${Facts} st=${s}/></a>`;
+  html`<a class="story" href=${'#/s/' + s.id}><div class="row"><div><div class="kick">${kick(s)}</div><h3 class="h-card">${ttl(s)}</h3></div><div class="thumb"><${Art} id=${s.id}/></div></div><${CovBlock} st=${s} D=${D}/><${Facts} st=${s}/></a>`;
 const shown = (s, P) => P.hidePaywall ? s.arts.filter(a => !pay(a.s)) : s.arts;
 const same = (s, k) => k.startsWith('src:') ? s.outs.includes(k.slice(4)) : s.title.toLowerCase().includes(k.toLowerCase());
 const visible = (s, D, P) => (P.single || s.outs.length >= D.cfg.rank.top_min_outlets) && !P.mute.some(k => same(s, k)) && !(P.hideRead && P.read[s.id]) && shown(s, P).length > 0;
 
 // ---- Uutiset ----
-export function Home({ D, P, chip, setChip, A }) {
-  const F = { all: () => true, fi: s => s.lang !== 'en', world: s => s.lang === 'en', local: s => s.local, mine: s => P.follow.some(k => same(s, k)) };
-  const base = D.stories.filter(s => visible(s, D, P)), list = base.filter(F[chip] || F.all);
+// "Kuumat" / "Luetuimmat": scores and the short reason come from the pipeline (hot, reads, hot_why). Unknown reason keys are ignored.
+const WHYK = ['src', 'talk', 'reads', 'click', 'path', 'dwell', 'fb', 'rel'];
+const whyTxt = s => (Array.isArray(s.hot_why) ? s.hot_why : []).filter(w => Array.isArray(w) && WHYK.includes(w[0])).map(([k, n]) => t('why_' + k, +n || 0)).join(' · ');
+const HotRow = ({ s, line }) => html`<a class="bs" href=${'#/s/' + s.id}><div class="kick">${kick(s)}</div><h3 class="h-card" style="font-size:16px">${ttl(s)}</h3><p class="t-meta">${line}</p></a>`;
+export function Hot({ list, D }) {
+  const c = D.cfg.hot || { hot_min: 15, n_hot: 5, n_read: 5 };
+  const hot = list.filter(s => s.hot >= c.hot_min && whyTxt(s)).sort((a, b) => b.hot - a.hot).slice(0, c.n_hot), read = list.filter(s => s.reads > 0).sort((a, b) => b.reads - a.reads || b.hot - a.hot).slice(0, c.n_read);
+  return html`${hot.length > 0 && html`<section aria-labelledby="h-hot"><div class="sec-h"><h2 class="h-sec" id="h-hot">${t('hot_t')}</h2><span class="t-meta">${t('hot_sub')}</span></div>
+      <div class="panel">${hot.map(s => html`<${HotRow} s=${s} line=${t('hot_why', whyTxt(s))}/>`)}</div><p class="t-meta pad">${t('hot_note')} <a class="lnk" href="#/lisaa/menetelma">${t('method')}</a></p></section>`}
+    ${read.length > 0 && html`<section aria-labelledby="h-read"><div class="sec-h"><h2 class="h-sec" id="h-read">${t('read_t')}</h2><span class="t-meta">${t('read_sub')}</span></div>
+      <div class="panel">${read.map(s => html`<${HotRow} s=${s} line=${t('readers', s.reads)}/>`)}</div></section>`}`;
+}
+export function Home({ D, P, chip, setChip, A, chk }) {
+  const [loc, setLoc] = useState(false), base = D.stories.filter(s => visible(s, D, P)), hasTopic = D.stories.some(s => s.topic);
+  const fav = s => P.follow.some(k => same(s, k)) || (hasTopic && s.topic && P.topics.includes(s.topic));
+  const F = { all: () => true, home: s => s.dom, world: s => !s.dom, mine: fav };
+  const tabs = [['all', t('tb_all')], ['home', t('tb_home')], ['world', t('tb_world')], ...(P.follow.length || (hasTopic && P.topics.length) ? [['mine', t('tb_fav')]] : [])];
+  const tab = tabs.some(x => x[0] === chip) ? chip : 'all', list = base.filter(F[tab]).filter(s => !loc || s.local), filtered = tab !== 'all' || loc;
   const lead = [...list].sort((a, b) => b.score - a.score)[0], rest = list.filter(s => s !== lead).sort((a, b) => a.last_at < b.last_at ? 1 : -1).slice(0, 40);
-  const chips = [['all', t('c_all')], ['fi', t('c_fi')], ['world', t('c_world')], ['local', t('c_local')], ...(P.follow.length ? [['mine', t('c_mine')]] : [])];
   const date = new Date().toLocaleDateString(L(), { weekday: 'long', day: 'numeric', month: 'numeric' });
   return html`<header class="top"><div class="top-row"><div class="mark"><b>V</b><span class="t-meta">Kuljento</span></div>
       <${Seg} cls="sm" label=${t('language')} val=${P.lang} on=${v => A.upd({ lang: v })} opts=${[['fi', 'FI'], ['en', 'EN']]}/></div>
-    <div class="dateline"><h1 class="h-sec">${date[0].toUpperCase() + date.slice(1)}</h1><span class="t-meta">${t('n_stories', base.length)}${D.run ? ' · ' + t('updated', hm(D.run)) : ''}</span></div>
-    <div class="chips" role="group" aria-label=${t('filter')}>${chips.map(([k, x]) => html`<button class="chip" aria-pressed=${chip === k} onClick=${() => setChip(k)}>${x}</button>`)}</div></header>
-    ${!lead ? html`<${Empty} title=${chip === 'all' ? t('e_news_t') : t('e_filt_t')} body=${chip === 'all' ? t('e_news_b') : t('e_filt_b')} cta=${chip === 'all' ? t('go_more') : t('clear_filters')}
-        onCta=${() => chip === 'all' ? (location.hash = '#/lisaa') : setChip('all')}/>` : html`
+    <div class="dateline"><h1 class="h-sec">${date[0].toUpperCase() + date.slice(1)}</h1><span class="t-meta">${t('n_stories', base.length)}${chk || D.run ? ' · ' + t('updated', hm(chk || D.run)) : ''}</span></div>
+    <div class="scope"><${Seg} cls="full" label=${t('tb_aria')} val=${tab} on=${setChip} opts=${tabs}/></div>
+    <div class="chips" role="group" aria-label=${t('filter')}><button class="chip" aria-pressed=${loc} onClick=${() => setLoc(!loc)}>${t('c_local')}</button></div></header>
+    ${!lead ? html`<${Empty} title=${!filtered ? t('e_news_t') : t('e_filt_t')} body=${!filtered ? t('e_news_b') : t('e_filt_b')} cta=${!filtered ? t('go_more') : t('clear_filters')}
+        onCta=${() => !filtered ? (location.hash = '#/lisaa') : (setChip('all'), setLoc(false))}/>` : html`
     <div class="panel" style="border-top:0"><${Row} s=${lead} D=${D} lead/></div>
+    <${Hot} list=${list} D=${D}/>
     <div class="sec-h"><h2 class="h-sec">${t('next')}</h2><span class="t-meta">${t('newest')}</span></div>
     <div class="panel feed2">${rest.map(s => html`<${Row} s=${s} D=${D}/>`)}</div>`}`;
 }
@@ -80,7 +114,7 @@ function Summary({ st, D }) {
 }
 export function StoryV({ D, P, A, id }) {
   const st = D.byId[id], [f, setF] = useState({ lean: '', lang: '', owner: '', sort: 'new' });
-  useEffect(() => { if (st) A.markRead(id); }, [id]);
+  useEffect(() => { if (st) { A.markRead(id); A.tr.open(id, !document.hidden); } return () => A.tr.leave(); }, [id]); // usage events: no-ops without consent.stats
   if (!st) return html`<${NF}/>`;
   const gs = Object.entries(st.groups).sort((a, b) => b[1].length - a[1].length), twin = D.byId[st.twin_id];
   let list = shown(st, P).concat(P.showFlagged ? st.all.filter(a => a.flagged) : []);
@@ -90,7 +124,7 @@ export function StoryV({ D, P, A, id }) {
   const first = st.arts[0], rampC = i => `var(--own-${Math.min(i + 1, 4)})`;
   const sel = (k, opts, label) => html`<label class="sr" for=${'f' + k}>${label}</label><select id=${'f' + k} value=${f[k]} onChange=${e => setF({ ...f, [k]: e.target.value })}><option value="">${label}</option>${opts.map(([v, x]) => html`<option value=${v}>${x}</option>`)}</select>`;
   return html`<${AppBar} title=${kick(st)}/>
-  <div class="sp"><div class="kick">${kick(st)}</div><h1 class="h-story">${st.title}</h1>
+  <div class="sp"><div class="kick">${kick(st)}</div><h1 class="h-story"><${Ttl} o=${st}/></h1>
     <${Facts} st=${st} extra=${html`<span>${t('first', first.s.name, hm(first.published_at))}</span>`}/>
     ${twin && html`<p style="margin-top:10px"><a class="lnk" href=${'#/s/' + twin.id}>${t('twin')}</a></p>`}<${Summary} st=${st} D=${D}/></div>
   <section class="blk" aria-labelledby="h-bar"><h2 class="h-sec" id="h-bar">${t('whose')}</h2>
@@ -108,12 +142,22 @@ export function StoryV({ D, P, A, id }) {
     ${list.length === 0 ? html`<${Empty} title=${t('e_filt_t')} body=${t('e_filt_b')} cta=${t('clear_filters')} onCta=${() => setF({ lean: '', lang: '', owner: '', sort: f.sort })}/>` :
       html`<div class="hlg">${GR.map(([k, idx, cls]) => { const xs = list.filter(a => idx.includes(li(a))); return xs.length ? html`<div class="grp"><div class="grp-h"><span class=${'sw ' + cls}></span>${t('g' + k)} · ${xs.length}</div>${xs.map(a => html`<div class="hl" id=${'a' + a.id}>
         <div class="badge"><${Mono} s=${a.s}/><div><a class="nm" href=${'#/l/' + a.s.id}>${a.s.name}</a><small>${hm(a.published_at)} · ${leanTxt(a.s)}</small></div></div>
-        <p lang=${a.lang}><a href=${safe(a.url)} target="_blank" rel="noopener noreferrer" onClick=${() => A.click(a)}>${a.title}</a></p>
-        <div class="chiprow"><${Own} s=${a.s}/>${a.flagged && html`<span class="tag warn">${t('flagged')}</span>`}${pay(a.s) && html`<span class="tag">${t('pw')}</span>`}${cbTag(a.s, D)}</div></div>`)}</div>` : null; })}</div>`}
-  </section>`;
+        <p lang=${a.lang}><a href=${safe(a.url)} target="_blank" rel="noopener noreferrer" onClick=${() => A.click(a)}>${trOf(a) || a.title}</a>${trOf(a) && html` <span class="tag tr">${t('translated')}</span> <${Orig} a=${a}/>`}</p>
+        <div class="chiprow"><${Own} s=${a.s}/>${a.flagged && html`<span class="tag warn">${t('flagged')}</span>`}${pay(a.s) && html`<span class="tag"><${Lock}/>${t('pw')}</span>`}${cbTag(a.s, D)}</div></div>`)}</div>` : null; })}</div>`}
+  </section>
+  <${Pulse} id=${id} A=${A}/>`;
+}
+// One optional question per 3 days, only with consent.stats, after the reader stayed 20 s. Dismissable; the answer is stored locally and sent as one anonymous event.
+function Pulse({ id, A }) {
+  const [ask, setAsk] = useState(false);
+  useEffect(() => { setAsk(false); const x = setTimeout(() => setAsk(A.fbCan(id)), 20000); return () => clearTimeout(x); }, [id]);
+  if (!ask) return null;
+  const done = v => { A.fbAnswer(id, v); setAsk(false); };
+  return html`<section class="blk pulse" aria-labelledby="h-fb"><h2 class="h-sec" id="h-fb">${t('fb_q')}</h2><p class="t-meta">${t('fb_note')}</p>
+    <div class="chiprow" style="margin-top:12px"><button class="btn sec" onClick=${() => done(1)}>${t('fb_yes')}</button><button class="btn sec" onClick=${() => done(-1)}>${t('fb_no')}</button><button class="btn ghost" onClick=${() => done(0)}>${t('fb_skip')}</button></div></section>`;
 }
 
-// ---- Sivuutetut uutiset ----
+// ---- Vaietut uutiset ----
 export function Blind({ D }) {
   const [w, setW] = useState('day'), c = D.cfg.sivuutetut, cards = D.blind(w === 'day' ? c.window_h : c.week_window_h);
   return html`<div class="pg-h"><h1 class="h-story" style="font-size:28px">${t('bs_title')}</h1><p class="t-sec">${t('bs_def')}</p>
@@ -177,7 +221,7 @@ export function Mine({ D, P, A, q }) {
   const add = name => { const k = kw.trim(); if (k) { A.upd(p => ({ [name]: [...new Set([...p[name], k])] })); setKw(''); } };
   const item = (name, k) => html`<span class="own" style="height:32px">${k.startsWith('src:') ? (D.S[k.slice(4)]?.name || k) : k}<button aria-label=${t('remove', k)} style="min-width:32px;min-height:32px" onClick=${() => A.upd(p => ({ [name]: p[name].filter(x => x !== k) }))}>×</button></span>`;
   return html`<div class="pg-h"><h1 class="h-story" style="font-size:28px">${t('diet')}</h1><p class="t-sec">${t('priv')}</p></div>
-  ${n === 0 ? html`<${Empty} icon="mine" title=${t('e_diet_t')} body=${t('e_diet_b')} cta=${t('go_news')} onCta=${() => { location.hash = '#/'; }}/>` : html`
+  ${!A.cons.stats ? html`<${Empty} icon="mine" title=${t('diet')} body=${t('diet_off')} cta=${t('m_priv')} onCta=${A.openConsent}/>` : n === 0 ? html`<${Empty} icon="mine" title=${t('e_diet_t')} body=${t('e_diet_b')} cta=${t('go_news')} onCta=${() => { location.hash = '#/'; }}/>` : html`
     <div class="stat"><div><b>${n}</b><span class="t-meta">${t('st_read')}</span></div><div><b>${new Set(ck.map(c => c[1])).size}</b><span class="t-meta">${t('st_src')}</span></div><div><b>${own.length}</b><span class="t-meta">${t('st_own')}</span></div></div>
     <section class="blk" style="margin-top:0"><h2 class="h-sec" style="margin-bottom:8px">${t('diet_30')}</h2><p class="insight">${t('insight', Math.round(own[0][1] / n * 100), own[0][0])}</p>
       <${HBars} title=${t('by_owner')} rows=${own} total=${n}/><${HBars} title=${t('by_lean')} rows=${tally(s => t('l' + (s.lean == null ? 0 : s.lean + 3)))} total=${n}/>
@@ -198,12 +242,15 @@ export function Mine({ D, P, A, q }) {
 
 // ---- Lisää, menetelmä, lähteet ----
 const Tg = ({ k, P, A }) => html`<label class="tg"><span>${t('o_' + k)}</span><input type="checkbox" checked=${P[k]} onChange=${e => A.upd({ [k]: e.target.checked })}/></label>`;
+const TOPICS = ['politiikka', 'talous', 'urheilu', 'teknologia', 'tiede', 'terveys', 'kulttuuri', 'ympäristö', 'rikos', 'viihde', 'muu'];
 export function More({ D, P, A }) {
   return html`<div class="pg-h"><h1 class="h-story" style="font-size:28px">${t('tab_more')}</h1></div>
   <section class="blk" style="margin-top:12px" aria-labelledby="h-set"><h2 class="h-sec" id="h-set">${t('settings')}</h2>
     <div class="filters"><${Seg} label=${t('language')} val=${P.lang} on=${v => A.upd({ lang: v })} opts=${[['fi', 'Suomi'], ['en', 'English']]}/><${Seg} label=${t('theme')} val=${P.theme} on=${v => A.upd({ theme: v })} opts=${[['dark', t('dark')], ['light', t('light')]]}/></div></section>
   <div class="panel" style="margin-top:12px">${['hidePaywall', 'hideRead', 'showFlagged', 'single'].map(k => html`<${Tg} k=${k} P=${P} A=${A}/>`)}</div>
-  <div class="panel" style="margin-top:12px"><a class="lrow" href="#/lisaa/menetelma"><div><div class="nm">${t('method')}</div></div></a><a class="lrow" href="#/lisaa/lahteet"><div><div class="nm">${t('sources')}</div><span class="t-meta">${D.sources.filter(s => !s.flagged).length}</span></div></a>
+  <section class="blk" aria-labelledby="h-tp"><h2 class="h-sec" id="h-tp">${t('topics')}</h2><p class="t-sec" style="margin-bottom:10px">${t('topics_hint')}</p>
+    <div class="chiprow">${TOPICS.map(k => html`<button class="chip" aria-pressed=${P.topics.includes(k)} onClick=${() => A.upd(p => ({ topics: p.topics.includes(k) ? p.topics.filter(x => x !== k) : [...p.topics, k] }))}>${t('tp_' + k)}</button>`)}</div></section>
+  <div class="panel" style="margin-top:12px"><button class="lrow" style="width:100%;text-align:left" onClick=${A.openConsent}><div><div class="nm">${t('m_priv')}</div><span class="t-meta">${t('cs_now', t(A.cons.stats ? 'cs_now_opt' : 'cs_now_nec'))}</span></div></button><a class="lrow" href="#/lisaa/menetelma"><div><div class="nm">${t('method')}</div></div></a><a class="lrow" href="#/lisaa/lahteet"><div><div class="nm">${t('sources')}</div><span class="t-meta">${D.sources.filter(s => !s.flagged).length}</span></div></a>
     <a class="lrow" href="lataa.html"><div><div class="nm">${t('get_app')}</div><span class="t-meta">${t('get_app_b')}</span></div></a></div>
   <p class="foot">${t('priv')}${D.run ? ' ' + t('updated', dt(D.run) + ' ' + hm(D.run)) : ''}</p>`;
 }
@@ -211,6 +258,7 @@ export function Method({ D }) {
   const c = D.cfg, sv = c.sivuutetut, mb = D.sources.map(s => s.mbfc_date).filter(Boolean).sort().pop(), W = Object.entries(c.clickbait.weights);
   return html`<${AppBar} title=${t('method')}/><div class="pg-h"><h1 class="h-story" style="font-size:28px">${t('how')}</h1><p class="t-sec">${t('m_intro', c.version)}</p></div>
   <div class="prose"><h2>${t('m_rank')}</h2><p><code>${c.rank.formula}</code></p><p>${t('m_rank_b', c.rank.half_life_h, c.rank.top_min_outlets)}</p>
+    ${c.hot && html`<h2>${t('m_hot')}</h2><p>${t('m_hot_b', c.hot.half_life_h, Object.entries(c.hot.weights).map(([k, v]) => k + ' ' + v).join(' · '))}</p>`}
     <h2>${t('m_bars')}</h2><p>${t('m_bars_b', c.bars.min_rated)}</p><p>${t('m_scale')}</p><p>${t('m_mbfc', mb ? dt(mb) : '')}</p>
     <h2>${t('m_voice')}</h2><p>${t('m_voice_b', c.voice.buckets.join(' / '), c.voice.window_days)}</p><p>${c.voice_visible ? t('m_voice_on', c.voice.badge) : t('m_voice_off')}</p>
     <h2>${t('bs_title')}</h2><ul><li>${t('m_a', sv.A.min_articles, sv.A.min_outlets_in_group, sv.A.min_active_groups)}</li><li>${t('m_b', sv.B.min_rated, sv.B.min_groups, Math.round(sv.B.side_share_min * 100), sv.B.opposite_active_min)}</li><li>${t('m_d', sv.D.min_rated, sv.D.min_groups, Math.round(sv.D.side_share_min * 100))}</li></ul><p>${t('m_win', sv.window_h, sv.week_window_h, sv.active_group_min_articles)}</p>
@@ -222,4 +270,25 @@ export function Method({ D }) {
 export function Sources({ D, P }) {
   const grp = [['FI', D.sources.filter(s => s.country === 'FI')], ['', D.sources.filter(s => s.country !== 'FI')]];
   return html`<${AppBar} title=${t('sources')}/><div class="pg-h"><h1 class="h-story" style="font-size:28px">${t('sources')}</h1></div>${grp.map(([k, xs]) => html`<div class="sec-h"><h2 class="h-sec">${k ? t('c_fi') : t('c_world')}</h2></div><div class="panel">${xs.filter(s => P.showFlagged || !s.flagged).map(s => html`<a class="lrow" href=${'#/l/' + s.id}><${Mono} s=${s}/><div><div class="nm">${s.name}</div><span class="t-meta">${s.owner ? gname(s.group) : t('noinfo')} · ${leanTxt(s)}</span></div>${s.status && s.status !== 'ok' && html`<span class="tag warn">${t('no_feed')}</span>`}</a>`)}</div>`)}`;
+}
+
+// ---- Consent sheet (first visit + Lisää > Tietosuoja). Default and Esc = necessary only. ----
+export function Consent({ cons, first, A, onClose }) {
+  const ref = useRef(), prev = useRef(document.activeElement);
+  const nec = () => first ? A.setConsent(false, false) : onClose();
+  useEffect(() => {
+    const el = ref.current, f = () => [...el.querySelectorAll('button:not([disabled]),input:not([disabled]),a[href]')];
+    f()[0]?.focus();
+    const k = e => {
+      if (e.key === 'Escape') { e.preventDefault(); nec(); }
+      if (e.key === 'Tab') { const x = f(), a = x[0], z = x[x.length - 1]; if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); } else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); } }
+    };
+    addEventListener('keydown', k); const main = document.getElementById('main'); main?.setAttribute('inert', '');
+    return () => { removeEventListener('keydown', k); main?.removeAttribute('inert'); prev.current?.focus?.(); };
+  }, []);
+  return html`<div class="scrim" onClick=${nec}><div class="sheet" ref=${ref} role="dialog" aria-modal="true" aria-labelledby="cs-t" onClick=${e => e.stopPropagation()}>
+    <h2 id="cs-t" class="h-sec">${t('cs_title')}</h2><p class="t-sec">${t('cs_body')}</p>
+    <label class="tg off"><span>${t('cs_notify')}<small class="t-meta" style="display:block">${t('cs_notify_b')}</small></span><input type="checkbox" disabled checked=${false}/></label>
+    <p class="t-meta">${t('cs_opt_b')}</p>
+    <div class="btns"><button class="btn pri" onClick=${() => A.setConsent(false, false)}>${t('cs_nec')}</button><button class="btn sec" onClick=${() => A.setConsent(true, true)}>${t('cs_opt')}</button></div></div></div>`;
 }

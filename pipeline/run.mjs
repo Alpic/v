@@ -37,6 +37,7 @@ try {
   await hook('embed', ctx);
   await hook('cluster', ctx);
   await hook('rank', ctx);
+  await hook('hot', ctx); // Kuumat/Luetuimmat score + discussion counts; failures only set hot_error
   try { // stories with >= 2 outlets, bodies still missing
     const st = await db.select('stories', 'n_outlets=gte.2&select=id&limit=300');
     if (st.length) {
@@ -45,6 +46,7 @@ try {
     }
   } catch (e) { if (/^db /.test(e.message)) throw e; stats.extract_error = e.message; }
   await hook('summarize', ctx);
+  await hook('translate', ctx); // titles fi/en + topic; failures only set translate_error, never fail the run
   await clickbaitStats();
   if (process.env.V_DRY !== '1') stats.retention = await db.rpc('v_retention', { gdelt_h: CFG.gdelt.unmatched_retention_h });
   stats.runtime_s = +((Date.now() - t0) / 1000).toFixed(1);

@@ -15,20 +15,20 @@ Ground News definition (EN): https://about.ground.news/blindspot
 
 | Term | Literal | Finnish usage | Fits <=10 chars | Verdict |
 |---|---|---|---|---|
-| Sivuutetut | "passed over" | Verb sivuuttaa is plain Finnish; as a media-research term not found [UNVERIFIED] | Yes (10) | RECOMMENDED tab label |
-| Sivuutetut uutiset | passed-over news | same [UNVERIFIED] | No (18) | RECOMMENDED main term |
+| Vaietut | "passed over" | Verb sivuuttaa is plain Finnish; as a media-research term not found [UNVERIFIED] | Yes (10) | RECOMMENDED tab label |
+| Vaietut uutiset | passed-over news | same [UNVERIFIED] | No (18) | RECOMMENDED main term |
 | Uutisaukko | news gap | Coinage, not found in Finnish media texts [UNVERIFIED] | Yes (10) | Fallback, but a coinage |
-| Vaiettu | hushed up | "vaiettu aihe" is common speech; implies deliberate silencing, which overclaims (see WORKFLOW rule on absolute claims) [UNVERIFIED] | Yes (7) | Reject: accusatory |
+| Vaiettu | hushed up | "vaiettu aihe" is common speech; implies deliberate silencing, which overclaims (see WORKFLOW rule on absolute claims) [UNVERIFIED] | Yes (7) | Was rejected as accusatory; founder chose it 2026-11-04 |
 | Toinen puoli | the other side | Plain, but ambiguous (which side?) [UNVERIFIED] | No (11) | Reject as label; fine in explanatory text |
 | Valikoiva uutisointi | selective reporting | Established critic phrase; judgmental, describes a charge not a data fact [UNVERIFIED] | No | Reject |
 | Jäi uutisten ulkopuolelle | left outside the news | Matches OPH wording exactly (URL above) | No | Use as sentence-form explanation, not as label |
 | Katvealue / Katveet / Sokeat pisteet / Yksipuoliset aiheet / Kuollut kulma | | Already rejected by founder | | Rejected |
 
 Recommendation:
-- Main term: **Sivuutetut uutiset**
-- Short tab label: **Sivuutetut**
+- Main term: **Vaietut uutiset**
+- Short tab label: **Vaietut**
 - UI definition (fi): "Uutinen, josta toinen puoli kirjoittaa paljon, mutta toinen puoli lähes ei lainkaan."
-- Note: V's data only shows who did not cover a story, never why. Label must stay neutral ("sivuutettu" = not covered, not "salattu"). Avoid "vaiettu".
+- Note: V's data only shows who did not cover a story, never why. Label must stay neutral (not covered, not "salattu"). Founder decision 2026-11-04: "Vaietut" / "Vaietut uutiset" replace the earlier pick; keep the copy factual (V only shows who did not report, never why).
 - EN: **Blindspots** (tab) / "Stories one side ignores" (definition).
 
 ## 2. Other terms
@@ -48,11 +48,21 @@ Recommendation:
 | "Unrated" | **Ei arvioitu** | "Luokittelematon" (stiffer); "Tuntematon" (wrong: not unknown, not yet rated) | Plain Finnish [UNVERIFIED] | Not rated |
 | Estimate / confidence | **Arvio** + "Varmuus: matala / kohtalainen / korkea" | "Todennäköisyys" (statistical, wrong); "Luottamustaso" (stats jargon) | Plain Finnish [UNVERIFIED]. Mark all V ratings as "V:n arvio" so they do not read as fact | Estimate / Confidence |
 
+## 2b. Hot / most read (founder decision 2026-11-04, internal tool)
+| Concept | fi | en | Note |
+|---|---|---|---|
+| Hottest stories (home section) | **Kuumat** | Hot | Plain Finnish, no coinage. Explained per story: "Miksi kuuma: 18 lähdettä · 240 keskustelua · luettu paljon" / "Why hot: ..." |
+| Most read (home section) | **Luetuimmat** | Most read | Counts readers who allowed usage statistics only; sub line "V:n lukijoiden mukaan" |
+| Score | **Kuumuus** (V:n pisteytys) | Hotness (V's score) | Always "V's score", never a verdict on the story. Weights live in `v/pipeline/hot_weights.json` |
+| New items pill | **N uutta** | N new | Shown on tap-to-apply; the list never moves by itself |
+| Usage statistics (consent) | **Käyttötilasto** | Usage statistics | Replaces "käyttölaskuri": it now leaves the device anonymously |
+| Source rating reason | **vahvat lähdearviot** | strong source ratings | Not "luotettavat lähteet": DESIGN.md bans "luotettava" as a verdict |
+
 ## 3. English UI summary
 Blindspots | Political lean | Coverage | Coverage split | Ownership | Reliability | My reading balance | Source | Story | Clickbait | Independent media | Not rated | Estimate / Confidence
 
 ## 4. Open items for the founder
-1. Sivuutetut vs Uutisaukko: pick after showing both on a real tab bar. Sivuutetut is plainer; Uutisaukko is more compact but a coinage.
+1. Vaietut vs Uutisaukko: pick after showing both on a real tab bar. Vaietut is plainer; Uutisaukko is more compact but a coinage.
 2. No Finnish source translates Ground News Blindspot; consider a 5-person native-speaker check.
 3. Avoid "kupla", "valtamedia", "vaiettu", "puolueellinen" in UI copy: each reads as an accusation and breaks the neutrality positioning.
 4. News-avoidance research ("uutisten välttely") is a separate concept from V's blindspots, so do not borrow that term: https://www.jyu.fi/fi/uutinen/tarvitsevatko-ihmiset-taukoa-uutisista-tutkimus-kertoo-mista-uutisten-valttelyssa-on-kysymys

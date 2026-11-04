@@ -166,5 +166,6 @@
     "files": 3,
     "min_title_chars": 15,
     "unmatched_retention_h": 12
-  }
+  },
+  "hot": {"refresh_s": 180, "hot_min": 15, "n_hot": 5, "n_read": 5, "half_life_h": 18, "weights": {"sources": 3, "reliability": 1.5, "talk": 2, "reads": 3, "clicks": 1, "paths": 1, "dwell": 1, "feedback": 1}}
 }
