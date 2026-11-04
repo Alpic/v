@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "note": "score = 100 * sum(w_i * x_i) / sum(w_i) * 0.5^(age_h / half_life_h); every x_i in 0..1 (saturating log of the raw count / cap). A signal with no data counts as 0, never as an average. Tune only after measuring.",
+  "talk_note": "talk is a low-reliability signal (keyword search, no entity match, Reddit/Mastodon often unavailable): weight stays 2 (mirrored in web/method.json and data/config.json; lower it in all three together if measuring shows noise), cap lowered 500 -> 150 because Bluesky/HN counts per story are small.", "note": "score = 100 * sum(w_i * x_i) / sum(w_i) * 0.5^(age_h / half_life_h); every x_i in 0..1 (saturating log of the raw count / cap). A signal with no data counts as 0, never as an average. Tune only after measuring.",
   "weights": { "sources": 3, "reliability": 1.5, "talk": 2, "reads": 3, "clicks": 1, "paths": 1, "dwell": 1, "feedback": 1 },
-  "caps": { "sources": 15, "reads": 20, "clicks": 10, "paths": 10, "talk": 500, "dwell_s": 90 },
+  "caps": { "sources": 15, "reads": 20, "clicks": 10, "paths": 10, "talk": 150, "dwell_s": 90 },
   "min_samples": { "dwell": 3, "feedback": 3 },
   "half_life_h": 18,
   "window_h": 72,
@@ -22,17 +22,19 @@
     "jsn_max": 0.3
   },
   "discussion": {
-    "max_requests": 60,
-    "max_stories": 20,
+    "max_requests": 150,
+    "max_stories": 150,
+    "breaker": 3,
     "timeout_s": 8,
-    "delay_ms": 600,
+    "delay_ms": 250,
     "cache_ttl_h": 3,
     "max_bytes": 1000000,
     "window_h": 48,
     "per_source_cap": 1000,
-    "reddit": { "enabled": true },
+    "bluesky": { "enabled": true },
     "hn": { "enabled": true },
-    "mastodon": { "enabled": true, "instance": "https://mastodon.social", "token_env": "V_MASTODON_TOKEN" },
+    "reddit": { "enabled": true, "note": "search.json is 403 from datacentre IPs; RSS used, flaky (429), posts only" },
+    "mastodon": { "enabled": true, "note": "only runs when the token env var is set; unauthenticated search is always empty", "instance": "https://mastodon.social", "token_env": "V_MASTODON_TOKEN" },
     "x": { "enabled": false, "note": "X/Twitter has no free public search API (paid tier). Stub only: fetchX() returns null. To enable, implement it in pipeline/discuss.mjs against a paid key and flip this flag." }
   },
   "events": { "retention_days": 30, "max_rows": 60000 }

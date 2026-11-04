@@ -1,6 +1,6 @@
 // Hotness ("Kuumat") + most read ("Luetuimmat"). ONE explainable score, weights in hot_weights.json:
 //   hot = 100 * sum(w_i * x_i) / sum(w_i) * 0.5^(age_h / half_life_h),  x_i in 0..1, a signal without data is 0.
-// Signals: sources (independent owners), reliability (outlet ratings), talk (Reddit/HN/Mastodon counts), reads, clicks (story->outlet), paths (story->story), dwell, feedback.
+// Signals: sources (independent owners), reliability (outlet ratings), talk (Bluesky/HN/Reddit-RSS/Mastodon counts), reads, clicks (story->outlet), paths (story->story), dwell, feedback.
 // Usage events (v_events) exist only for readers who allowed consent.stats; they are aggregated here, never exposed to anon. Runs after rank; failures only set hot_error.
 import { readFileSync } from 'node:fs';
 import { discuss } from './discuss.mjs';
@@ -62,7 +62,7 @@ export async function run(db, ctx = {}, { now = Date.now(), W = WEIGHTS, discuss
     for (const a of await db.select('articles', `story_id=in.(${ids.slice(i, i + 150).join(',')})&select=story_id,source_id`)) { const s = srcs.get(a.source_id); if (s && !flagged(s)) by.get(a.story_id)?.add(a.source_id); }
   const cand = live.filter((s) => by.get(s.id).size >= W.min_outlets);
   const usage = aggEvents(await db.select('events', dry ? '' : `at=gte.${iso(now - W.usage_window_h * H)}&select=at,cid,k,s,s2,src,ms,v&limit=${W.events.max_rows}`), now, W);
-  let d = { byId: new Map(), requests: 0, errors: 0, cached: 0, skipped: 0 };
+  let d = { byId: new Map(), requests: 0, errors: 0, cached: 0, skipped: 0, src: {} };
   try { d = await discuss([...cand].sort((a, b) => (b.score ?? 0) - (a.score ?? 0)), W.discussion, { now, ...discussOpts }); } catch { d.errors++; }
   const z = { reads: 0, clicks: 0, paths: 0, dwell_n: 0, dwell_s: 0, up: 0, down: 0 }, rows = [];
   for (const s of cand) {
@@ -82,5 +82,5 @@ export async function run(db, ctx = {}, { now = Date.now(), W = WEIGHTS, discuss
   else for (let i = 0; i < all.length; i += 200) await db.rpc('v_hot_update', { rows: all.slice(i, i + 200) });
   let pruned = 0; try { const p = await db.rpc('v_events_prune', { days: W.events.retention_days }); pruned = typeof p === 'number' ? p : 0; } catch {}
   const top = [...rows].sort((a, b) => b.hot - a.hot).filter((r) => r.hot >= W.hot_min).length;
-  return { scored: rows.length, hot: top, patched: all.length, talk_requests: d.requests, talk_cached: d.cached, talk_errors: d.errors, usage_stories: usage.size, events_pruned: pruned };
+  return { scored: rows.length, hot: top, patched: all.length, talk_requests: d.requests, talk_cached: d.cached, talk_errors: d.errors, talk_src: d.src, usage_stories: usage.size, events_pruned: pruned };
 }

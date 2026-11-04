@@ -84,7 +84,8 @@ const json = (o, ok = true) => ({ ok, status: ok ? 200 : 500, headers: new Heade
 const mock = (log, fail = []) => async (url) => {
   log.push(url);
   const host = new URL(url).host; if (fail.includes(host)) throw new Error('down');
-  if (host === 'www.reddit.com') return json({ data: { children: [{ data: { created_utc: NOW / 1000 - 3600, num_comments: 40 } }, { data: { created_utc: NOW / 1000 - 99 * 3600, num_comments: 500 } }] } });
+  if (host === 'www.reddit.com') return { ok: true, status: 200, headers: new Headers(), body: null, arrayBuffer: async () => Buffer.from(`<feed><entry><title>a</title><updated>${iso(NOW - 3600e3)}</updated></entry><entry><updated>${iso(NOW - 99 * 3600e3)}</updated></entry></feed>`) };
+  if (host === 'api.bsky.app') return json({ posts: [{ replyCount: 4, quoteCount: 1 }, { replyCount: 0 }] });
   if (host === 'hn.algolia.com') return json({ nbHits: 3, hits: [{ num_comments: 10 }, { num_comments: 5 }] });
   return json({ statuses: [{ created_at: iso(NOW - H), replies_count: 2 }] });
 };
@@ -98,22 +99,28 @@ test('keywords: distinctive words, no stop words, empty when nothing searchable'
 test('discuss: counts posts+comments inside the window, per-source results, cached on the second run, X is a stub', async () => {
   const log = [], cachePath = tmp(), c = { ...cfg, max_requests: 60 };
   const r = await discuss(sts, c, { fetch: mock(log), now: NOW, cachePath, sleep: nosleep });
-  assert.equal(r.requests, 6); assert.equal(r.skipped, 1); // 2 searchable stories x 3 sources; "ok" is not searchable
-  const p = r.byId.get(1).parts; assert.deepEqual(p.reddit, { n: 1, c: 40 }); assert.deepEqual(p.hn, { n: 3, c: 15 }); assert.deepEqual(p.mastodon, { n: 1, c: 2 });
-  assert.equal(r.byId.get(1).talk, 41 + 18 + 3);
+  assert.equal(r.requests, 6); assert.equal(r.skipped, 1); // 2 searchable stories x 3 sources (mastodon needs a token); "ok" is not searchable
+  const p = r.byId.get(1).parts; assert.deepEqual(p.bluesky, { n: 2, c: 5 }); assert.deepEqual(p.reddit, { n: 1, c: 0 }); assert.deepEqual(p.hn, { n: 3, c: 15 }); assert.ok(!p.mastodon);
+  assert.deepEqual(r.src.bluesky, { req: 2, ok: 2, hits: 2 }); assert.equal(r.src.hn.ok, 2);
+  assert.equal(r.byId.get(1).talk, 7 + 1 + 18);
   const again = await discuss(sts, c, { fetch: mock(log), now: NOW + H, cachePath, sleep: nosleep });
-  assert.equal(again.requests, 0); assert.equal(again.cached, 2); assert.equal(again.byId.get(1).talk, 62);
+  assert.equal(again.requests, 0); assert.equal(again.cached, 2); assert.equal(again.byId.get(1).talk, 26);
   assert.equal(await fetchX(), null); assert.ok(!('x' in ADAPTERS));
 });
 test('discuss: request budget is a hard cap and failures are never fatal', async () => {
   const log = [];
   const r = await discuss(sts, { ...cfg, max_requests: 4 }, { fetch: mock(log), now: NOW, cachePath: tmp(), sleep: nosleep });
   assert.equal(log.length, 4); assert.equal(r.requests, 4);
-  const bad = await discuss(sts, { ...cfg, max_requests: 60 }, { fetch: mock([], ['www.reddit.com', 'hn.algolia.com', 'mastodon.social']), now: NOW, cachePath: tmp(), sleep: nosleep });
-  assert.equal(bad.byId.size, 0); assert.equal(bad.errors, 6); // all sources down: no data, no throw, nothing cached
+  assert.ok(log.slice(0, 2).every((u) => u.includes('api.bsky.app')), 'pass 1 spreads the first source over all stories before any second source');
+  const bad = await discuss(sts, { ...cfg, max_requests: 60 }, { fetch: mock([], ['www.reddit.com', 'hn.algolia.com', 'api.bsky.app']), now: NOW, cachePath: tmp(), sleep: nosleep });
+  assert.equal(bad.byId.size, 0); assert.equal(bad.errors, 6); assert.deepEqual(bad.src.hn, { req: 2, ok: 0, hits: 0 }); // all sources down: no data, no throw, nothing cached
+  const brk = await discuss([...sts, { id: 4, title: 'Another distinctive Headline about Tesla' }], { ...cfg, breaker: 1 }, { fetch: mock([], ['api.bsky.app']), now: NOW, cachePath: tmp(), sleep: nosleep });
+  assert.equal(brk.src.bluesky.req, 1); // dead source is switched off after the breaker threshold
   const part = await discuss(sts, cfg, { fetch: mock([], ['www.reddit.com']), now: NOW, cachePath: tmp(), sleep: nosleep });
-  assert.equal(part.byId.get(1).talk, 18 + 3);
-  const off = await discuss(sts, { ...cfg, reddit: { enabled: false }, hn: { enabled: false }, mastodon: { enabled: false } }, { fetch: mock([]), now: NOW, cachePath: tmp(), sleep: nosleep });
+  assert.equal(part.byId.get(1).talk, 7 + 18);
+  process.env.V_MASTODON_TOKEN = 't'; const mas = await discuss(sts, cfg, { fetch: mock([]), now: NOW, cachePath: tmp(), sleep: nosleep }); delete process.env.V_MASTODON_TOKEN;
+  assert.deepEqual(mas.byId.get(1).parts.mastodon, { n: 1, c: 2 });
+  const off = await discuss(sts, { ...cfg, bluesky: { enabled: false }, reddit: { enabled: false }, hn: { enabled: false }, mastodon: { enabled: false } }, { fetch: mock([]), now: NOW, cachePath: tmp(), sleep: nosleep });
   assert.equal(off.requests, 0);
 });
 
