@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Greyfield</title>
+<style>
+  :root { --bg:#0f1419; --card:#18212b; --line:#2a3644; --text:#e6edf3; --dim:#8b9bab; --acc:#4da3ff; --ok:#3fb950; --bad:#f85149; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif; padding:env(safe-area-inset-top) 0 calc(72px + env(safe-area-inset-bottom)); }
+  main { max-width:640px; margin:0 auto; padding:16px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; margin-bottom:12px; white-space:pre-wrap; word-break:break-word; }
+  .card code { font:inherit; }
+  blockquote { margin:8px 0; padding-left:10px; border-left:3px solid var(--line); color:var(--dim); white-space:pre-wrap; }
+  nav { position:fixed; left:0; right:0; bottom:0; background:#0b1015ee; backdrop-filter:blur(8px); border-top:1px solid var(--line); display:flex; justify-content:center; gap:4px; padding:8px 8px calc(8px + env(safe-area-inset-bottom)); }
+  nav button { flex:1; max-width:120px; background:none; border:0; color:var(--dim); font:inherit; font-size:13px; padding:6px 0; border-radius:10px; }
+  nav button.on { color:var(--text); background:var(--card); }
+  .btn { background:var(--acc); color:#fff; border:0; border-radius:10px; padding:10px 14px; font:inherit; font-weight:600; min-height:44px; }
+  .btn.sec { background:var(--card); color:var(--text); border:1px solid var(--line); }
+  .btn.ok { background:var(--ok); } .btn.bad { background:var(--bad); }
+  .row { display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; }
+  textarea { width:100%; min-height:110px; background:var(--card); color:var(--text); border:1px solid var(--line); border-radius:10px; padding:12px; font:inherit; }
+  .dim { color:var(--dim); font-size:14px; }
+  .center { text-align:center; padding-top:20vh; }
+  h1 { font-size:20px; margin:0 0 4px; }
+  details summary { cursor:pointer; color:var(--acc); }
+</style>
+</head>
+<body>
+<main id="app"><div class="center dim">Ladataan…</div></main>
+<nav id="nav" hidden></nav>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="../config.js"></script>
+<script>
+// Public by design: project URL + anon key (RLS: only pg_admins emails can read pg_status / write pg_requests).
+const SB = supabase.createClient(window.V_CONFIG.SUPABASE_URL, window.V_CONFIG.ANON_KEY);  // public URL + anon key from config.js
+const $ = s => document.querySelector(s), app = $('#app'), nav = $('#nav');
+const VIEWS = [['home', '🏠 Koti'], ['inbox', '🔔 Sinulle'], ['jobs', '🧵 Työt'], ['report', '📈 Raportti'], ['tee', '🛠 Tee']];
+let view = (location.hash || '#home').slice(1), data = null, page = 0;
+const esc = t => String(t).replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+const card = html => `<div class="card">${html}</div>`;  // server cards are HTML built with html.escape on klj (same as Telegram)
+
+async function login() { await SB.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: location.origin + location.pathname } }); }
+async function ask(kind, body, note) {
+  const { error } = await SB.from('pg_requests').insert({ kind, body });
+  toast(error ? 'Ei onnistunut: ' + error.message : note + ' Klj ottaa sen 2 min sisällä.');
+}
+function toast(t) { const d = document.createElement('div'); d.className = 'card dim'; d.textContent = t; app.prepend(d); setTimeout(() => d.remove(), 6000); }
+
+function render() {
+  nav.hidden = false;
+  nav.innerHTML = VIEWS.map(([k, l]) => `<button class="${k === view ? 'on' : ''}" onclick="go('${k}')">${l}${k === 'inbox' && data?.inbox?.length ? ' (' + data.inbox.length + ')' : ''}</button>`).join('');
+  if (!data) { app.innerHTML = card('<span class="dim">Ei tilaa vielä: klj lähettää sen 2 minuutin välein.</span>'); return; }
+  const age = Math.round((Date.now() - new Date(data.at)) / 60000);
+  const foot = `<p class="dim">Päivitetty ${age} min sitten · <a href="#" onclick="SB.auth.signOut().then(()=>location.reload())" style="color:var(--dim)">kirjaudu ulos</a></p>`;
+  if (view === 'home') app.innerHTML = card(data.home) + card(data.learn) + foot;
+  else if (view === 'report') app.innerHTML = card(data.report) + foot;
+  else if (view === 'jobs') app.innerHTML = (data.jobs || []).map(j => `<div class="card"><b>${j.mark} ${esc(j.name.replace('guild-', ''))}</b> · ${(+j.cost).toFixed(2)} $<details><summary>Yhteenveto</summary><blockquote>${esc(j.summary || '-')}</blockquote></details></div>`).join('') + foot;
+  else if (view === 'tee') app.innerHTML = card('<h1>🛠 Tee</h1><span class="dim">Kirjoita pyyntö. Guild suunnittelee, tekee ja kysyy tarvittaessa.</span><textarea id="tee"></textarea><div class="row"><button class="btn" onclick="sendTee()">Lähetä guildille</button></div>') + foot;
+  else if (view === 'inbox') {
+    const items = data.inbox || [];
+    if (!items.length) { app.innerHTML = card('🔔 <b>Ei mitään sinulle.</b>\nTyö jatkuu ilman sinua. ✅') + foot; return; }
+    page = Math.max(0, Math.min(page, items.length - 1)); const it = items[page], [k, id] = [it.key.slice(0, 1), it.key.slice(2)];
+    let btns = '';
+    if (k === 'q') btns = (it.text.match(/<b>\d+<\/b> ·/g) || []).map((_, i) => `<button class="btn sec" onclick="ask('answer',{id:'${esc(id)}',index:${i}},'Vastaus ${i + 1} lähetetty.')">${i + 1}</button>`).join('');
+    if (k === 't') btns = `<button class="btn ok" onclick="ask('todo_done',{id:'${esc(id)}'},'Merkitty tehdyksi.')">✅ Tehty</button><button class="btn sec" onclick="ask('todo_later',{id:'${esc(id)}'},'Siirretty huomiseen.')">⏭ Myöhemmin</button>`;
+    if (k === 'a') btns = `<button class="btn ok" onclick="ask('approve',{id:'${esc(id)}'},'Hyväksytty.')">✅ Hyväksy</button><button class="btn bad" onclick="ask('deny',{id:'${esc(id)}'},'Hylätty.')">✖ Hylkää</button>`;
+    const pager = items.length > 1 ? `<div class="row"><button class="btn sec" onclick="page--;render()">‹</button><span class="dim" style="align-self:center">${page + 1}/${items.length}</span><button class="btn sec" onclick="page++;render()">›</button></div>` : '';
+    app.innerHTML = card(`<span class="dim">${esc(it.kind)}</span>\n${it.text}<div class="row">${btns}</div>`) + pager + foot;
+  }
+}
+function go(v) { view = v; location.hash = v; render(); scrollTo(0, 0); }
+async function sendTee() { const t = $('#tee').value.trim(); if (t) { await ask('tee', { text: t }, 'Pyyntö lähetetty guildille.'); $('#tee').value = ''; } }
+async function load() {
+  const { data: isAdmin } = await SB.rpc('pg_is_admin');
+  if (!isAdmin) { app.innerHTML = card('<b>Ei pääsyä.</b>\n<span class="dim">Tällä tunnuksella ei ole oikeutta ohjaamoon.</span><div class="row"><button class="btn sec" onclick="SB.auth.signOut().then(()=>location.reload())">Kirjaudu ulos</button></div>'); return; }
+  const { data: rows, error } = await SB.from('pg_status').select('data').eq('id', 1).maybeSingle();
+  if (error) { app.innerHTML = card('<b>Ei pääsyä.</b>\n<span class="dim">Tällä tunnuksella ei ole oikeutta ohjaamoon.</span><div class="row"><button class="btn sec" onclick="SB.auth.signOut().then(()=>location.reload())">Kirjaudu ulos</button></div>'); return; }
+  data = rows ? rows.data : null; render();
+}
+(async () => {
+  const { data: { session } } = await SB.auth.getSession();
+  if (!session) { app.innerHTML = `<div class="center"><h1>Greyfield</h1><p class="dim">Ohjaamo. Vain kutsutut tunnukset.</p><button class="btn" onclick="login()">Kirjaudu Googlella</button></div>`; return; }
+  await load(); setInterval(() => { if (!document.hidden && view !== 'tee') load(); }, 60000);
+})();
+</script>
+</body>
+</html>
