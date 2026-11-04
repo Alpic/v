@@ -3,4 +3,5 @@ window.V_CONFIG = { SUPABASE_URL: 'https://fkyuymjhbdjzlppajncx.supabase.co', AN
 // ?fixture=1 runs fully offline from fixtures/feed.json (sample data, banner shown). Set true to force it.
 // HOT: true once supabase/migrations/v2_hot.sql is applied (adds hot/reads/talk columns and the v_event RPC; usage events are sent only with consent.stats).
 window.V_CONFIG.HOT = true;
+window.V_CONFIG.TRANSLATIONS = true; // v2_translation.sql applied 2026-11-04
 window.V_FIXTURE = new URLSearchParams(location.search).has('fixture');
