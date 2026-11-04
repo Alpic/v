@@ -5,7 +5,7 @@ nav::Päävalikko::Main menu ¦ skip::Siirry sisältöön::Skip to content ¦ lo
 language::Kieli::Language ¦ theme::Teema::Theme ¦ dark::Tumma::Dark ¦ light::Vaalea::Light ¦ settings::Asetukset::Settings
 c_all::Kaikki::All ¦ c_fi::Suomi::Finland ¦ c_world::Maailma::World ¦ c_local::Paikallinen::Local ¦ c_mine::Seuratut::Followed
 k_fi::Suomi::Finland ¦ k_sv::Suomi · ruotsiksi::Finland · Swedish ¦ k_en::Maailma::World
-lead_k::Päivän tarina::Story of the day ¦ next::Seuraavaksi::Next ¦ newest::Uusin ensin::Newest first ¦ updated::Päivitetty {0}::Updated {0}
+lead_k::Päivän tarina::Story of the day ¦ next::Seuraavaksi::Next ¦ newest::Uusin ensin::Newest first ¦ best3::Viimeiset 3 pv::Last 3 days ¦ load_more::Lisää uutisia::More stories ¦ updated::Päivitetty {0}::Updated {0}
 n_stories::{0} tarina|{0} tarinaa::{0} story|{0} stories ¦ src::lähde|lähdettä::source|sources ¦ own::omistaja|omistajaa::owner|owners
 first::Ensin {0} {1}::First: {0} {1} ¦ ago_m::{0} min sitten::{0} min ago ¦ ago_h::{0} h sitten::{0} h ago ¦ ago_d::{0} pv sitten::{0} d ago
 l0::Ei arvioitu::Not rated ¦ l1::Vasen::Left ¦ l2::Keskivasen::Centre-left ¦ l3::Keski::Centre ¦ l4::Keskioikea::Centre-right ¦ l5::Oikea::Right

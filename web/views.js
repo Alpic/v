@@ -62,7 +62,7 @@ const Row = ({ s, D, lead }) => lead ? html`<a class="lead split" href=${'#/s/' 
   html`<a class="story" href=${'#/s/' + s.id}><div class="row"><div><div class="kick">${kick(s)}</div><h3 class="h-card">${ttl(s)}</h3></div><div class="thumb"><${Art} id=${s.id}/></div></div><${CovBlock} st=${s} D=${D}/><${Facts} st=${s}/></a>`;
 const shown = (s, P) => P.hidePaywall ? s.arts.filter(a => !pay(a.s)) : s.arts;
 const same = (s, k) => k.startsWith('src:') ? s.outs.includes(k.slice(4)) : s.title.toLowerCase().includes(k.toLowerCase());
-const visible = (s, D, P) => (P.single || s.outs.length >= D.cfg.rank.top_min_outlets) && !P.mute.some(k => same(s, k)) && !(P.hideRead && P.read[s.id]) && shown(s, P).length > 0;
+const visible = (s, D, P) => (P.single || s.outs.length >= 2 || s.dom) && !P.mute.some(k => same(s, k)) && !(P.hideRead && P.read[s.id]) && shown(s, P).length > 0;
 
 // ---- Uutiset ----
 // "Kuumat" / "Luetuimmat": scores and the short reason come from the pipeline (hot, reads, hot_why). Unknown reason keys are ignored.
@@ -78,12 +78,12 @@ export function Hot({ list, D }) {
       <div class="panel">${read.map(s => html`<${HotRow} s=${s} line=${t('readers', s.reads)}/>`)}</div></section>`}`;
 }
 export function Home({ D, P, chip, setChip, A, chk }) {
-  const [loc, setLoc] = useState(false), base = D.stories.filter(s => visible(s, D, P)), hasTopic = D.stories.some(s => s.topic);
+  const [loc, setLoc] = useState(false), [lim, setLim] = useState(40), [mb, setMb] = useState(false), base = D.stories.filter(s => visible(s, D, P)), hasTopic = D.stories.some(s => s.topic);
   const fav = s => P.follow.some(k => same(s, k)) || (hasTopic && s.topic && P.topics.includes(s.topic));
   const F = { all: () => true, home: s => s.dom, world: s => !s.dom, mine: fav };
   const tabs = [['all', t('tb_all')], ['home', t('tb_home')], ['world', t('tb_world')], ...(P.follow.length || (hasTopic && P.topics.length) ? [['mine', t('tb_fav')]] : [])];
   const tab = tabs.some(x => x[0] === chip) ? chip : 'all', list = base.filter(F[tab]).filter(s => !loc || s.local), filtered = tab !== 'all' || loc;
-  const lead = [...list].sort((a, b) => b.score - a.score)[0], rest = list.filter(s => s !== lead).sort((a, b) => a.last_at < b.last_at ? 1 : -1).slice(0, 40);
+  const lead = [...list].sort((a, b) => b.score - a.score)[0], all = list.filter(s => s !== lead).sort((a, b) => b.hot - a.hot || b.outs.length - a.outs.length || (a.last_at < b.last_at ? 1 : -1)), rest = all.slice(0, lim);
   const date = new Date().toLocaleDateString(L(), { weekday: 'long', day: 'numeric', month: 'numeric' });
   return html`<header class="top"><div class="top-row"><div class="mark"><b>V</b><span class="t-meta">Kuljento</span></div>
       <${Seg} cls="sm" label=${t('language')} val=${P.lang} on=${v => A.upd({ lang: v })} opts=${[['fi', 'FI'], ['en', 'EN']]}/></div>
@@ -94,8 +94,9 @@ export function Home({ D, P, chip, setChip, A, chk }) {
         onCta=${() => !filtered ? (location.hash = '#/lisaa') : (setChip('all'), setLoc(false))}/>` : html`
     <div class="panel" style="border-top:0"><${Row} s=${lead} D=${D} lead/></div>
     <${Hot} list=${list} D=${D}/>
-    <div class="sec-h"><h2 class="h-sec">${t('next')}</h2><span class="t-meta">${t('newest')}</span></div>
-    <div class="panel feed2">${rest.map(s => html`<${Row} s=${s} D=${D}/>`)}</div>`}`;
+    <div class="sec-h"><h2 class="h-sec">${t('next')}</h2><span class="t-meta">${t('best3')}</span></div>
+    <div class="panel feed2">${rest.map(s => html`<${Row} s=${s} D=${D}/>`)}</div>
+    ${(lim < all.length || D.more) && html`<div class="pad"><button class="btn sec" disabled=${mb} onClick=${async () => { if (lim < all.length) return setLim(lim + 40); setMb(true); try { await A.more(); setLim(lim + 40); } catch {} setMb(false); }}>${t('load_more')}</button></div>`}`}`;
 }
 export function Right({ D }) {
   const c = D.blind(D.cfg.sivuutetut.window_h).slice(0, 2);
