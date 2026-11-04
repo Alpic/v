@@ -37,7 +37,7 @@ async function fetchAll() {
     return j;
   }
   const [sources, outlet_lean, stories, feed, summaries, runs] = await Promise.all([
-    rest('v_sources?select=*'), rest('v_outlet_lean?select=*'), rest('v_stories?select=*&order=last_at.desc&limit=300&last_at=gte.' + days(7)),
+    rest('v_sources?select=*'), rest('v_outlet_lean?select=*'), rest('v_stories?select=id,title,lang,first_at,last_at,n_articles,n_outlets,score,is_top,twin_id&order=last_at.desc&limit=300&last_at=gte.' + days(7)),
     all('v_feed?select=*&order=published_at.desc&limit=1000&published_at=gte.' + days(7)), rest('v_summaries?select=*'), rest('v_runs?select=at,stats&order=at.desc&limit=1')]);
   return { sources, outlet_lean, stories, feed, summaries, runs };
 }
