@@ -3,7 +3,7 @@
 # Two jobs: `dump` has the DB secret and a read-only token; `commit` has the write token and no DB secret.
 name: export
 on:
-  schedule: [{ cron: '41 5 * * 1' }]
+  # schedule disabled 2026-11-04: the pipeline runs on klj2 (MASTERPLAN C0); manual workflow_dispatch stays as fallback. Was: [{ cron: '41 5 * * 1' }]
   workflow_dispatch:
 permissions: {}
 jobs:

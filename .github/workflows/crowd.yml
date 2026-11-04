@@ -1,7 +1,7 @@
 # Daily: crowd signals A (sharing alignment) + B (perception): collect -> classify -> score -> v_outlet_audience / v_outlet_talk / v_validation.
 name: crowd
 on:
-  schedule: [{ cron: '41 3 * * *' }]
+  # schedule disabled 2026-11-04: the pipeline runs on klj2 (MASTERPLAN C0); manual workflow_dispatch stays as fallback. Was: [{ cron: '41 3 * * *' }]
   workflow_dispatch:
 concurrency: { group: crowd, cancel-in-progress: false }
 jobs:
